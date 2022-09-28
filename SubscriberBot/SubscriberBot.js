@@ -64,7 +64,7 @@ function UpdateUserRoles(CurrentMember) {
     }
 }
 
-function UpdateAllRoles() {
+function UpdateAllRoles(client) {
     console.log(`Roles updated...`);
     const Guild = client.guilds.cache.get(S3.config.MyGuildID);
     Guild.members.fetch().then((ListOfMembers) => {

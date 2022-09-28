@@ -55,7 +55,7 @@ MyClient.on("guildMemberUpdate", (newMember) => {
 MyClient.on("interactionCreate", async (iAction) => {
     if (!iAction.customId === "roleupdate") return;
     //Put Action Here -------------------------------
-    SB_Bot.UpdateAllRoles();
+    SB_Bot.UpdateAllRoles(MyClient);
     await iAction.reply({
         content: "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
         ephemeral: true, //This makes the message delete after a certain period of time

@@ -64,5 +64,4 @@ const LarryWisdomLines = [
   "Just because I'm immortal, doesnt make me a god. I'm just a little fish with a big hygiene dream. But if having worshippers means I get free handsoap...",
   "LaREEEEEEEEEEEEEEEEEEEEEE",
   "..and then he said, ""Yer a wizard, Larry"" and I just ignored him and pretended I was a non-sentient toilet rug.",
-  "Wash your hands with soap and water, or don't. Larry likes the flavor.",
 ];

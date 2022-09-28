@@ -1,3 +1,5 @@
+const { LarryWisdomLines } = require(`./LarryWisdom.js`);
+
 async function TestFunc(message) {
     let Reply = ``;
     if (message.content.toLowerCase().includes(`//larry`)) {

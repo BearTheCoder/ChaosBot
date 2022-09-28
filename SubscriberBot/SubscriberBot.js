@@ -55,7 +55,7 @@ function UpdateUserRoles(CurrentMember) {
     });
     //The following lines run ASYNC and takes a while for the results to show on DISCORD...
     let CombinedRole = CurrentMember.roles.cache.find((FindCombinedRole) =>
-        FindCombinedRole.name.toLowerCase().includes("phweettens");
+        FindCombinedRole.name.toLowerCase().includes("phweettens")
     );
 
     console.log(CombinedRole);

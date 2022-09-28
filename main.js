@@ -15,7 +15,7 @@ const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const S3 = new AWS.S3({
     MyToken: process.env.Token,
     MyGuildID: process.env.GuildID,
-    MyUserID: process.env.UserID,
+    MyUserID: process.env.BearID,
 });
 
 const {

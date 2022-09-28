@@ -48,14 +48,16 @@ const LarryWisdomLines = [
   "Know the breadcrumb trail? Leave one if you wanna see Larry up close.",
   "Larry likes to live in the cups you leave on your table.",
   "If Larry is god and Bear made god, does that make Bear god-god?.",
-  "If rubber ducks live in the bathtub does that make the rubber duck dungeon a bathroom? Don't pee on the floor, there's a toilet right next to Larry!"
-  "La~ La~ La~ Larry! At your service!"
-  "Sometimes I get sad because Aethy thinks I'm ugly, but then I remember that she likes hygiene and that makes me happy again!"
-  "I heard that Aethy and Phwee BOTH don't clean their keyboard. Like ever. Master Niuraeix would be so disappointed :,("
-  "If I practise good hygiene everyday, do you think Aethy will let me intern at the Cardboard Clinic one day?"
-  "Phwee likes her phweedom but she could definitely do with some phwee lessons on improving her personal hygiene."
-  "Aethy says she likes personal hygiene but Mia doesnt even take showers that often. I heard she even licks her butt sometimes. When will Aethy love me too?"
-  "97, 98, 99, 100! Ready or not here Larry comes! Oh.. where did everyone go? Did you need to wash your hands before we play?"
-  "I might be a toilet rug but I like snuggles too. Can I join you in the blankies? Pwease? I swear I'm clean, I like personal hygiene!"
-  "Every dish you leave in your sink brings Larry another foot closer."
+  "If rubber ducks live in the bathtub does that make the rubber duck dungeon a bathroom? Don't pee on the floor, there's a toilet right next to Larry!",
+  "La~ La~ La~ Larry! At your service!",
+  "Sometimes I get sad because Aethy thinks I'm ugly, but then I remember that she likes hygiene and that makes me happy again!",
+  "I heard that Aethy and Phwee BOTH don't clean their keyboard. Like ever. Master Niuraeix would be so disappointed :,(",
+  "If I practise good hygiene everyday, do you think Aethy will let me intern at the Cardboard Clinic one day?",
+  "Phwee likes her phweedom but she could definitely do with some phwee lessons on improving her personal hygiene.",
+  "Aethy says she likes personal hygiene but Mia doesnt even take showers that often. I heard she even licks her butt sometimes. When will Aethy love me too?",
+  "97, 98, 99, 100! Ready or not here Larry comes! Oh.. where did everyone go? Did you need to wash your hands before we play?",
+  "I might be a toilet rug but I like snuggles too. Can I join you in the blankies? Pwease? I swear I'm clean, I like personal hygiene!",
+  "Every dish you leave in your sink brings Larry another foot closer.",
+  "If I had a dollar for every chip Phwee dropped...",
+  "Wash your hands with soap and water, or don't; Larry likes the flavor",
 ];

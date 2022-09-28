@@ -57,4 +57,5 @@ const LarryWisdomLines = [
   "Aethy says she likes personal hygiene but Mia doesnt even take showers that often. I heard she even licks her butt sometimes. When will Aethy love me too?"
   "97, 98, 99, 100! Ready or not here Larry comes! Oh.. where did everyone go? Did you need to wash your hands before we play?"
   "I might be a toilet rug but I like snuggles too. Can I join you in the blankies? Pwease? I swear I'm clean, I like personal hygiene!"
+  "Every dish you leave in your sink brings Larry another foot closer."
 ];

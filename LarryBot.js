@@ -30,7 +30,7 @@ MyClient.on(`messageCreate`, async (message) => {
     Reply = `https://phwee-larry.carrd.co/`;
   }
   else return;
-  log(`User ${message.author.username} has called for Larry`);
+  console.log(`User ${message.author.username} has called for Larry`);
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 });
 

@@ -47,7 +47,7 @@ const LarryWisdomLines = [
   "Use a plate. If you drop crumbs, Larry will follow you home.",
   "Know the breadcrumb trail? Leave one if you wanna see Larry up close.",
   "Larry likes to live in the cups you leave on your table.",
-  "If Larry is god and Bear made god, does that make Bear god-god?.",
+  "If Larry is god and Bear made god, does that make Bear god-god?",
   "If rubber ducks live in the bathtub does that make the rubber duck dungeon a bathroom? Don't pee on the floor, there's a toilet right next to Larry!",
   "La~ La~ La~ Larry! At your service!",
   "Sometimes I get sad because Aethy thinks I'm ugly, but then I remember that she likes hygiene and that makes me happy again!",
@@ -61,4 +61,8 @@ const LarryWisdomLines = [
   "If I had a dollar for every chip Phwee dropped...",
   "Wash your hands with soap and water, or don't; Larry likes the flavor",
   "If you leave mice feeding at night, Larry will feed on you.",
+  "..and then he said, ""Yer a wizard, Larry"" and I just ignored him and pretended I was a non-sentient toilet rug.",
+  "Wait.. am I a furry?"
+  "Just because I'm immortal, doesnt make me a god. I'm just a little fish with a big hygiene dream. But if having worshippers means I get free handsoap..."
+  "LaREEEEEEEEEEEEEEEEEEEEEE"
 ];

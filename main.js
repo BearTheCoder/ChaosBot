@@ -5,7 +5,7 @@
         Only issue, I have no clue how to create actual slash functions yet.
 */
 
-const LarryBot = require(`./LarryBot/TestLArry.js`);
+import { TestFunc } from `./LarryBot/TestLArry.js`;
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const S3 = new AWS.S3({ MyToken: process.env.Token });
 const { Client, GatewayIntentBits } = require(`discord.js`);
@@ -21,7 +21,7 @@ console.log(`Main.js Loaded...`);
 
 // Event Listener - Needs to be changed to a slash function.
 MyClient.on(`messageCreate`, async (message) => {
-    LarryBot.TestFunc(message);
+    TestFunc(message);
 });
 
 MyClient.login(S3.config.MyToken);

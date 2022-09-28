@@ -54,13 +54,13 @@ function UpdateUserRoles(CurrentMember) {
         }
     });
     //The following lines run ASYNC and takes a while for the results to show on DISCORD...
-    let CombinedRole = Individual.roles.cache.find((FindCombinedRole) =>
+    let CombinedRole = CurrentMember.roles.cache.find((FindCombinedRole) =>
         FindCombinedRole.name.toLowerCase().includes("phweettens")
     );
     if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
-        Individual.roles.add(CombinedRole);
+        CurrentMember.roles.add(CombinedRole);
     } else if (!hasKittenRole || !hasPhweakRole) {
-        Individual.roles.remove(CombinedRole);
+        CurrentMember.roles.remove(CombinedRole);
     }
 }
 
@@ -68,8 +68,8 @@ function UpdateAllRoles(client) {
     console.log(`Roles updated...`);
     const Guild = client.guilds.cache.get(S3.config.MyGuildID);
     Guild.members.fetch().then((ListOfMembers) => {
-        ListOfMembers.forEach((Individual) => {
-            UpdateUserRoles(Individual);
+        ListOfMembers.forEach((CurrentMember) => {
+            UpdateUserRoles(CurrentMember);
         });
     });
 }

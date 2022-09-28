@@ -1,1 +1,1 @@
-Worker: node ./LarryBot.js
+Worker: node ./LarryBot/LarryBot.js

@@ -5,7 +5,7 @@
         Only issue, I have no clue how to create actual slash functions yet.
 */
 
-import { TestFunc } from './LarryBot/TestLArry.js';
+const Test = require(`./LarryBot/TestLArry.js`);
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const S3 = new AWS.S3({ MyToken: process.env.Token });
 const { Client, GatewayIntentBits } = require(`discord.js`);

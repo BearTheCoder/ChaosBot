@@ -20,7 +20,7 @@ MyClient.on("messageCreate", async (message) => {
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 });
 
-MyClient.login(S3.MyToken);
+MyClient.login(S3.config.MyToken);
 
 const LarryWisdomLines = [
   "One germ can multiply into more than 8 million germs in one day. But that means nothing to Larry for he is immune to all diseases.",

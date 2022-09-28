@@ -60,4 +60,5 @@ const LarryWisdomLines = [
   "Every dish you leave in your sink brings Larry another foot closer.",
   "If I had a dollar for every chip Phwee dropped...",
   "Wash your hands with soap and water, or don't; Larry likes the flavor",
+  "If you leave mice feeding at night, Larry will feed on you.",
 ];

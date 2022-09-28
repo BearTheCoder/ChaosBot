@@ -38,7 +38,7 @@ const LarryWisdomLines = [
   "You're 1000 times more likely to spread bacteria with damp hands. And damp hands are Larry's favorite.",
   "Wash your feet with soap and water in the shower daily. Dry well to prevent athlete's feet or Larry will sneak your feet cheese into your food.",
   "It takes 30 seconds to wash your hands well, but only 5 seconds for Larry to chomp em.",
-  "Washing hands with soap and water can reduce death from diarrhea or Larry by up to 50%",
+  "Washing hands with soap and water can reduce death from diarrhea or Larry by up to 50%.",
   "Front to back, never back to front. You don't want to be behind Larry.",
   "Toothpaste is not supposed to taste like iron, brush lightly or Larry will brush them for you.",
   "Wash your body daily or Larry will join you in the shower and make sure that you do.",

@@ -1,4 +1,4 @@
-export async function TestFunc(message) {
+async function TestFunc(message) {
     let Reply = ``;
     if (message.content.toLowerCase().includes(`//larry`)) {
         Reply =
@@ -11,3 +11,4 @@ export async function TestFunc(message) {
     console.log(`User ${message.author.username} has called for Larry`);
     await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 }
+module.exports = TestFunc();

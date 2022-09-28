@@ -9,7 +9,6 @@ const LarryBot = require(`./LarryBot/TestLArry.js`);
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const S3 = new AWS.S3({ MyToken: process.env.Token });
 const { Client, GatewayIntentBits } = require(`discord.js`);
-const { LarryWisdomLines } = require(`./LarryWisdom.js`);
 const MyClient = new Client({
     intents: [
         GatewayIntentBits.Guilds,

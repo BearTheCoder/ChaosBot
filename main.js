@@ -44,7 +44,7 @@ MyClient.on(`messageCreate`, async (message) => {
     }
 });
 
-client.on("guildMemberUpdate", (newMember) => {
+MyClient.on("guildMemberUpdate", (newMember) => {
     try {
         SB_Bot.UpdateUserRoles(newMember);
     } catch (ErrorMsg) {

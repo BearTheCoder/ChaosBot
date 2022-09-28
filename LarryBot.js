@@ -45,4 +45,12 @@ const LarryWisdomLines = [
   "Cover your nose and mouth with a tissue (or your sleeve) when sneezing or coughing, otherwise Larry will use you as a sleeve when he's sick.",
   "Do NOT try to scrape out earwax from your ear canals, or Larry will put it back in when you're sleeping.",
   "Use a plate. If you drop crumbs, Larry will follow you home.",
+  "Know the breadcrumb trail? Leave one if you wanna see Larry up close.",
+  "Larry likes to live in the cups you leave on your table.",
+  "If Larry is god and Bear made god, does that make Bear god-god?",
+  "If rubber ducks live in the bathtub does that make the rubber duck dungeon a bathroom? Don't pee on the floor, there's a toilet right next to Larry!",
+  "La~ La~ La~ Larry! At your service!",
+  "Sometimes I get sad because Aethy thinks I'm ugly, but then I remember that she likes hygiene and that makes me happy again!",
+  "I heard that Aethy and Phwee BOTH don't clean their keyboard. Like ever. Master Niuraeix would be so disappointed :,(",
+  "If I practise good hygiene everyday, do you think Aethy will let me intern at the Cardboard Clinic one day?",
 ];

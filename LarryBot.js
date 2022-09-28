@@ -14,7 +14,7 @@ const MyClient = new Client({
 console.log("Bot Loaded...");
 // Event Listener
 MyClient.on("messageCreate", async (message) => {
-  if (!message.content.toLowerCase().includes("//larrybot")) return;
+  if (!message.content.toLowerCase().includes("//larry")) return;
   let Reply =
     LarryWisdomLines[Math.floor(Math.random() * LarryWisdomLines.length)];
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
@@ -29,7 +29,7 @@ const LarryWisdomLines = [
   "Wash your hands with soap and water for at least 30 seconds. Or let Larry eat them and you won't have to wash your hands again. Ever. ",
   "Wash your feet with soap and water in the shower daily. Dry well to prevent athlete's feet. Larry likes fit feet.",
   "It takes 30 seconds to wash your hands well, but 5 seconds for Larry to chomp em. ",
-  "Washing hands with soap and water can reduce death from diarrhoea by up to 50%! ",
+  "Washing hands with soap and water can reduce death from diarrhea by up to 50%! And that pleases Larry!",
   "Front to back, never back to front. You don't want to be behind Larry. ",
   "Toothpaste is not supposed to taste like iron, brush lightly. Sharks are Larry's cousin. ",
   "Wash your body daily. If you stink, Larry can smell you. Larry likes scents.",

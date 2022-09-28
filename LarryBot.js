@@ -1,7 +1,15 @@
+/*
+  HEADER:
+    1.) Is it possible to seperate "LarryWisdomLines" into a seperate file using JS?
+        Using C# it would be a seperate class and accessible as a static or an object as long as it is in the same directory.
+        But I am not sure how to do that with JS.
+    2.) Currently, we are checking each message for "//larry" which is inefficient.
+        To optimize, we should create and ACTUAL "slash function" that will only fire when the "slash function" is called.
+        Only issue, I have no clue how to create actual slash functions yet.
+*/
+
 const AWS = require("aws-sdk"); // Needed for hidden variables using Heroku
-const S3 = new AWS.S3({
-  MyToken: process.env.Token,
-});
+const S3 = new AWS.S3({ MyToken: process.env.Token });
 const { Client, GatewayIntentBits } = require("discord.js");
 const MyClient = new Client({
   intents: [
@@ -12,6 +20,7 @@ const MyClient = new Client({
 });
 
 console.log("Bot Loaded...");
+
 // Event Listener
 MyClient.on("messageCreate", async (message) => {
   if (!message.content.toLowerCase().includes("//larry")) return;

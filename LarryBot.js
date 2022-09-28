@@ -23,9 +23,15 @@ console.log("Bot Loaded...");
 
 // Event Listener
 MyClient.on("messageCreate", async (message) => {
-  if (!message.content.toLowerCase().includes("//larry")) return;
-  let Reply =
-    LarryWisdomLines[Math.floor(Math.random() * LarryWisdomLines.length)];
+  let Reply = "";
+  if (message.content.toLowerCase().includes("//larry")) {
+    let Reply =
+      LarryWisdomLines[Math.floor(Math.random() * LarryWisdomLines.length)];
+  }
+  else if (message.content.toLowerCase().includes("//whoislarry")) {
+    let Reply = "https://phwee-larry.carrd.co/";
+  }
+  else return;
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 });
 

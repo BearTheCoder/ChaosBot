@@ -1,6 +1,8 @@
-//const Larry = require("LarryWisdom.js");
+const AWS = require("aws-sdk"); // Needed for hidden variables using Heroku
+const S3 = new AWS.S3({
+  MyToken: process.env.Token,
+});
 const { Client, GatewayIntentBits } = require("discord.js");
-const { Token } = require("config.json");
 const MyClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -12,13 +14,13 @@ const MyClient = new Client({
 console.log("Bot Loaded...");
 // Event Listener
 MyClient.on("messageCreate", async (message) => {
-  if (!message.content.toLowerCase().includes("//larrywisdom")) return;
+  if (!message.content.toLowerCase().includes("//larrybot")) return;
   let Reply =
     LarryWisdomLines[Math.floor(Math.random() * LarryWisdomLines.length)];
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 });
 
-MyClient.login(Token);
+MyClient.login(S3.MyToken);
 
 const LarryWisdomLines = [
   "One germ can multiply into more than 8 million germs in one day. But that means nothing to Larry for he is immune to all diseases.",

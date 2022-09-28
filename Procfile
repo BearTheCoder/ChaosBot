@@ -1,1 +1,2 @@
-Worker: node ./LarryBot/LarryBot.js
+LarryBot: node ./LarryBot/LarryBot.js
+SubscriberBot: node ./SubscriberBot/SubscriberBot.js

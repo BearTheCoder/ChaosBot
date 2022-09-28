@@ -22,7 +22,7 @@ console.log(`Main.js Loaded...`);
 // Event Listener - Needs to be changed to a slash function.
 MyClient.on(`messageCreate`, async (message) => {
     console.log(`message rec...`);
-    TestFunc(message);
+    Test.TestFunc(message);
 });
 
 MyClient.login(S3.config.MyToken);

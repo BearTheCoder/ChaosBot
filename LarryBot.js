@@ -17,9 +17,9 @@ const MyClient = new Client({
   ],
 });
 
-console.log(`Bot Loaded...`);
+console.log(`LarryBot Loaded...`);
 
-// Event Listener
+// Event Listener - Needs to be changed to a slash function.
 MyClient.on(`messageCreate`, async (message) => {
   let Reply = ``;
   if (message.content.toLowerCase().includes(`//larry`)) {
@@ -30,6 +30,7 @@ MyClient.on(`messageCreate`, async (message) => {
     Reply = `https://phwee-larry.carrd.co/`;
   }
   else return;
+  log(`User ${message.author.username} has called for Larry`);
   await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
 });
 

@@ -3,7 +3,7 @@ const LarryWisdomLines = [
     `One germ can multiply into more than 8 million germs in one day. But that means nothing to Larry for he is immune to all diseases.`,
     `Remote controls contribute to the 90,000 annual deaths from infection acquired in hospitals. And Larry will be responsible for your's if you don't remain clean.`,
     `You're 1000 times more likely to spread bacteria with damp hands. And damp hands are Larry's favorite.`,
-    `Wash your feet with soap and water in the shower daily. Dry well to prevent athlete's feet or Larry will sneak your feet cheese into your food.`,
+    `Wash your feet with soap and water in the shower daily. Dry well to prevent athlete's feet. Feet cheese is Larry's favourite condiment.`,
     `It takes 30 seconds to wash your hands well, but only 5 seconds for Larry to chomp em.`,
     `Washing hands with soap and water can reduce death from diarrhea or Larry by up to 50%.`,
     `Front to back, never back to front. You don't want to be behind Larry.`,

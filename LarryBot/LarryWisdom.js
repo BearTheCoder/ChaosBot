@@ -33,7 +33,7 @@ const LarryWisdomLines = [
     `..and then he said, "Yer a wizard, Larry" and I just ignored him and pretended I was a non-sentient toilet rug.`, // Back ticks are similar to quotations in JS
     `Wash your hands with soap and water, or don't; Larry likes the flavor`,
     `Need tips on cleaning your keyboard?? Ask Master Niuraeix..`,
-    `Your mouth has more bacteria than the average toilet seat, but we can still kiss you let me :point_right::point_left:`,
+    `Your mouth has more bacteria than the average toilet seat, but we can still kiss if you let me :point_right::point_left:`,
     `My mom said we can tidy our deskspaces together if your mom is ok with it`,
     `Prestigitation! Prestigitaion! Prestigitation!!`,
     `As my uncle Kog'Maw always says, "Leave no scraps!"`,

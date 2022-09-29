@@ -21,7 +21,7 @@ const LarryWisdomLines = [
     `I heard that Aethy and Phwee BOTH don't clean their keyboard. Like ever. Master Niuraeix would be so disappointed :,(`,
     `If I practise good hygiene everyday, do you think Aethy will let me intern at the Cardboard Clinic one day?`,
     `Phwee likes her phweedom but she could definitely do with some phwee lessons on improving her personal hygiene.`,
-    `Aethy says she likes personal hygiene but Mia doesnt even take showers that often. I heard she even licks her butt sometimes. When will Aethy love me too?`,
+    `Aethy says she likes personal hygiene but Mia doesnt even take showers that often. I heard Mia even licks her butt sometimes. When will Aethy love me too?`,
     `97, 98, 99, 100! Ready or not here Larry comes! Oh.. where did everyone go? Did you need to wash your hands before we play?`,
     `I might be a toilet rug but I like snuggles too. Can I join you in the blankies? Pwease? I swear I'm clean, I like personal hygiene!`,
     `Every dish you leave in your sink brings Larry another foot closer.`,
@@ -40,8 +40,9 @@ const LarryWisdomLines = [
     `I love looking at the stars.. wait those aren't stars those are.. GERMS??`,
     `The moon is beautiful, isn't it? Wait, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
     `Size doesn't matter, it's how use the cleaning product`,
-    `Do you think one day sentient toilet rugs will get the right to vote too?`,
+    `Do you think one day sentient toilet rugs will be allowed to run for President? There's a few changes I have in mind about hygiene laws..`,
     `I heard we're stomping n00bs today. Is that some kind of bacteria?`
+    `Did you hydrate today? Since I'm a fish, if I just vomit in your mouth, you're basically getting a drink of water. I think.`,
   ];
 
   module.exports = {LarryWisdomLines}

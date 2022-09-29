@@ -11,6 +11,6 @@ async function LarryFunc(message) {
   }
   else return;
   console.log(`User ${message.author.username} has called for Larry`);
-  await message.reply(`<:phweeLarry:1023966100226060339> *Larry says:* ${Reply}`);
+  await message.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${Reply}`);
 }
 module.exports = { LarryFunc };

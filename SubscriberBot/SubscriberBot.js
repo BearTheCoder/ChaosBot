@@ -58,11 +58,11 @@ function UpdateUserRoles(CurrentMember) {
         FindCombinedRole.name.toLowerCase().includes("phweettens")
     );
 
-    console.log(`Role: ${CombinedRole} Phweak: ${hasPhweakRole} Kitten: ${hasKittenRole}`);
+    console.log(`Role: ${CombinedRole} Phweak: ${hasPhweakRole} Kitten: ${hasKittenRole} Phweetten: ${hasPhweettenRole}`);
 
     if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
         CurrentMember.roles.add(CombinedRole);
-    } else if (!hasKittenRole || !hasPhweakRole) {
+    } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
         CurrentMember.roles.remove(CombinedRole);
     }
 }

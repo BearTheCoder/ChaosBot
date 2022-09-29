@@ -38,7 +38,10 @@ const LarryWisdomLines = [
     `Prestigitation! Prestigitaion! Prestigitation!!`,
     `As my uncle Kog'Maw always says, "Leave no scraps!"`,
     `I love looking at the stars.. wait those aren't stars those are.. GERMS??`,
-    `The moon is beautiful, isn't it? Oh, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
+    `The moon is beautiful, isn't it? Wait, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
+    `Size doesn't matter, it's how use the cleaning product`,
+    `Do you think one day sentient toilet rugs will get the right to vote too?`,
+    `I heard we're stomping n00bs today. Is that some kind of bacteria?`
   ];
 
   module.exports = {LarryWisdomLines}

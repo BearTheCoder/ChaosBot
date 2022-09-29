@@ -58,7 +58,7 @@ function UpdateUserRoles(CurrentMember) {
         FindCombinedRole.name.toLowerCase().includes("phweettens")
     );
 
-    console.log(CombinedRole);
+    console.log(`Role: ${CombinedRole} Phweak: ${hasPhweakRole} Kitten: ${hasKittenRole}`);
 
     if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
         CurrentMember.roles.add(CombinedRole);

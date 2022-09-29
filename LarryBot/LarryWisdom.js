@@ -41,8 +41,16 @@ const LarryWisdomLines = [
     `The moon is beautiful, isn't it? Wait, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
     `Size doesn't matter, it's how use the cleaning product`,
     `Do you think one day sentient toilet rugs will be allowed to run for President? There's a few changes I have in mind about hygiene laws..`,
-    `I heard we're stomping n00bs today. Is that some kind of bacteria?`
+    `I heard we're stomping n00bs today. Is that some kind of bacteria?`,
     `Did you hydrate today? Since I'm a fish, if I just vomit in your mouth, you're basically getting a drink of water. I think.`,
+    `Believe in the heart of the Larry.`,
+    `I used to be an adventurer like you, then I turned into a toilet rug.`
+    `It's dangerous to go alone, take this hand sanitizer!`,
+    `Hey! Hello? Hey! Hey! Listen! Watch out! Dirt can be cleaned!`,
+    `Larry? LAAAAARRRRRRRRRRRYYYYYY!!!`,
+    `Hygiene.. Hygiene never changes`,
+    `Kept you waiting, huh? It's ok I got the alcohol wipes now.`,
+    `Is that a germ? FINISH HIM!`,
   ];
 
   module.exports = {LarryWisdomLines}

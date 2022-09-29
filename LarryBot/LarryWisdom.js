@@ -44,7 +44,7 @@ const LarryWisdomLines = [
     `I heard we're stomping n00bs today. Is that some kind of bacteria?`,
     `Did you hydrate today? Since I'm a fish, if I just vomit in your mouth, you're basically getting a drink of water. I think.`,
     `Believe in the heart of the Larry.`,
-    `I used to be an adventurer like you, then I turned into a toilet rug.`
+    `I used to be an adventurer like you, then I turned into a toilet rug.`,
     `It's dangerous to go alone, take this hand sanitizer!`,
     `Hey! Hello? Hey! Hey! Listen! Watch out! Dirt can be cleaned!`,
     `Larry? LAAAAARRRRRRRRRRRYYYYYY!!!`,

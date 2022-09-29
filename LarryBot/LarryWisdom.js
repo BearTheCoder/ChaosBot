@@ -36,6 +36,9 @@ const LarryWisdomLines = [
     `Your mouth has more bacteria than the average toilet seat, but we can still kiss you let me :point_right::point_left:`,
     `My mom said we can tidy our deskspaces together if your mom is ok with it`,
     `Prestigitation! Prestigitaion! Prestigitation!!`,
+    `As my uncle Kog'Maw always says, "Leave no scraps!"`,
+    `I love looking at the stars.. wait those aren't stars those are.. GERMS??`,
+    `The moon is beautiful, isn't it? Oh, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
   ];
 
   module.exports = {LarryWisdomLines}

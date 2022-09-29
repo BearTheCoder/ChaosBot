@@ -11,7 +11,6 @@ const SB_Bot = require(`./SubscriberBot/SubscriberBot.js`);
 
 //Global vars
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
-
 const S3 = new AWS.S3({
     MyToken: process.env.Token,
     MyGuildID: process.env.GuildID,
@@ -34,7 +33,7 @@ const MyClient = new Client({
 
 console.log(`Main.js Loaded...`);
 
-// Event Listener - Needs to be changed to a slash function.
+// Needs to be changed to a slash function.
 MyClient.on(`messageCreate`, async (message) => {
     if (message.content.toLowerCase().includes("//roleupdate")) {
         SB_Bot.SendButton(message);

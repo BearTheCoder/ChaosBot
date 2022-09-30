@@ -51,6 +51,7 @@ const LarryWisdomLines = [
     `Hygiene.. Hygiene never changes`,
     `Kept you waiting, huh? It's ok I got the alcohol wipes now.`,
     `Is that a germ? FINISH HIM!`,
+    `I VOLUNTEER! I volunteer as tribute. We're talking about who has bathroom duty right?`,
   ];
 
   module.exports = {LarryWisdomLines}

@@ -1,4 +1,4 @@
-const { MagicLines } = require(`./MagicLines.js`);
+const { MagicLines } = require(`./Magic8Ball_Lines.js`);
 
 async function Magic8Ball (message) {
     let Reply = MagicLines[ Math.floor(Math.random() * MagicLines.length) ];

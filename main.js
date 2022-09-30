@@ -8,6 +8,7 @@
 // Access other scripts in directory
 const LarryBot = require(`./LarryBot/LarryBot.js`);
 const SB_Bot = require(`./SubscriberBot/SubscriberBot.js`);
+const Magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
 
 //Global vars
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
@@ -40,6 +41,9 @@ MyClient.on(`messageCreate`, async (message) => {
     }
     else if (message.content.toLowerCase().includes("//larry")) {
         LarryBot.LarryFunc(message);
+    }
+    else if (message.content.toLowerCase().includes("//8ball")) {
+        Magic8Ball.Magic8Ball(message);
     }
 });
 

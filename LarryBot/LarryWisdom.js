@@ -7,7 +7,7 @@ const LarryWisdomLines = [
     `It takes 30 seconds to wash your hands well, but only 5 seconds for Larry to chomp em.`,
     `Washing hands with soap and water can reduce death from diarrhea or Larry by up to 50%.`,
     `Front to back, never back to front. You don't want to be behind Larry.`,
-    `Toothpaste is not supposed to taste like iron, brush lightly or Larry will brush them for you.`,
+    `Toothpaste is not supposed to taste like iron, brush lightly or Larry will volunteer his nice soft skin in lieu of your brush.`,
     `Wash your body daily or Larry will join you in the shower and make sure that you do.`,
     `Cover your nose and mouth with a tissue (or your sleeve) when sneezing or coughing, otherwise Larry will use you as a sleeve when he's sick.`,
     `Do NOT try to scrape out earwax from your ear canals, or Larry will put it back in when you're sleeping.`,

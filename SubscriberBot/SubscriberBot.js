@@ -55,7 +55,7 @@ function UpdateUserRoles(CurrentMember) {
     console.log(`Added role to ${CurrentMember}`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
     CurrentMember.roles.remove(CombinedRole);
-    console.log(`Removed role to ${CurrentMember}`);
+    console.log(`Removed role from ${CurrentMember}`);
   }
 }
 

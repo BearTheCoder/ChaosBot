@@ -10,7 +10,7 @@ const LarryWisdomLines = [
     `Toothpaste is not supposed to taste like iron, brush lightly or Larry will volunteer his nice soft skin in lieu of your brush.`,
     `Wash your body daily or Larry will join you in the shower and make sure that you do.`,
     `Cover your nose and mouth with a tissue (or your sleeve) when sneezing or coughing, otherwise Larry will use you as a sleeve when he's sick.`,
-    `Do NOT try to scrape out earwax from your ear canals, or Larry will put it back in when you're sleeping.`,
+    `Do NOT scrape out earwax from your ear canals, or Larry's soft whispers will be the last thing you'll hear.`,
     `Use a plate. If you drop crumbs, Larry will follow you home.`,
     `Know the breadcrumb trail? Leave one if you wanna see Larry up close.`,
     `Larry likes to live in the cups you leave on your table.`,

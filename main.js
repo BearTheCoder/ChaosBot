@@ -10,14 +10,6 @@ const LarryBot = require(`./LarryBot/LarryBot.js`);
 const SB_Bot = require(`./SubscriberBot/SubscriberBot.js`);
 const Magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
 
-//Delete all below after testing - START
-const TestJson = require(`./TestFolder/TestJson.js`);
-const FileName_Node = "FILENAME.json";
-const FileName_Script = "node_modules/FILENAME.json";
-let JSONObject = require(FileName_Node); //node function
-const FS = require("fs");
-//END
-
 //Global vars
 const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const S3 = new AWS.S3({
@@ -48,11 +40,6 @@ MyClient.on(`messageCreate`, async (message) => {
   } else if (message.content.toLowerCase().includes("//8ball")) {
     Magic8Ball.Magic8Ball(message);
   }
-  //This else if is used for testing and can be deleted later - START
-  else if (message.content.toLowerCase().includes("//testJSON")) {
-    TestJson.TestJson(message, JSONObject, FileName_Script);
-  }
-  //END
 });
 
 MyClient.on("guildMemberUpdate", (newMember) => {

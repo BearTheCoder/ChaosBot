@@ -34,7 +34,6 @@ async function SendButton(message) {
 }
 
 function UpdateUserRoles(CurrentMember) {
-  console.log(`Updating roles for user ${CurrentMember.displayName}...`);
   let hasKittenRole = false;
   let hasPhweakRole = false;
   let hasPhweettenRole = false;

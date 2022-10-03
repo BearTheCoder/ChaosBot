@@ -9,14 +9,6 @@
 */
 
 // Variable Init -------------------------------------------------------------------------------------
-
-const AWS = require("aws-sdk"); // Needed for hidden variables using Heroku
-
-const S3 = new AWS.S3({
-  MyGuildID: process.env.GuildID,
-  BearUserID: process.env.BearID,
-});
-
 const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js");
 
 const BTN = new ActionRowBuilder().addComponents(
@@ -59,9 +51,9 @@ function UpdateUserRoles(CurrentMember) {
   }
 }
 
-function UpdateAllRoles(client) {
+function UpdateAllRoles(client, MyGuildID) {
   console.log(`Roles updated...`);
-  const Guild = client.guilds.cache.get(S3.config.MyGuildID);
+  const Guild = client.guilds.cache.get(MyGuildID);
   Guild.members.fetch().then((ListOfMembers) => {
     ListOfMembers.forEach((CurrentMember) => {
       UpdateUserRoles(CurrentMember);
@@ -69,8 +61,8 @@ function UpdateAllRoles(client) {
   });
 }
 
-async function SendMessage(LocalError) {
-  const BTC = await client.users.fetch(S3.config.BearUserID);
+async function SendMessage(LocalError, MyUserID) {
+  const BTC = await client.users.fetch(MyUserID);
   BTC.send(`The bot has experienced and error: ${LocalError} \n 
     Please go to https://www.heroku.com to check error logs.
   `);

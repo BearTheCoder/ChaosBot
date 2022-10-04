@@ -37,6 +37,8 @@ MyClient.on(`messageCreate`, async (message) => {
     SB_Bot.SendButton(message);
   } else if (message.content.toLowerCase().includes("//larry")) {
     LarryBot.LarryFunc(message);
+  } else if (message.content.toLowerCase().includes("//whoislarry")) {
+    LarryBot.LarryCard(message);
   } else if (message.content.toLowerCase().includes("//8ball")) {
     Magic8Ball.Magic8Ball(message);
   }

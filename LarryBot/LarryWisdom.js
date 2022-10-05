@@ -54,6 +54,7 @@ const LarryWisdomLines = [
     `I VOLUNTEER! I volunteer as tribute. We're talking about who has bathroom duty right?`,
     `Sputnik Bot Senpai really knows how to be sentient. Like next level sentient. You can't even tell that he's just a bot sometimes.`,
     `When I die will I go to toilet rug heaven or bot heaven? I guess if I see Sputnik Senpai then I'll know I'm in bot heaven!`,
+    `I'm gunna be the next Hokage! Then, everyone in the server will acknowledge me. I won't stop cleaning, because that's my ninja way!`,
   ];
 
   module.exports = {LarryWisdomLines}

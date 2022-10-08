@@ -1,17 +1,17 @@
-const { LarryWisdomLines } = require(`./LarryWisdom.js`);
+const { larryWisdomLines } = require(`./LarryWisdom.js`);
 
-async function LarryFunc(message) {
-  let Reply =
-    LarryWisdomLines[Math.floor(Math.random() * LarryWisdomLines.length)];
-  console.log(`User ${message.author.username} has called for Larry`);
-  await message.reply(
-    `<:phweeLarry:1023966100226060339> **Larry says:** ${Reply}`
+async function sendLarryWisdom(userMessage) {
+  let reply =
+    larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
+  console.log(`User ${userMessage.author.username} has called for Larry`);
+  await userMessage.reply(
+    `<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
   );
 }
 
-async function LarryCard(message) {
-  let Reply = `https://phwee-larry.carrd.co/`;
-  console.log(`User ${message.author.username} has called for Larry Card`);
-  await message.reply(`<:phweeLarry:1023966100226060339> ${Reply}`);
+async function sendLarryInfo(userMessage) {
+  let reply = `https://phwee-larry.carrd.co/`;
+  console.log(`User ${userMessage.author.username} has called for Larry Card`);
+  await userMessage.reply(`<:phweeLarry:1023966100226060339> ${reply}`);
 }
-module.exports = { LarryFunc, LarryCard };
+module.exports = { sendLarryWisdom, sendLarryInfo };

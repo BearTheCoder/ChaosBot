@@ -1,71 +1,65 @@
-/*
-  Current issues:
-    1.) If a role is changed in Discord (A role not controlled by the bot), the event "guildMemberUpdate"
-    fires as designed. If the bot THEN makes a change, the event fires a second time needlessly.
-    This should be controlled for optimization.
-    2.) The bot currently does not have the access to send messages in chat (I think).
-    I need to test whether or not I need to change access levels in order to send messages into channels.
-    If I need to update permissions, do I need to remove the current bot and add a new bot in?
-*/
-
-// Variable Init -------------------------------------------------------------------------------------
 const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js");
 
-const BTN = new ActionRowBuilder().addComponents(
+const updateRoleButton = new ActionRowBuilder().addComponents(
   new ButtonBuilder()
     .setCustomId("roleupdate")
     .setLabel("Reload user roles?")
     .setStyle(ButtonStyle.Primary)
 );
 
-async function SendButton(message) {
+async function sendButtonInPM(message) {
   await message.author.send({
     content: `If you believe there to be an issue with ChaosBot please contact BearTheCoder#6820 for debugging purposes. The button below will iterate through all users in the server and update the roles accordingly. Please be advised, if there are a large number of members this may take a while...`,
-    components: [BTN],
+    components: [updateRoleButton],
   });
 }
 
-function UpdateUserRoles(CurrentMember) {
+function updateUserRoles(currentMember) {
   let hasKittenRole = false;
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
-  CurrentMember.roles.cache.forEach((UserRole) => {
-    if (UserRole.name.toLowerCase().includes("kittens")) {
+  currentMember.roles.cache.forEach((userRole) => {
+    if (userRole.name.toLowerCase().includes("kittens")) {
       hasKittenRole = true;
-    } else if (UserRole.name.toLowerCase().includes("phweaks")) {
+    } else if (userRole.name.toLowerCase().includes("phweaks")) {
       hasPhweakRole = true;
-    } else if (UserRole.name.toLowerCase().includes("phweettens")) {
+    } else if (userRole.name.toLowerCase().includes("phweettens")) {
       hasPhweettenRole = true;
     }
   });
   //The following lines run ASYNC and takes a while for the results to show on DISCORD...
-  let CombinedRole = CurrentMember.roles.cache.find((FindCombinedRole) =>
-    FindCombinedRole.name.toLowerCase().includes("phweettens")
+  let combinedRole = currentMember.roles.cache.find((findCombinedRole) =>
+    findCombinedRole.name.toLowerCase().includes("phweettens")
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
-    CurrentMember.roles.add(CombinedRole);
-    console.log(`Added role to ${CurrentMember}`);
+    currentMember.roles.add(combinedRole);
+    console.log(`Added role to ${currentMember}`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
-    CurrentMember.roles.remove(CombinedRole);
-    console.log(`Removed role from ${CurrentMember}`);
+    currentMember.roles.remove(combinedRole);
+    console.log(`Removed role from ${currentMember}`);
   }
 }
 
-function UpdateAllRoles(client, MyGuildID) {
+function updateAllRoles(myClient, myGuildID) {
   console.log(`Roles updated...`);
-  const Guild = client.guilds.cache.get(MyGuildID);
-  Guild.members.fetch().then((ListOfMembers) => {
-    ListOfMembers.forEach((CurrentMember) => {
-      UpdateUserRoles(CurrentMember);
+  const myGuild = myClient.guilds.cache.get(myGuildID);
+  myGuild.members.fetch().then((listOfMembers) => {
+    listOfMembers.forEach((currentMember) => {
+      updateUserRoles(currentMember);
     });
   });
 }
 
-async function SendMessage(LocalError, MyUserID) {
-  const BTC = await client.users.fetch(MyUserID);
-  BTC.send(`The bot has experienced and error: ${LocalError} \n 
+async function sendErrorPM(localError, myUserID) {
+  const myUserInfo = await client.users.fetch(myUserID);
+  myUserInfo.send(`The bot has experienced and error: ${localError} \n 
     Please go to https://www.heroku.com to check error logs.
   `);
 }
 
-module.exports = { SendButton, UpdateUserRoles, UpdateAllRoles, SendMessage };
+module.exports = {
+  sendButtonInPM,
+  updateUserRoles,
+  updateAllRoles,
+  sendErrorPM,
+};

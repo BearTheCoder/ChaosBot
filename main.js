@@ -6,21 +6,21 @@
 */
 
 // Access other scripts in directory
-const LarryBot = require(`./LarryBot/LarryBot.js`);
-const SB_Bot = require(`./SubscriberBot/SubscriberBot.js`);
-const Magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
+const larryBot = require(`./LarryBot/LarryBot.js`);
+const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
+const magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
 
 //Global vars
-const AWS = require(`aws-sdk`); // Needed for hidden variables using Heroku
-const S3 = new AWS.S3({
-  MyToken: process.env.Token,
-  MyGuildID: process.env.GuildID,
-  MyUserID: process.env.BearID,
+const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
+const s3 = new aws.S3({
+  myToken: process.env.Token,
+  myGuildID: process.env.GuildID,
+  myUserID: process.env.BearID,
 });
 
 const { Client, GatewayIntentBits } = require("discord.js");
 
-const MyClient = new Client({
+const myClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
@@ -31,31 +31,29 @@ const MyClient = new Client({
 
 console.log(`Main.js Loaded...`);
 
-// Needs to be changed to a slash function.
-MyClient.on(`messageCreate`, async (message) => {
-  if (message.content.toLowerCase().includes("//roleupdate")) {
-    SB_Bot.SendButton(message);
-  } else if (message.content.toLowerCase().includes("//larry")) {
-    LarryBot.LarryFunc(message);
-  } else if (message.content.toLowerCase().includes("//whoislarry")) {
-    LarryBot.LarryCard(message);
-  } else if (message.content.toLowerCase().includes("//8ball")) {
-    Magic8Ball.Magic8Ball(message);
+myClient.on(`messageCreate`, async (userMessage) => {
+  if (userMessage.content.toLowerCase().includes("//roleupdate")) {
+    subscriberBot.sendButtonInPM(userMessage);
+  } else if (userMessage.content.toLowerCase().includes("//larry")) {
+    larryBot.sendLarryWisdom(userMessage);
+  } else if (userMessage.content.toLowerCase().includes("//whoislarry")) {
+    larryBot.sendLarryInfo(userMessage);
+  } else if (userMessage.content.toLowerCase().includes("//8ball")) {
+    magic8Ball.send8BallMessage(userMessage);
   }
 });
 
-MyClient.on("guildMemberUpdate", (newMember) => {
+myClient.on("guildMemberUpdate", (newMember) => {
   try {
-    SB_Bot.UpdateUserRoles(newMember);
-  } catch (ErrorMsg) {
-    SB_Bot.SendMessage(ErrorMsg, S3.config.MyUserID);
+    subscriberBot.updateUserRoles(newMember);
+  } catch (errorMsg) {
+    subscriberBot.sendErrorPM(errorMsg, s3.config.MyUserID);
   }
 });
 
-MyClient.on("interactionCreate", async (iAction) => {
+myClient.on("interactionCreate", async (iAction) => {
   if (!iAction.customId === "roleupdate") return;
-  //Put Action Here -------------------------------
-  SB_Bot.UpdateAllRoles(MyClient, S3.config.MyGuildID);
+  subscriberBot.updateAllRoles(myClient, s3.config.MyGuildID);
   await iAction.reply({
     content:
       "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
@@ -64,4 +62,4 @@ MyClient.on("interactionCreate", async (iAction) => {
   iAction.message.delete();
 });
 
-MyClient.login(S3.config.MyToken);
+myClient.login(s3.config.MyToken);

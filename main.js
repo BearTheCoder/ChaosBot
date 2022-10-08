@@ -47,13 +47,13 @@ myClient.on("guildMemberUpdate", (newMember) => {
   try {
     subscriberBot.updateUserRoles(newMember);
   } catch (errorMsg) {
-    subscriberBot.sendErrorPM(errorMsg, s3.config.MyUserID);
+    subscriberBot.sendErrorPM(errorMsg, s3.config.myUserID);
   }
 });
 
 myClient.on("interactionCreate", async (iAction) => {
   if (!iAction.customId === "roleupdate") return;
-  subscriberBot.updateAllRoles(myClient, s3.config.MyGuildID);
+  subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
   await iAction.reply({
     content:
       "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
@@ -62,4 +62,4 @@ myClient.on("interactionCreate", async (iAction) => {
   iAction.message.delete();
 });
 
-myClient.login(s3.config.MyToken);
+myClient.login(s3.config.myToken);

@@ -1,6 +1,7 @@
 // Access other scripts in directory
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
+const interactions = require('./SlashCommands/Interactions.js');
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
@@ -48,9 +49,6 @@ myClient.on("guildMemberUpdate", (newMember) => {
 
 //Called when... idk yet.
 myClient.on("interactionCreate", async (iAction) => {
-
-
-
   if (iAction.customId === "roleupdate") {
     subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
     await iAction.reply({
@@ -59,6 +57,15 @@ myClient.on("interactionCreate", async (iAction) => {
       ephemeral: true, //This makes the message delete after a certain period of time
     });
     iAction.message.delete();
+  }
+  else{
+    for (let i = 0; i < interactions.interactions.length; i++) {
+      let commandName = interactions.interactions[i].commandName;
+      if (iAction.commandName === commandName) {
+        interactions.interactions[i].commandFunction(iAction);
+        break;
+      }
+    }
   }
 });
 

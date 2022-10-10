@@ -46,10 +46,11 @@ commands = [
     },
   },
   {
-    commandName: `//createbasecommand`,
+    commandName: `//resetfunctions`,
     commandFunction: function (userMessage) {
       console.log(userMessage.author.username);
-      slashCommandsController.createBaseCommand();
+      slashCommandsController.resetSlashFunctions();
+      userMessage.reply("All slash functions reset!")
     },
   },
 ];

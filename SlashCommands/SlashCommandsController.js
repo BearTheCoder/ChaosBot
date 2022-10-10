@@ -64,7 +64,7 @@ function deleteCommandByID(userMessage) {
   }
 }
 
-function createBaseCommand() {
+function resetSlashFunctions() {
   const commands = [
     new SlashCommandBuilder()
     .setName("createcommand")
@@ -83,4 +83,4 @@ function connectViaRest(logMessage, TestVar){
     .catch(console.error);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, createBaseCommand };
+module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions };

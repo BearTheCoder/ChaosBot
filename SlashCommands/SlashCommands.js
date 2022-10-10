@@ -43,7 +43,8 @@ function createNewCommand(commandName, commandDescription) {
     .catch(console.error);
 }
 
-function deleteAllCommands(userMessage) {
+function deleteAllCommands() {
+  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
   rest
     .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: [], })
     .then(() => console.log("Successfully deleted all guild commands."))

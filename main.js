@@ -61,18 +61,6 @@ myClient.on("interactionCreate", async (iAction) => {
     });
     iAction.message.delete();
   }
-  if (iAction.commandName === "createcommand" && iAction.user.username === "BearTheCoder"){
-    const modal = slashCommands.ReturnModal();
-    await iAction.showModal(modal);
-  }
-  if (iAction.isModalSubmit()){
-    if (iAction.commandName === "createcommand"){
-      console.log("This is the right command name...")
-    }
-    const commandName = iAction.fields.getTextInputValue("commandName");
-    const commandDescription = iAction.fields.getTextInputValue("commandDescriptionInput");
-    slashCommands.createNewCommand(commandName, commandDescription);
-  }
 });
 
 myClient.login(s3.config.myToken);

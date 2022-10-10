@@ -31,7 +31,7 @@ commands = [
     commandName: `//createcommand`,
     commandFunction: function (userMessage) {
       //create function
-      slashCommands.createModal(userMessage);
+      //slashCommands.createModal(userMessage);
     },
   },
   {
@@ -43,9 +43,9 @@ commands = [
   },
   {
     commandName: `//deleteallcommands`,
-    commandFunction: function () {
+    commandFunction: function (userMessage) {
       //create function
-      console.log("Deleting all commands...");
+      slashCommands.deleteAllCommands();
     },
   },
 ];

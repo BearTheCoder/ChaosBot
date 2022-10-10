@@ -36,23 +36,12 @@ myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
       let commandName = doubleSlashCommands.commands[i].commandName;
-      console.log(commandName);
       if (userMessage.content.toLowerCase().includes(commandName)) {
-        console.log("Included...");
         doubleSlashCommands.commands[i].commandFunction(userMessage);
+        break;
       }
     }
   }
-
-  // if (userMessage.content.toLowerCase().includes("//roleupdate")) {
-  //   subscriberBot.sendButtonInPM(userMessage);
-  // } else if (userMessage.content.toLowerCase().includes("//larry")) {
-  //   larryBot.sendLarryWisdom(userMessage);
-  // } else if (userMessage.content.toLowerCase().includes("//whoislarry")) {
-  //   larryBot.sendLarryInfo(userMessage);
-  // } else if (userMessage.content.toLowerCase().includes("//8ball")) {
-  //   magic8Ball.send8BallMessage(userMessage);
-  // }
 });
 
 myClient.on("guildMemberUpdate", (newMember) => {

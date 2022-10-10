@@ -1,5 +1,5 @@
 const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ApplicationCommandPermissionsManager } = require("discord.js");
-const advancedPermissions = require('RestrictedPermissions.js');
+const advancedPermissions = require('./RestrictedPermissions.js');
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
   myToken: process.env.Token,

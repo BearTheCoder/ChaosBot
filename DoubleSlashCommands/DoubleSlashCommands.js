@@ -28,24 +28,6 @@ commands = [
     },
   },
   {
-    commandName: `//createcommand`,
-    commandFunction: function (userMessage) {
-      slashCommandsController.createModal();
-    },
-  },
-  {
-    commandName: `//deletecommand`,
-    commandFunction: function (userMessage) {
-      console.log("Deleting command...");
-    },
-  },
-  {
-    commandName: `//deleteallcommands`,
-    commandFunction: function (userMessage) {
-      slashCommandsController.deleteAllCommands();
-    },
-  },
-  {
     commandName: `//resetfunctions`,
     commandFunction: function (userMessage) {
       if (userMessage.author.username === "BearTheCoder") {

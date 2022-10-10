@@ -10,14 +10,14 @@ const s3 = new aws.S3({
 function ReturnModal(){
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
-    .setTitle("Create Command");
+    .setTitle("Create Command!");
   const commandNameInput = new TextInputBuilder()
     .setCustomId("commandName")
-    .setLabel("This is a test modal...")
+    .setLabel("Input your slash function name...")
     .setStyle(TextInputStyle.Short);
   const commandDescription = new TextInputBuilder()
     .setCustomId("commandDescription")
-    .setLabel("Input your slash command description...")
+    .setLabel("Input your slash function description...")
     .setStyle(TextInputStyle.Paragraph);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
@@ -32,6 +32,7 @@ function createNewCommand(commandName, commandDescription) {
     .then((commands) => {
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
+        console.log(commands[i].default_member_permissions); // 333333333333333333333333333333333333
         newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)

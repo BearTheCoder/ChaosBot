@@ -9,7 +9,7 @@ const s3 = new aws.S3({
 function ReturnModal(){
   const modal = new ModalBuilder()
     .setCustomId("myModal")
-    .setTitle();
+    .setTitle("modal test");
 
   const commandNameInput = new TextInputBuilder()
     .setCustomId("myCustomID")

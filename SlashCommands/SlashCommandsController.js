@@ -25,7 +25,7 @@ function ReturnModal(){
     .setStyle(TextInputStyle.Short);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
-  const thirdModalRow = new ActionRowBuilder().addComponents(commandDescription);
+  const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);
   modal.addComponents(firstModalRow, secondModalRow, thirdModalRow);
   return modal;
 }

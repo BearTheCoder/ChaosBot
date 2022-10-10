@@ -71,7 +71,7 @@ myClient.on("interactionCreate", async (iAction) => {
     }
     const commandName = iAction.fields.getTextInputValue("commandName");
     const commandDescription = iAction.fields.getTextInputValue("commandDescriptionInput");
-    slashCommands(commandName, commandDescription);
+    slashCommands.createNewCommand(commandName, commandDescription);
   }
 });
 

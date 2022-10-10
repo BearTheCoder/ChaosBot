@@ -26,20 +26,22 @@ function ReturnModal(){
 }
 
 function createNewCommand(commandName, commandDescription) {
-  const commands = Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID);
+  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
+  
+  const commands = rest.get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
 
   console.log(commands);
 
-  commands.push(
-    new SlashCommandBuilder()
-    .setName(commandName)
-    .setDescription(commandDescription)
-    );
+  // commands.push(
+  //   new SlashCommandBuilder()
+  //   .setName(commandName)
+  //   .setDescription(commandDescription)
+  //   );
 
-  commands.map((command) => command.toJson());
-  const logMessage = "New commands created...";
+  // commands.map((command) => command.toJson());
+  // const logMessage = "New commands created...";
 
-  connectViaRest(logMessage, {body: commands,})
+  // connectViaRest(logMessage, {body: commands,})
 
   // const commands = [
   //   new SlashCommandBuilder()

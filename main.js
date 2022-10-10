@@ -8,6 +8,7 @@
 // Access other scripts in directory
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
+const slashCommands = require(`../SlashCommands/SlashCommands.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
@@ -51,14 +52,19 @@ myClient.on("guildMemberUpdate", (newMember) => {
 });
 
 myClient.on("interactionCreate", async (iAction) => {
-  if (!iAction.customId === "roleupdate") return;
-  subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
-  await iAction.reply({
-    content:
-      "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
-    ephemeral: true, //This makes the message delete after a certain period of time
-  });
-  iAction.message.delete();
+  if (iAction.customId === "roleupdate") {
+    subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
+    await iAction.reply({
+      content:
+        "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
+      ephemeral: true, //This makes the message delete after a certain period of time
+    });
+    iAction.message.delete();
+  }
+  if (iAction.commandName === "createcommand"){
+    const modal = slashCommands.ReturnModal();
+    await iAction.showModal(modal);
+  }
 });
 
 myClient.login(s3.config.myToken);

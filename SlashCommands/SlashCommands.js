@@ -6,20 +6,50 @@ const s3 = new aws.S3({
   myClientID: process.env.ClientID,
 });
 
-function createModal(userMessage){
-  // Uncomment lines below when you figure out modal.
-  const commands = [
-    new SlashCommandBuilder()
-    .setName("createcommand")
-    .setDescription("Allows admins and mods to create new commands locally..."),
-  ].map((command) => command.toJSON());
+function ReturnModal(){
+  const modal = new ModalBuilder()
+    .setCustomId("myModal")
+    .setTitle();
 
-  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
-  rest
-    .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })
-    .then((data) => console.log(`Successfully registered ${data.length} application commands.`))
-    .catch(console.error);
+  const commandNameInput = new TextInputBuilder()
+    .setCustomId("myCustomID")
+    .setLabel("This is a test modal...")
+    .setStyle(TextInputStyle.Short);
+
+  const commandDescriptionInput = new TextInputBuilder()
+    .setCustomId("commandDescriptionInput")
+    .setLabel("Input your slash command description...")
+    .setStyle(TextInputStyle.Paragraph);
+
+  const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
+  const secondModalRow = new ActionRowBuilder().addComponents(commandDescriptionInput);
+
+  modal.addComponents(firstModalRow, secondModalRow);
+  return modal;
 }
+
+
+
+
+// function createModal(userMessage){
+//   // Uncomment lines below when you figure out modal.
+//   const commands = [
+//     new SlashCommandBuilder()
+//     .setName("createcommand")
+//     .setDescription("Allows admins and mods to create new commands locally..."),
+//   ].map((command) => command.toJSON());
+
+//   const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
+//   rest
+//     .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })
+//     .then((data) => console.log(`Successfully registered ${data.length} application commands.`))
+//     .catch(console.error);
+// }
+
+
+
+
+
 
 async function createNewCommand(userMessage) {
 
@@ -41,7 +71,7 @@ async function createNewCommand(userMessage) {
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescriptionInput);
 
   modal.addComponents(firstModalRow, secondModalRow);
-  await userMessage.reply().showModal
+  return modal;
 
   // Uncomment lines below when you figure out modal.
   // const commands = [
@@ -71,4 +101,4 @@ function deleteCommandByID(userMessage) {
     .catch(console.error);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, createModal };
+module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal };

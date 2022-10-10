@@ -1,4 +1,5 @@
 const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require("discord.js");
+const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
   myGuildID: process.env.GuildID,
   myClientID: process.env.ClientID,

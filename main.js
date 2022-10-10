@@ -33,9 +33,8 @@ const myClient = new Client({
 console.log(`Main.js Loaded...`);
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  console.log("Message 1...");
   if (userMessage.content.includes("//")) {
-    console.log("Message 2...");
+    console.log(doubleSlashCommands.commands);
     for (let i = 0; i < doubleSlashCommands.commands; i++) {
       let commandName = doubleSlashCommands.commands[i].commandName;
       console.log(commandName);

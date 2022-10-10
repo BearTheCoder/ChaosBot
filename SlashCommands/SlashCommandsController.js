@@ -19,20 +19,24 @@ function ReturnModal(){
     .setCustomId("commandDescription")
     .setLabel("Input your slash function description...")
     .setStyle(TextInputStyle.Paragraph);
+  const commandPermissions = new TextInputBuilder()
+    .setCustomId("commandPermissions")
+    .setLabel("Input permissions ('4' for mods, leave empty for everyone)...")
+    .setStyle(TextInputStyle.Short);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
-  modal.addComponents(firstModalRow, secondModalRow);
+  const thirdModalRow = new ActionRowBuilder().addComponents(commandDescription);
+  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow);
   return modal;
 }
 
-function createNewCommand(commandName, commandDescription) {
+function createNewCommand(commandName, commandDescription, commandPermissions) {
   const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
   rest
     .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
     .then((commands) => {
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
-        console.log(commands[i].default_member_permissions); // 333333333333333333333333333333333333
         newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)

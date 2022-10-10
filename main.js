@@ -62,7 +62,10 @@ myClient.on("interactionCreate", async (iAction) => {
   else if (iAction.customId === "createCommandModal"){
     const commandName = iAction.fields.getTextInputValue('commandName');
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
-    slashCommandsController.createNewCommand(commandName, commandDescription);
+    const commandPermissions = iAction.fields.getTextInputValue('commandPermissions');
+    console.log(commandPermissions);
+    if (commandPermissions === "" || commandPermissions === undefined) commandPermissions = null;
+    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions);
     iAction.reply("New command created!")
   }
   else{

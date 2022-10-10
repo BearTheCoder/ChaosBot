@@ -58,6 +58,9 @@ myClient.on("interactionCreate", async (iAction) => {
     });
     iAction.message.delete();
   }
+  if (iAction.isModalSubmit()){
+    console.log(iAction)
+  }
   else{
     for (let i = 0; i < interactions.interactions.length; i++) {
       let commandName = interactions.interactions[i].commandName;

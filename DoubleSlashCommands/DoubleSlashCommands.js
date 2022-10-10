@@ -30,28 +30,25 @@ commands = [
   {
     commandName: `//createcommand`,
     commandFunction: function (userMessage) {
-      // if (!userMessage.user.username === "BearTheCoder") return
       slashCommandsController.createModal();
     },
   },
   {
     commandName: `//deletecommand`,
     commandFunction: function (userMessage) {
-      // if (!userMessage.user.username === "BearTheCoder") return
       console.log("Deleting command...");
     },
   },
   {
     commandName: `//deleteallcommands`,
     commandFunction: function (userMessage) {
-      // if (!userMessage.user.username === "BearTheCoder") return
       slashCommandsController.deleteAllCommands();
     },
   },
   {
     commandName: `//createbasecommand`,
     commandFunction: function (userMessage) {
-      // if (!userMessage.user.username === "BearTheCoder") return
+      console.log(userMessage.author.username);
       slashCommandsController.createBaseCommand();
     },
   },

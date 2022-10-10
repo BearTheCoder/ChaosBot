@@ -30,16 +30,28 @@ function createNewCommand(commandName, commandDescription) {
   
  rest
     .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
-    .then((commands) => { 
-      const newCommand = new SlashCommandBuilder()
+    .then((commands) => {
+      let newCommands = [];
+      for (let i = 0; i < commands.length; i++) {
+        newCommands.push(new SlashCommandBuilder()
+          .setName(commands[i].name)
+          .setDescription(commands[i].description)
+          .setDefaultMemberPermissions(commands[i].default_member_permissions))
+      }
+      newCommands.push(new SlashCommandBuilder()
         .setName(commandName)
-        .setDescription(commandDescription)
-      commands.push(newCommand);
-      console.log(commands);
+        .setDescription(commandDescription));
+
+      newCommands.map((command) => command.toJSON());
+
+
+
+      // commands.push(newCommand);
+      console.log(newCommands);
 
       // commands.map((command) => command.toJSON());
-      // const logMessage = "New commands created...";
-      // connectViaRest(logMessage, {body: commands,})
+      const logMessage = "New commands created...";
+      connectViaRest(logMessage, {body: commands,})
       })
     .catch(console.error);
 

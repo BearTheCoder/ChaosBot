@@ -35,11 +35,10 @@ function createNewCommand(commandName, commandDescription) {
         .setName(commandName)
         .setDescription(commandDescription)
       console.log(newCommand);
-      // commands.push(newCommand);
-      // commands.map((command) => command.toJson());
-      // const logMessage = "New commands created...";
-
-      // connectViaRest(logMessage, {body: commands,})
+      commands.push(newCommand);
+      commands.map((command) => command.toJson());
+      const logMessage = "New commands created...";
+      connectViaRest(logMessage, {body: commands,})
       })
     .catch(console.error);
 

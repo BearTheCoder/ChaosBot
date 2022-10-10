@@ -63,7 +63,7 @@ myClient.on("interactionCreate", async (iAction) => {
     const commandName = iAction.fields.getTextInputValue('commandName');
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
     let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');
-    console.log(commandPermissions);
+    console.log(commandPermissions); //33333333333333333333333333333333
     if (commandPermissions === '*') commandPermissions = null;
     slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions);
     iAction.reply("New command created!")

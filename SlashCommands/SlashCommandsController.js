@@ -30,8 +30,10 @@ function createNewCommand(commandName, commandDescription) {
   
   const commands = rest
     .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
-    .then((data) => {  console.log(commands) })
+    .then((data) => console.log(data) )
     .catch(console.error);
+
+    
 
   // console.log(commands);
 
@@ -39,7 +41,7 @@ function createNewCommand(commandName, commandDescription) {
   //   new SlashCommandBuilder()
   //   .setName(commandName)
   //   .setDescription(commandDescription)
-  //   );
+  //   );  
 
   // commands.map((command) => command.toJson());
   // const logMessage = "New commands created...";

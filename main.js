@@ -2,7 +2,7 @@
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 const interactions = require('./SlashCommands/Interactions.js');
-const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
+const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku

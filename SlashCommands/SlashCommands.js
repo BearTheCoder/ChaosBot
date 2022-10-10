@@ -1,6 +1,7 @@
 const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require("discord.js");
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
+  myToken: process.env.Token,
   myGuildID: process.env.GuildID,
   myClientID: process.env.ClientID,
 });
@@ -13,7 +14,7 @@ function createModal(userMessage){
     .setDescription("Allows admins and mods to create new commands locally..."),
   ].map((command) => command.toJSON());
 
-  const rest = new REST({ version: "10" }).setToken(token);
+  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
   rest
     .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })
     .then((data) => console.log(`Successfully registered ${data.length} application commands.`))

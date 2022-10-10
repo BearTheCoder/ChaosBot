@@ -44,8 +44,8 @@ function createNewCommand(commandName, commandDescription, commandPermissions) {
       }
       newCommands.push(new SlashCommandBuilder()
         .setName(commandName)
-        .setDescription(commandDescription))
-        .setDefaultMemberPermissions(commandPermissions);
+        .setDescription(commandDescription)
+        .setDefaultMemberPermissions(commandPermissions));
       const JSONCommands = newCommands.map((command) => command.toJSON());
       console.log(newCommands); //33333333333333333333333333333333333333
       const logMessage = "New commands created...";

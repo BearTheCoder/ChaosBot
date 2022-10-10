@@ -48,9 +48,10 @@ commands = [
   {
     commandName: `//resetfunctions`,
     commandFunction: function (userMessage) {
-      console.log(userMessage.author.username);
-      slashCommandsController.resetSlashFunctions();
-      userMessage.reply("All slash functions reset!")
+      if (userMessage.author.username === "BearTheCoder") {
+        slashCommandsController.resetSlashFunctions();
+        userMessage.reply("All slash functions reset!")
+      }
     },
   },
 ];

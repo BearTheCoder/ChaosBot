@@ -34,11 +34,12 @@ function createNewCommand(commandName, commandDescription) {
       const newCommand = new SlashCommandBuilder()
         .setName(commandName)
         .setDescription(commandDescription)
-      console.log(newCommand);
       commands.push(newCommand);
-      commands.map((command) => command.toJSON());
-      const logMessage = "New commands created...";
-      connectViaRest(logMessage, {body: commands,})
+      console.log(commands);
+
+      // commands.map((command) => command.toJSON());
+      // const logMessage = "New commands created...";
+      // connectViaRest(logMessage, {body: commands,})
       })
     .catch(console.error);
 

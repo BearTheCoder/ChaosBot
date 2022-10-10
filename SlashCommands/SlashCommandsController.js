@@ -30,7 +30,7 @@ function createNewCommand(commandName, commandDescription) {
   
   const commands = rest
     .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
-    .then((data) => { return data })
+    .then((data) => {  console.log(data) })
     .catch(console.error);
 
   console.log(commands);

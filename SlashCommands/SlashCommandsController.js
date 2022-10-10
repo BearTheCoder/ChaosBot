@@ -1,4 +1,4 @@
-const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ApplicationCommandPermissionsManager } = require("discord.js");
+const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits  } = require("discord.js");
 const advancedPermissions = require('./RestrictedPermissions.js');
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
@@ -70,8 +70,9 @@ function createBaseCommand() {
   const commands = [
     new SlashCommandBuilder()
     .setName("createcommand")
-    .setDescription("This command will delete all existing ChaosBot commands and init the creating modal command."),
-  ].map((command) => {command.permissions.add(advancedPermissions.permissions); command.toJSON();});
+    .setDescription("This command will delete all existing ChaosBot commands and init the creating modal command.")
+    .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+  ].map((command) => command.toJSON());
   const logMessage = "Base command created, all other commands deleted..."
   connectViaRest(logMessage, {body: commands,})
 }

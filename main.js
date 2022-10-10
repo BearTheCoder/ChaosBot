@@ -62,6 +62,7 @@ myClient.on("interactionCreate", async (iAction) => {
     iAction.message.delete();
   }
   if (iAction.commandName === "createcommand"){
+    console.log(iAction.user.username);
     const modal = slashCommands.ReturnModal();
     await iAction.showModal(modal);
   }

@@ -50,16 +50,7 @@ myClient.on("guildMemberUpdate", (newMember) => {
 
 //Called when... idk yet.
 myClient.on("interactionCreate", async (iAction) => {
-  if (iAction.customId === "roleupdate") {
-    subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
-    await iAction.reply({
-      content:
-        "All roles are being updated... The orignal message has been deleted to prevent multiple tasks.",
-      ephemeral: true, //This makes the message delete after a certain period of time
-    });
-    iAction.message.delete();
-  }
-  else if (iAction.customId === "createCommandModal"){
+  if (iAction.customId === "createCommandModal"){
     const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase();
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
     let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');

@@ -1,19 +1,3 @@
-const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js");
-
-const updateRoleButton = new ActionRowBuilder().addComponents(
-  new ButtonBuilder()
-    .setCustomId("roleupdate")
-    .setLabel("Reload user roles?")
-    .setStyle(ButtonStyle.Primary)
-);
-
-async function sendButtonInPM(message) {
-  await message.author.send({
-    content: `If you believe there to be an issue with ChaosBot please contact BearTheCoder#6820 for debugging purposes. The button below will iterate through all users in the server and update the roles accordingly. Please be advised, if there are a large number of members this may take a while...`,
-    components: [updateRoleButton],
-  });
-}
-
 function updateUserRoles(currentMember) {
   let hasKittenRole = false;
   let hasPhweakRole = false;
@@ -41,7 +25,7 @@ function updateUserRoles(currentMember) {
 }
 
 function updateAllRoles(myClient, myGuildID) {
-  console.log(`Roles updated...`);
+  console.log(`All roles updated...`);
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch().then((listOfMembers) => {
     listOfMembers.forEach((currentMember) => {
@@ -58,7 +42,6 @@ async function sendErrorPM(localError, myUserID) {
 }
 
 module.exports = {
-  sendButtonInPM,
   updateUserRoles,
   updateAllRoles,
   sendErrorPM,

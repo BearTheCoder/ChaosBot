@@ -2,7 +2,7 @@ const larryBot = require(`../LarryBot/LarryBot.js`);
 const subscriberBot = require(`../SubscriberBot/SubscriberBot.js`);
 const magic8Ball = require(`../Magic8Ball/Magic8Ball.js`);
 const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
-commands = [
+interactions = [
   {
     commandName: `//larry`,
     commandFunction: function (userMessage) {
@@ -57,4 +57,4 @@ commands = [
   },
 ];
 
-module.exports = { commands };
+module.exports = { interactions };

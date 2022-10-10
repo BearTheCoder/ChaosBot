@@ -48,6 +48,9 @@ myClient.on("guildMemberUpdate", (newMember) => {
 
 //Called when... idk yet.
 myClient.on("interactionCreate", async (iAction) => {
+
+
+  
   if (iAction.customId === "roleupdate") {
     subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
     await iAction.reply({

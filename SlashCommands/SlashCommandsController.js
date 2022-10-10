@@ -1,10 +1,12 @@
-const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require("discord.js");
+const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, ApplicationCommandPermissionsManager } = require("discord.js");
+const advancedPermissions = require('RestrictedPermissions.js');
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
   myToken: process.env.Token,
   myGuildID: process.env.GuildID,
   myClientID: process.env.ClientID,
 });
+
 
 function ReturnModal(){
   const modal = new ModalBuilder()
@@ -25,7 +27,6 @@ function ReturnModal(){
 }
 
 function createNewCommand(commandName, commandDescription) {
-  // Uncomment lines below when you figure out modal.
   let commands = Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID);
 
   commands.push(
@@ -51,12 +52,7 @@ function createNewCommand(commandName, commandDescription) {
 
 function deleteAllCommands() {
   const logMessage = "All commands deleted...";
-  connectViaRest(logMessage, { body: []});
-  // const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
-  // rest
-  //   .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: [], })
-  //   .then(() => console.log("Successfully deleted all guild commands."))
-  //   .catch(console.error);
+  connectViaRest(logMessage, { body: [],});
 }
 
 function deleteCommandByID(userMessage) {
@@ -68,10 +64,6 @@ function deleteCommandByID(userMessage) {
     console.log('Error deleting command by id...');
     console.log(error);
   }
-  // rest
-  //   .delete(Routes.applicationGuildCommand(s3.config.myClientID, s3.config.myGuildID, commandId))
-  //   .then(() => console.log("Successfully deleted guild command"))
-  //   .catch(console.error);
 }
 
 function createBaseCommand() {
@@ -79,14 +71,9 @@ function createBaseCommand() {
     new SlashCommandBuilder()
     .setName("createcommand")
     .setDescription("This command will delete all existing ChaosBot commands and init the creating modal command."),
-  ].map((command) => command.toJSON());
+  ].map((command) => {command.permissions.add(advancedPermissions.permissions); command.toJSON();});
   const logMessage = "Base command created, all other commands deleted..."
   connectViaRest(logMessage, {body: commands,})
-  // const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
-  // rest
-  //   .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })
-  //   .then((data) => console.log(`Successfully registered ${data.length} application commands.`))
-  //   .catch(console.error);
 }
 
 function connectViaRest(logMessage, TestVar){

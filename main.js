@@ -62,7 +62,7 @@ myClient.on("interactionCreate", async (iAction) => {
     for (let i = 0; i < interactions.interactions.length; i++) {
       let commandName = interactions.interactions[i].commandName;
       if (iAction.commandName === commandName) {
-        interactions.interactions[i].commandFunction(iAction);
+        interactions.interactions[i].commandFunction(iAction, myClient);
         break;
       }
     }

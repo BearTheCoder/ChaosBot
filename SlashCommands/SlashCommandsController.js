@@ -81,7 +81,7 @@ function createBaseCommand() {
     .setDescription("This command will delete all existing ChaosBot commands and init the creating modal command."),
   ].map((command) => command.toJSON());
   const logMessage = "Base command created, all other commands deleted..."
-  connectViaRest(logMessage, {body: commands})
+  connectViaRest(logMessage, {body: commands,})
   // const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
   // rest
   //   .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })

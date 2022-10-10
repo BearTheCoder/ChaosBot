@@ -13,15 +13,15 @@ function ReturnModal(){
     .setTitle("Create Command!");
   const commandNameInput = new TextInputBuilder()
     .setCustomId("commandName")
-    .setLabel("Input your slash function name...")
+    .setLabel("Input name...")
     .setStyle(TextInputStyle.Short);
   const commandDescription = new TextInputBuilder()
     .setCustomId("commandDescription")
-    .setLabel("Input your slash function description...")
+    .setLabel("Input description...")
     .setStyle(TextInputStyle.Paragraph);
   const commandPermissions = new TextInputBuilder()
     .setCustomId("commandPermissions")
-    .setLabel("Input permissions ('4' for mods, leave empty for everyone)...")
+    .setLabel("Input permissions...")
     .setStyle(TextInputStyle.Short);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);

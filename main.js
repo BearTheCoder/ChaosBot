@@ -9,6 +9,7 @@
 const larryBot = require(`./LarryBot/LarryBot.js`);
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
+const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
@@ -32,15 +33,22 @@ const myClient = new Client({
 console.log(`Main.js Loaded...`);
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  if (userMessage.content.toLowerCase().includes("//roleupdate")) {
-    subscriberBot.sendButtonInPM(userMessage);
-  } else if (userMessage.content.toLowerCase().includes("//larry")) {
-    larryBot.sendLarryWisdom(userMessage);
-  } else if (userMessage.content.toLowerCase().includes("//whoislarry")) {
-    larryBot.sendLarryInfo(userMessage);
-  } else if (userMessage.content.toLowerCase().includes("//8ball")) {
-    magic8Ball.send8BallMessage(userMessage);
+  for (let i = 0; i < doubleSlashCommands.commands; i++) {
+    let commandName = doubleSlashCommands.commands[i].commandName;
+    if (userMessage.content.toLowerCase().includes(commandName)) {
+      doubleSlashCommands.commands[i].commandFunction(userMessage);
+    }
   }
+
+  // if (userMessage.content.toLowerCase().includes("//roleupdate")) {
+  //   subscriberBot.sendButtonInPM(userMessage);
+  // } else if (userMessage.content.toLowerCase().includes("//larry")) {
+  //   larryBot.sendLarryWisdom(userMessage);
+  // } else if (userMessage.content.toLowerCase().includes("//whoislarry")) {
+  //   larryBot.sendLarryInfo(userMessage);
+  // } else if (userMessage.content.toLowerCase().includes("//8ball")) {
+  //   magic8Ball.send8BallMessage(userMessage);
+  // }
 });
 
 myClient.on("guildMemberUpdate", (newMember) => {

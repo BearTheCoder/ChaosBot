@@ -77,7 +77,7 @@ function deleteCommandByID(userMessage) {
 function createBaseCommand() {
   const commands = [
     new SlashCommandBuilder()
-    .setName("CreateCommand")
+    .setName("createcommand")
     .setDescription("This command will delete all existing ChaosBot commands and init the creating modal command."),
   ].map((command) => command.toJSON());
   const logMessage = "Base command created, all other commands deleted..."

@@ -33,12 +33,16 @@ const myClient = new Client({
 console.log(`Main.js Loaded...`);
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  for (let i = 0; i < doubleSlashCommands.commands; i++) {
-    let commandName = doubleSlashCommands.commands[i].commandName;
-    console.log(commandName);
-    if (userMessage.content.toLowerCase().includes(commandName)) {
-      console.log("Included...");
-      doubleSlashCommands.commands[i].commandFunction(userMessage);
+  console.log("Message 1...");
+  if (userMessage.content.includes("//")) {
+    console.log("Message 2...");
+    for (let i = 0; i < doubleSlashCommands.commands; i++) {
+      let commandName = doubleSlashCommands.commands[i].commandName;
+      console.log(commandName);
+      if (userMessage.content.toLowerCase().includes(commandName)) {
+        console.log("Included...");
+        doubleSlashCommands.commands[i].commandFunction(userMessage);
+      }
     }
   }
 

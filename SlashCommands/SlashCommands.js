@@ -10,7 +10,7 @@ function createModal(userMessage){
   const commands = [
     new SlashCommandBuilder()
     .setName("createcommand")
-    .setDescription("Creates a new command..."),
+    .setDescription("Allows admins and mods to create new commands locally..."),
   ].map((command) => command.toJSON());
 
   const rest = new REST({ version: "10" }).setToken(token);

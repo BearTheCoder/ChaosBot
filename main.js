@@ -8,7 +8,7 @@
 // Access other scripts in directory
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
-const slashCommands = require(`../SlashCommands/SlashCommands.js`);
+const slashCommands = require(`./SlashCommands/SlashCommands.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku

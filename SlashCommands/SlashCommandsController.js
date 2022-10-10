@@ -28,7 +28,10 @@ function ReturnModal(){
 function createNewCommand(commandName, commandDescription) {
   const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
   
-  const commands = rest.get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
+  const commands = rest
+    .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
+    .then((data) => { return data })
+    .catch(console.error);
 
   console.log(commands);
 

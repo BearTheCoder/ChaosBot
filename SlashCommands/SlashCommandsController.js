@@ -26,7 +26,9 @@ function ReturnModal(){
 }
 
 function createNewCommand(commandName, commandDescription) {
-  let commands = Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID);
+  const commands = Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID);
+
+  console.log(commands);
 
   commands.push(
     new SlashCommandBuilder()

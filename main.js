@@ -26,7 +26,7 @@ myClient.once('ready', () => {
 
 //Called everytime a user types a message in any channel.
 myClient.on(`messageCreate`, async (userMessage) => {
-  if (userMessage.content.includes("//")) {
+  if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
       let commandName = doubleSlashCommands.commands[i].commandName;
       if (userMessage.content.toLowerCase().includes(commandName)) {
@@ -50,7 +50,7 @@ myClient.on("guildMemberUpdate", (newMember) => {
 myClient.on("interactionCreate", async (iAction) => {
 
 
-  
+
   if (iAction.customId === "roleupdate") {
     subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
     await iAction.reply({

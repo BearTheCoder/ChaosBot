@@ -29,7 +29,7 @@ commands = [
   },
   {
     commandName: `//createcommand`,
-    commandFunction: function () {
+    commandFunction: function (userMessage) {
       //create function
       slashCommands.createModal(userMessage);
     },

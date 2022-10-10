@@ -15,12 +15,12 @@ function ReturnModal(){
     .setCustomId("commandName")
     .setLabel("This is a test modal...")
     .setStyle(TextInputStyle.Short);
-  const commandDescriptionInput = new TextInputBuilder()
-    .setCustomId("commandDescriptionInput")
+  const commandDescription = new TextInputBuilder()
+    .setCustomId("commandDescription")
     .setLabel("Input your slash command description...")
     .setStyle(TextInputStyle.Paragraph);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
-  const secondModalRow = new ActionRowBuilder().addComponents(commandDescriptionInput);
+  const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   modal.addComponents(firstModalRow, secondModalRow);
   return modal;
 }
@@ -35,6 +35,9 @@ function createNewCommand(commandName, commandDescription) {
     );
 
   commands.map((command) => command.toJson());
+  const logMessage = "New commands created...";
+
+  connectViaRest(logMessage, {body: commands,})
 
   // const commands = [
   //   new SlashCommandBuilder()

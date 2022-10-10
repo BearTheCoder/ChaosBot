@@ -2,6 +2,7 @@
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 const interactions = require('./SlashCommands/Interactions.js');
+const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
@@ -58,8 +59,10 @@ myClient.on("interactionCreate", async (iAction) => {
     });
     iAction.message.delete();
   }
-  if (iAction.isModalSubmit()){
-    console.log(iAction)
+  else if (iAction.customId === "createCommandModal"){
+    const commandName = iAction.fields.getTextInputValue('commandName');
+    const commandDescription = iAction.fields.getTextInputValue('commandDescription');
+    slashCommandsController.createNewCommand(commandName, commandDescription);
   }
   else{
     for (let i = 0; i < interactions.interactions.length; i++) {

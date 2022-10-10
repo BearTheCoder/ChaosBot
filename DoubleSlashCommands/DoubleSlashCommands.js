@@ -1,7 +1,7 @@
 const larryBot = require(`../LarryBot/LarryBot.js`);
 const subscriberBot = require(`../SubscriberBot/SubscriberBot.js`);
 const magic8Ball = require(`../Magic8Ball/Magic8Ball.js`);
-
+const slashCommands = require(`../SlashCommands/SlashCommands.js`);
 commands = [
   {
     commandName: `//larry`,
@@ -31,7 +31,7 @@ commands = [
     commandName: `//createcommand`,
     commandFunction: function () {
       //create function
-      console.log("Creating command...");
+      slashCommands.createModal(userMessage);
     },
   },
   {

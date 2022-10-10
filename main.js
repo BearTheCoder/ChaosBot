@@ -6,9 +6,7 @@
 */
 
 // Access other scripts in directory
-const larryBot = require(`./LarryBot/LarryBot.js`);
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
-const magic8Ball = require(`./Magic8Ball/Magic8Ball.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 
 //Global vars

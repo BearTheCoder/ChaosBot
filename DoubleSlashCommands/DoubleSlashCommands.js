@@ -44,7 +44,7 @@ commands = [
   {
     commandName: `//deleteallcommands`,
     commandFunction: function (userMessage) {
-      if (!userMessage.user.username === "BearTheCoder") return
+      // if (!userMessage.user.username === "BearTheCoder") return
       slashCommandsController.deleteAllCommands();
     },
   },

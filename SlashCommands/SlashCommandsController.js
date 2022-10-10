@@ -42,7 +42,7 @@ function createNewCommand(commandName, commandDescription) {
         .setName(commandName)
         .setDescription(commandDescription));
 
-      newCommands.map((command) => command.toJSON());
+      const JSONCommands = newCommands.map((command) => command.toJSON());
 
 
 
@@ -51,7 +51,7 @@ function createNewCommand(commandName, commandDescription) {
 
       // commands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
-      connectViaRest(logMessage, {body: commands,})
+      connectViaRest(logMessage, {body: JSONCommands,})
       })
     .catch(console.error);
 

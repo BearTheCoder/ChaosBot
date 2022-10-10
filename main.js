@@ -1,14 +1,6 @@
-/*
-  HEADER:
-    1.) Currently, we are checking each message for "//larry" which is inefficient.
-        To optimize, we should create and ACTUAL "slash function" that will only fire when the "slash function" is called.
-        Only issue, I have no clue how to create actual slash functions yet.
-*/
-
 // Access other scripts in directory
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
-const slashCommands = require(`./SlashCommands/SlashCommands.js`);
 
 //Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku

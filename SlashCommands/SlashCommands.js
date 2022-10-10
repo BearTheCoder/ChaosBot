@@ -10,20 +10,16 @@ function ReturnModal(){
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
     .setTitle("Create Command");
-
   const commandNameInput = new TextInputBuilder()
     .setCustomId("commandName")
     .setLabel("This is a test modal...")
     .setStyle(TextInputStyle.Short);
-
   const commandDescriptionInput = new TextInputBuilder()
     .setCustomId("commandDescriptionInput")
     .setLabel("Input your slash command description...")
     .setStyle(TextInputStyle.Paragraph);
-
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescriptionInput);
-
   modal.addComponents(firstModalRow, secondModalRow);
   return modal;
 }
@@ -51,7 +47,7 @@ function deleteAllCommands() {
     .catch(console.error);
 }
 
-function deleteCommandByID(userMessage) {
+function deleteCommandByID() {
   rest
     .delete(Routes.applicationGuildCommand(s3.config.myClientID, s3.config.myGuildID, commandId))
     .then(() => console.log("Successfully deleted guild command"))

@@ -34,8 +34,7 @@ console.log(`Main.js Loaded...`);
 
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//")) {
-    console.log(doubleSlashCommands.commands);
-    for (let i = 0; i < doubleSlashCommands.commands; i++) {
+    for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
       let commandName = doubleSlashCommands.commands[i].commandName;
       console.log(commandName);
       if (userMessage.content.toLowerCase().includes(commandName)) {

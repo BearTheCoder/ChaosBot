@@ -5,7 +5,7 @@ const s3 = new aws.S3({
   myClientID: process.env.ClientID,
 });
 
-function createModal(){
+function createModal(userMessage){
   // Uncomment lines below when you figure out modal.
   const commands = [
     new SlashCommandBuilder()

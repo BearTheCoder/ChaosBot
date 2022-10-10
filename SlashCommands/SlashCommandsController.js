@@ -47,7 +47,6 @@ function createNewCommand(commandName, commandDescription, commandPermissions) {
         .setDescription(commandDescription)
         .setDefaultMemberPermissions(commandPermissions));
       const JSONCommands = newCommands.map((command) => command.toJSON());
-      console.log(newCommands); //33333333333333333333333333333333333333
       const logMessage = "New commands created...";
       connectViaRest(logMessage, {body: JSONCommands,})
       })
@@ -74,7 +73,7 @@ function resetSlashFunctions() {
   const commands = [
     new SlashCommandBuilder()
     .setName("createcommand")
-    .setDescription("Will create a public command with no functionality.")
+    .setDescription("(MODS) Will create a public command with no functionality.")
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
   ].map((command) => command.toJSON());
   const logMessage = "Base command created, all other commands deleted..."

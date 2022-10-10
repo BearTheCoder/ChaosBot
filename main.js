@@ -63,6 +63,7 @@ myClient.on("interactionCreate", async (iAction) => {
     const commandName = iAction.fields.getTextInputValue('commandName');
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
     slashCommandsController.createNewCommand(commandName, commandDescription);
+    iAction.reply("New command created!")
   }
   else{
     for (let i = 0; i < interactions.interactions.length; i++) {

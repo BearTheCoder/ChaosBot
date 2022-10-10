@@ -27,8 +27,7 @@ function ReturnModal(){
 
 function createNewCommand(commandName, commandDescription) {
   const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
-  
- rest
+  rest
     .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
     .then((commands) => {
       let newCommands = [];
@@ -41,46 +40,12 @@ function createNewCommand(commandName, commandDescription) {
       newCommands.push(new SlashCommandBuilder()
         .setName(commandName)
         .setDescription(commandDescription));
-
       const JSONCommands = newCommands.map((command) => command.toJSON());
-
-
-
-      // commands.push(newCommand);
       console.log(newCommands);
-
-      // commands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
       connectViaRest(logMessage, {body: JSONCommands,})
       })
     .catch(console.error);
-
-    
-
-  // console.log(commands);
-
-  // commands.push(
-  //   new SlashCommandBuilder()
-  //   .setName(commandName)
-  //   .setDescription(commandDescription)
-  //   );  
-
-  // commands.map((command) => command.toJson());
-  // const logMessage = "New commands created...";
-
-  // connectViaRest(logMessage, {body: commands,})
-
-  // const commands = [
-  //   new SlashCommandBuilder()
-  //   .setName(commandName)
-  //   .setDescription(commandDescription),
-  // ].map((command) => command.toJSON());
-
-  // const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
-  // rest
-  //   .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), { body: commands, })
-  //   .then((data) => console.log(`Successfully registered ${data.length} application commands.`))
-  //   .catch(console.error);
 }
 
 function deleteAllCommands() {

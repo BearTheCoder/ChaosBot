@@ -1,5 +1,5 @@
 const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
-const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
+const subscriberBot = require(`../SubscriberBot/SubscriberBot.js`);
 interactions = [
   {
     commandName: `createcommand`,

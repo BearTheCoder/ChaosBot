@@ -1,7 +1,7 @@
 const larryBot = require(`../LarryBot/LarryBot.js`);
 const subscriberBot = require(`../SubscriberBot/SubscriberBot.js`);
 const magic8Ball = require(`../Magic8Ball/Magic8Ball.js`);
-const slashCommands = require(`../SlashCommands/SlashCommands.js`);
+const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
 commands = [
   {
     commandName: `//larry`,
@@ -30,19 +30,25 @@ commands = [
   {
     commandName: `//createcommand`,
     commandFunction: function (userMessage) {
-      //slashCommands.createModal();
+      slashCommandsController.createModal();
     },
   },
   {
     commandName: `//deletecommand`,
-    commandFunction: function () {
+    commandFunction: function (userMessage) {
       console.log("Deleting command...");
     },
   },
   {
     commandName: `//deleteallcommands`,
     commandFunction: function (userMessage) {
-      slashCommands.deleteAllCommands();
+      slashCommandsController.deleteAllCommands();
+    },
+  },
+  {
+    commandName: `//createbasecommand`,
+    commandFunction: function (userMessage) {
+      slashCommandsController.createBaseCommand();
     },
   },
 ];

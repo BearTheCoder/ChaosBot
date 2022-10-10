@@ -9,9 +9,7 @@ const s3 = new aws.S3({
   myGuildID: process.env.GuildID,
   myUserID: process.env.BearID,
 });
-
 const { Client, GatewayIntentBits } = require("discord.js");
-
 const myClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -21,8 +19,12 @@ const myClient = new Client({
   ],
 });
 
-console.log(`Main.js Loaded...`);
+//Called once application connects to discord.
+myClient.once('ready', () => {
+  console.log('Main.js Loaded...')
+});
 
+//Called everytime a user types a message in any channel.
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
@@ -35,6 +37,7 @@ myClient.on(`messageCreate`, async (userMessage) => {
   }
 });
 
+//Called everytime a guild member changes in any way.
 myClient.on("guildMemberUpdate", (newMember) => {
   try {
     subscriberBot.updateUserRoles(newMember);
@@ -43,6 +46,7 @@ myClient.on("guildMemberUpdate", (newMember) => {
   }
 });
 
+//Called when... idk yet.
 myClient.on("interactionCreate", async (iAction) => {
   if (iAction.customId === "roleupdate") {
     subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);

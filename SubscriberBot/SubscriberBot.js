@@ -11,9 +11,8 @@ function updateUserRoles(currentMember) {
       hasPhweettenRole = true;
     }
   });
-  //The following lines run ASYNC and takes a while for the results to show on DISCORD...
-  let combinedRole = currentMember.roles.cache.find((findCombinedRole) =>
-    findCombinedRole.name.toLowerCase().includes("phweettens")
+  let combinedRole = currentMember.roles.cache.find((findCombinedRoleAsync) =>
+    findCombinedRoleAsync.name.toLowerCase().includes("phweettens")
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
     currentMember.roles.add(combinedRole);

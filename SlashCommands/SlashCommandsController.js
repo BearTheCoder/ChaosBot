@@ -7,7 +7,7 @@ const s3 = new aws.S3({
 });
 
 
-function ReturnModal(){
+function ReturnModal() {
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
     .setTitle("Create Command!");

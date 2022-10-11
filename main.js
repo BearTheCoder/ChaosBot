@@ -1,10 +1,8 @@
-// Access other scripts in directory
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 const interactions = require('./SlashCommands/Interactions.js');
 const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
 
-//Global vars
 const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
 const s3 = new aws.S3({
   myToken: process.env.Token,
@@ -21,12 +19,10 @@ const myClient = new Client({
   ],
 });
 
-//Called once application connects to discord.
 myClient.once('ready', () => {
   console.log('Main.js Loaded...')
 });
 
-//Called everytime a user types a message in any channel.
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
@@ -39,7 +35,6 @@ myClient.on(`messageCreate`, async (userMessage) => {
   }
 });
 
-//Called everytime a guild member changes in any way.
 myClient.on("guildMemberUpdate", (newMember) => {
   try {
     subscriberBot.updateUserRoles(newMember);
@@ -48,7 +43,6 @@ myClient.on("guildMemberUpdate", (newMember) => {
   }
 });
 
-//Called when... idk yet.
 myClient.on("interactionCreate", async (iAction) => {
   if (iAction.customId === "createCommandModal"){
     const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase();

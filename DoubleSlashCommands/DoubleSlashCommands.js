@@ -22,12 +22,6 @@ commands = [
     },
   },
   {
-    commandName: `//roleupdate`,
-    commandFunction: function (userMessage) {
-      subscriberBot.sendButtonInPM(userMessage);
-    },
-  },
-  {
     commandName: `//resetfunctions`,
     commandFunction: function (userMessage) {
       if (userMessage.author.username === "BearTheCoder") {

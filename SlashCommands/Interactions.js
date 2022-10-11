@@ -18,6 +18,12 @@ interactions = [
       await interaction.reply("All roles are being updated...");
     },
   },
+  {
+    commandName: `8ball`,
+    commandFunction: async function (interaction, myClient) {
+      console.log('8ball called...');
+    },
+  },
 ];
 
 module.exports = { interactions };

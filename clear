@@ -1,0 +1,506 @@
+[33mcommit 4dcd8f3ab37f09fd44eca2943dffe90729d20d98[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Fri Sep 30 14:09:02 2022 -0400
+
+    Updated readme
+
+[33mcommit 22fb8912bbd855ed0976b6975097d89ce6e34ca5[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Fri Sep 30 13:35:56 2022 -0400
+
+    Fixed error
+
+[33mcommit 32aaeb8be5df31a047bc5071ec74cd36d8352b96[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Fri Sep 30 13:31:38 2022 -0400
+
+    Added Magic 8Ball
+
+[33mcommit 3fd65471000593402cf7e3cedce3a70b6b5b53ff[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Fri Sep 30 09:30:07 2022 +0800
+
+    added wisdom
+
+[33mcommit 1919ab1a5aba069caa1aa686e5d588eedada86b6[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 23:05:30 2022 +0800
+
+    fixed grammatical error
+
+[33mcommit 87f0b58d9a10ef4ef3af7af02f87c30d7339bce3[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 23:03:57 2022 +0800
+
+    Update LarryWisdom.js
+
+[33mcommit ca4331adfedfc8c972c9d37111d3d16b4cc9e20b[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 23:03:11 2022 +0800
+
+    Added game x hygiene references
+
+[33mcommit 8b086b0401b4ff71187f93ebf669f86adce9522a[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 22:50:27 2022 +0800
+
+    minor widsom tweaks
+
+[33mcommit 84f4518f997b1074c7d12e1cf16721f2b27ea99b[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 20:57:15 2022 +0800
+
+    MOAR WISDOM
+
+[33mcommit 9d1f114feebc0d06395923f5e5de95eb79b05957[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 20:33:23 2022 +0800
+
+    Added moar wisdom
+
+[33mcommit ce54ca045264ff3db53b120fa78f8aff1bee4b6f[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 20:00:25 2022 +0800
+
+    More wisdom + case fix
+
+[33mcommit 60c4315d2cb63aebf51b4f1ae773fc74efd3b09b[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 19:57:47 2022 +0800
+
+    Added more wisdom
+
+[33mcommit 2a2ec8a76810a3f57ebf58a5a261f54be3268bfa[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 10:06:11 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 6b83e3eab2cee20bcf06fbc366c3819970710450[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 10:04:40 2022 +0800
+
+    testing making it bold
+
+[33mcommit 4a8462d8a30d8c741a836182756caccc5a254a5f[m
+Merge: b197158 e87777e
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 22:02:05 2022 -0400
+
+    Merge branch 'main' of https://github.com/BearTheCoder/ChaosBot
+
+[33mcommit b1971582abe8124f079a881d9c9894712da2b478[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 22:02:02 2022 -0400
+
+    Added phwee suggestion
+
+[33mcommit e87777e519a32efd1cae978f455b393ebbdf72a2[m
+Author: Phwee <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Thu Sep 29 09:36:48 2022 +0800
+
+    Minor quote change
+
+[33mcommit e595091d2794626b9e2bcf7558d1fd371d1bec16[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 21:31:42 2022 -0400
+
+    Changed procfile
+
+[33mcommit ea92bec45858ebafa7867bea46fdfdb991d3c4d5[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 21:12:29 2022 -0400
+
+    Subscriber bot final integration!
+
+[33mcommit 727e8b7cf26c76e20060605782c0955354e1e1ff[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 21:09:29 2022 -0400
+
+    Error fix?
+
+[33mcommit 732d8d27596d61233ad0a0690d61fb401fda1ab3[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 20:54:20 2022 -0400
+
+    checking an error with integration
+
+[33mcommit 3ce1a9af3766245d238e665903419d27a2e7f8ac[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:50:27 2022 -0500
+
+    integration 7
+
+[33mcommit 8b210936385bd5429fccaa0b399a987f0f4b5e99[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:50:04 2022 -0500
+
+    integration 7?
+
+[33mcommit 61f64519d7ae5ccbeb311cbabbe79650662acd85[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:39:30 2022 -0500
+
+    integration test 5
+
+[33mcommit e92cab1614f05c3d0e9bb03bab68a185ad02ff6d[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:34:01 2022 -0500
+
+    Integration test 4?
+
+[33mcommit d5276dfe767f16e0fd43b335196434795e7d3713[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:28:52 2022 -0500
+
+    Integration test 3
+
+[33mcommit 144604902439939ea37437294595730cc30444cc[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:26:11 2022 -0500
+
+    Missed silly mistake Integration 2
+
+[33mcommit 7c762fca2320dc9e2301e125771581eefcf0992b[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 16:24:55 2022 -0500
+
+    test subscriberbot integration 1
+
+[33mcommit 5f4560d1e391b8781a9a40a52d7afe58567738d3[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:47:16 2022 -0500
+
+    Testing SubscriberBot 1
+
+[33mcommit 118e24e6253f8de479a4236979c6484908697446[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:43:10 2022 -0500
+
+    test 12? Final hopefully
+
+[33mcommit ce8a09c0a8775f6e2edc2c3942a40556578c0784[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:35:53 2022 -0500
+
+    test 12 I think this is the last one
+
+[33mcommit ff84fcdd7e442c76a6d885782cc2c70778040d40[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:33:35 2022 -0500
+
+    Ttest 11
+
+[33mcommit e0017ed0a7eef8488368e466d95c109c876dfcfd[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:30:51 2022 -0500
+
+    test 10 getting there
+
+[33mcommit 2fd434e54e95edd54681901b9bd28494caa721c5[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:28:30 2022 -0500
+
+    test 9 :phweeSadge:
+
+[33mcommit c9bc1e9af12b12d919af8695cbb48d9b4cc868c6[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:24:11 2022 -0500
+
+    Test 8, why does this not work
+
+[33mcommit 6f8c720b6f468c7d9e68b65e6fd8d1a3f39a6e37[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:22:42 2022 -0500
+
+    Test 7 I am drunk. Shouldn't be coding
+
+[33mcommit 66a62c3759c8bd55a1c56b3fa08d07b4b50fcddb[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:20:55 2022 -0500
+
+    test 7
+
+[33mcommit 8838cb7c09e50b0f160f9b756d4a3853e7278ccd[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:15:17 2022 -0500
+
+    Test 6
+
+[33mcommit 8c25fdb8d6ed233eaf63b69c580fa83b35b88577[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:13:39 2022 -0500
+
+    Test 5
+
+[33mcommit 371b687d86dd365479ee29ec47805f211a52cf85[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:08:52 2022 -0500
+
+    test 4
+
+[33mcommit 4bb2eaffe7dd804e7eab27d385ef24022f1382e0[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:07:32 2022 -0500
+
+    Test 3
+
+[33mcommit a3ad89fd52ee8092e45a4a7a841dfa2749aed8b8[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:05:43 2022 -0500
+
+    Test 2
+
+[33mcommit b6608c1f32455f2718e5fd24f7d5dd3bf0635da8[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:04:07 2022 -0500
+
+    main.js procfile add
+
+[33mcommit bcc677960d98d41bef472b8de1db876fb26570a6[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 15:02:54 2022 -0500
+
+    Testing seperate files
+
+[33mcommit 661f008dfd700a07ff0b72d5ae8e3786a96a154e[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:59:44 2022 -0500
+
+    Fixed procfile
+
+[33mcommit ea4166aa06879e8560e2b2af1c38a2f692b4d336[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:57:23 2022 -0500
+
+    removed second worker
+
+[33mcommit 786b821062e2f133a2155829d38871a15182332e[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:43:47 2022 -0500
+
+    Testing multiple workers per procfile
+
+[33mcommit 9f738fab6e23483131a7cf14356bcc5914bbef78[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:34:06 2022 -0500
+
+    Move LarryBot to it's own folder
+
+[33mcommit 4bf0e18969884d1f0ddca13c3f7f585f2801632e[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:07:36 2022 -0500
+
+    console.log duh
+
+[33mcommit c2be8002e3e1d8afdce6bab4b1b78ee21c667ce8[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:05:50 2022 -0500
+
+    Added a log function to test if I can get username
+
+[33mcommit 9c6b473c9475ce22bb9623089830ddf0fffae984[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 12:01:36 2022 -0500
+
+    Remove LarryWisdom from MainFile
+
+[33mcommit 5e26179699ed4f81511dde2b3a377ca77c62c157[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 11:58:50 2022 -0500
+
+    Seperated LarryWisdom into a seperate file.
+
+[33mcommit 3d051c44cb29e9cbce8fee7a7acc97468ad1d93c[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 10:36:59 2022 -0500
+
+    Replaced string quotations with back ticks.
+
+[33mcommit 91a3d02c01fc07e015806d52d502abd46b201574[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 10:28:14 2022 -0500
+
+    Remove "let"
+
+[33mcommit 8f36486bfd3492fb783fcdc732c8c331e4e35eeb[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 10:26:41 2022 -0500
+
+    Added new command
+
+[33mcommit 8e44098e97c10fbd560c5403620eb02da6040120[m
+Author: AaronAdkins <58434823+AaronAdkins@users.noreply.github.com>
+Date:   Wed Sep 28 10:21:08 2022 -0500
+
+    Added lines to Wisdom
+
+[33mcommit 525e91b9cee7fc253310bf78e636e79b512e45b7[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:46:22 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit d12616c55a17bd0f94c70ddd6dbcdf679daea011[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:46:06 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 7790fd40d82acebff6c2457142f189b1a891fe3a[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:45:35 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 5d50ba00d33deb2994dd75bffbae266038a1ec61[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:44:36 2022 +0800
+
+    OK I GOT IT
+    
+    Note, cannot put a semicolon even if its between quotations.
+
+[33mcommit 03c572e28941eb5003bffa622e56f67e90dd5275[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:43:43 2022 +0800
+
+    Narrowed it down to either this
+
+[33mcommit bf14e92a3ed9e657061e611d4b427b92950b2c31[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:42:37 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 2300c8fd66d5a1b8eee95a25175c498410eba3a5[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:41:24 2022 +0800
+
+    Adding it back in, in blocks to identify the error
+
+[33mcommit 03e9d295715d4d7d3685d17bce76a731b5836e3e[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:40:03 2022 +0800
+
+    Removed all the stuff i added coz i broke it
+
+[33mcommit 8a3fadb8610dcf1207eef5a2ed8e220da6378dfe[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:36:49 2022 +0800
+
+    Removed a quote
+    
+    I had a quote where where i tried to include a quotation with a ""
+
+[33mcommit b8cd58d9f3a9fe63376564df44a2bf3aea65bc25[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:34:11 2022 +0800
+
+    Fixed Syntax
+    
+    I forgot the commas lul
+
+[33mcommit 60742e33913f96f731bb4f448c130354cb083a3a[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:33:47 2022 +0800
+
+    Added comedic quotes
+
+[33mcommit bbe05c28c095ebc0c7fa56165653c9b579ba42d7[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:27:51 2022 +0800
+
+    Added suggestion submitted by Niuraeix
+
+[33mcommit 35b0904bbf20a83cffaac957affe8811d643ec71[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:23:38 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 72df4b37ed6ac041b4113a383a41e6b5da90d862[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:21:45 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit deb3b8eebeee59e95325dd7c0b22b44eed365fe2[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:21:09 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit abe79efa06c0e9afdc1167b3664fa8a45a87bd2d[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:18:10 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 0d370046c8de1a936e4bd9325c8e04c23ba87418[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:14:20 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 15f7c4ada4755177727d0083cb94a9b2b709056d[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:06:20 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit 2601a8ba50eca22b0a7dabb20b6e584c6f5aca51[m
+Author: PhweedomStudio <114592101+PhweedomStudio@users.noreply.github.com>
+Date:   Wed Sep 28 22:05:52 2022 +0800
+
+    Update LarryBot.js
+
+[33mcommit e88bee10c59c88effbf9f8137fa63221b28f2cbf[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 09:18:37 2022 -0400
+
+    Added "Header"
+
+[33mcommit 4a836b322e149341e585d9fdc35ae3206824487a[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 09:02:41 2022 -0400
+
+    Spelling Mistake
+
+[33mcommit 3e6a4aea8902faa5d38ad4cac199f75d25f239e9[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:58:38 2022 -0400
+
+    Added more wisodm
+
+[33mcommit fc5f5913defd06ee3cdedf846725e4755338ec79[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:54:28 2022 -0400
+
+    Updated Token
+
+[33mcommit 94e6f47499e72461c9c11d8fdf50bc676bd85aa3[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:50:28 2022 -0400
+
+    Added Procfile
+
+[33mcommit 46ec94100a4495a84c25611e7b9be1373fd6aaf3[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:42:30 2022 -0400
+
+    Install AWS-SDK for Heroku's and Update LarryBot.js
+
+[33mcommit c49b2b55f34318051f0eb55b81e0a4ae2af83930[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:37:13 2022 -0400
+
+    npm init and file creation
+    
+    added npm init to folder structure, installed discord.js and created LarryBot. No git ignore needed because all files are needed to run bot off of Heroku.
+
+[33mcommit c78f064e7ed6b0ec375a3fa5659645bddb2b0a08[m
+Author: BearTheCoder <bearthecoder@gmail.com>
+Date:   Wed Sep 28 08:23:59 2022 -0400
+
+    Initial commit

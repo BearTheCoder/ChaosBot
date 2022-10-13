@@ -1,8 +1,9 @@
-function updateUserRoles(currentMember) {
+function updateUserRoles (currentMember) {
   let hasKittenRole = false;
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
   currentMember.roles.cache.forEach((userRole) => {
+    console.log(`Updating user: ${ currentMember.name }`);
     if (userRole.name.toLowerCase().includes("kittens")) {
       hasKittenRole = true;
     } else if (userRole.name.toLowerCase().includes("phweaks")) {
@@ -16,14 +17,14 @@ function updateUserRoles(currentMember) {
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
     currentMember.roles.add(combinedRole);
-    console.log(`Added role to ${currentMember}`);
+    console.log(`Added role to ${ currentMember }`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
     currentMember.roles.remove(combinedRole);
-    console.log(`Removed role from ${currentMember}`);
+    console.log(`Removed role from ${ currentMember }`);
   }
 }
 
-function updateAllRoles(myClient, myGuildID) {
+function updateAllRoles (myClient, myGuildID) {
   console.log(`All roles updated...`);
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch().then((listOfMembers) => {
@@ -33,9 +34,9 @@ function updateAllRoles(myClient, myGuildID) {
   });
 }
 
-async function sendErrorPM(localError, myUserID) {
+async function sendErrorPM (localError, myUserID) {
   const myUserInfo = await client.users.fetch(myUserID);
-  myUserInfo.send(`The bot has experienced and error: ${localError} \n 
+  myUserInfo.send(`The bot has experienced and error: ${ localError } \n 
     Please go to https://www.heroku.com to check error logs.
   `);
 }

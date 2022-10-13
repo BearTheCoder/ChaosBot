@@ -39,7 +39,7 @@ const larryWisdomLines = [
   `As my uncle Kog'Maw always says, "Leave no scraps!"`,
   `I love looking at the stars.. wait those aren't stars those are.. GERMS??`,
   `The moon is beautiful, isn't it? Wait, that's not the moon it's a round mirror.. Oh it's me, I'm beautiful. Hello beautiful :smiling_face_with_3_hearts:`,
-  `Size doesn't matter, it's how use the cleaning product`,
+  `Size doesn't matter, it's how you use the cleaning product`,
   `Do you think one day sentient toilet rugs will be allowed to run for President? There's a few changes I have in mind about hygiene laws..`,
   `I heard we're stomping n00bs today. Is that some kind of bacteria?`,
   `Did you hydrate today? Since I'm a fish, if I just vomit in your mouth, you're basically getting a drink of water. I think.`,
@@ -56,6 +56,7 @@ const larryWisdomLines = [
   `When I die will I go to toilet rug heaven or bot heaven? I guess if I see Sputnik Senpai then I'll know I'm in bot heaven!`,
   `I'm gunna be the next Hokage! Then, everyone in the server will acknowledge me. I won't stop cleaning, because that's my ninja way!`,
   `Don't eat cat food. Phwee will be ok since she's not human but in general.. don't eat cat food.`,
+  `Sometimes I tell people my name is Gene; because then when they greet me they say: "Hi, Gene!"`
 ];
 
 module.exports = { larryWisdomLines };

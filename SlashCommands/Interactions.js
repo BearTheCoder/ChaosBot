@@ -15,7 +15,6 @@ interactions = [
     commandName: `roleupdate`,
     commandFunction: async function (interaction, myClient) {
       subscriberBot.updateAllRoles(myClient, s3.config.myGuildID);
-      console.log(`role update...`);
       await interaction.reply("All roles are being updated...");
     },
   },

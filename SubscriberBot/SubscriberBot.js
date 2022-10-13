@@ -3,7 +3,6 @@ function updateUserRoles (currentMember) {
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
   currentMember.roles.cache.forEach((userRole) => {
-    console.log(`Updating user: ${ currentMember.name }`);
     if (userRole.name.toLowerCase().includes("kittens")) {
       hasKittenRole = true;
     } else if (userRole.name.toLowerCase().includes("phweaks")) {
@@ -12,12 +11,12 @@ function updateUserRoles (currentMember) {
       hasPhweettenRole = true;
     }
   });
-  let combinedRole = currentMember.roles.cache.find((findCombinedRoleAsync) =>
+  let combinedRole = currentMember.guild.roles.cache.find((findCombinedRoleAsync) =>
     findCombinedRoleAsync.name.toLowerCase().includes("phweettens")
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
     currentMember.roles.add(combinedRole);
-    console.log(`Added role to ${ currentMember }`);
+    console.log(`Added role to ${ currentMember.name }`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
     currentMember.roles.remove(combinedRole);
     console.log(`Removed role from ${ currentMember }`);

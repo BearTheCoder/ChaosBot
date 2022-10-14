@@ -1,11 +1,5 @@
 const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits  } = require("discord.js");
-const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
-const s3 = new aws.S3({
-  myToken: process.env.Token,
-  myGuildID: process.env.GuildID,
-  myClientID: process.env.ClientID,
-});
-
+require('dotenv').config();
 
 function ReturnModal() {
   const modal = new ModalBuilder()
@@ -31,9 +25,9 @@ function ReturnModal() {
 }
 
 function createNewCommand(commandName, commandDescription, commandPermissions) {
-  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
+  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .get(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID))
+    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
     .then((commands) => {
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
@@ -81,9 +75,9 @@ function resetSlashFunctions() {
 }
 
 function connectViaRest(logMessage, TestVar){
-  const rest = new REST({ version: "10" }).setToken(s3.config.myToken);
+  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .put(Routes.applicationGuildCommands(s3.config.myClientID, s3.config.myGuildID), TestVar)
+    .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), TestVar)
     .then((data) => console.log(logMessage))
     .catch(console.error);
 }

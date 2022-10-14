@@ -1,2 +1,0 @@
-Worker: node ./main.js
-

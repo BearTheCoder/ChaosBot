@@ -34,7 +34,7 @@ myClient.on("guildMemberUpdate", (newMember) => {
   try {
     subscriberBot.updateUserRoles(newMember);
   } catch (errorMsg) {
-    subscriberBot.sendErrorPM(errorMsg, process.env.myUserID);
+    subscriberBot.sendErrorPM(errorMsg, process.env.myPersonalID);
   }
 });
 

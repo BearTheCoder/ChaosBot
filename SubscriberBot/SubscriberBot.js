@@ -36,7 +36,7 @@ function updateAllRoles(myClient, myGuildID) {
 async function sendErrorPM(localError, myUserID) {
   const myUserInfo = await client.users.fetch(myUserID);
   myUserInfo.send(`The bot has experienced and error: ${localError} \n 
-    Please go to https://www.heroku.com to check error logs.
+    Please go to https://raliway.app to check error logs.
   `);
 }
 

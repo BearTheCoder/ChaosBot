@@ -1,4 +1,4 @@
-function updateUserRoles(currentMember) {
+function updateUserRoles (currentMember) {
   let hasKittenRole = false;
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
@@ -11,19 +11,19 @@ function updateUserRoles(currentMember) {
       hasPhweettenRole = true;
     }
   });
-  let combinedRole = currentMember.roles.cache.find((findCombinedRoleAsync) =>
+  let combinedRole = currentMember.guild.roles.cache.find((findCombinedRoleAsync) =>
     findCombinedRoleAsync.name.toLowerCase().includes("phweettens")
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
     currentMember.roles.add(combinedRole);
-    console.log(`Added role to ${currentMember}`);
+    console.log(`Added role to ${ currentMember.name }`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
     currentMember.roles.remove(combinedRole);
-    console.log(`Removed role from ${currentMember}`);
+    console.log(`Removed role from ${ currentMember }`);
   }
 }
 
-function updateAllRoles(myClient, myGuildID) {
+function updateAllRoles (myClient, myGuildID) {
   console.log(`All roles updated...`);
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch().then((listOfMembers) => {
@@ -33,7 +33,7 @@ function updateAllRoles(myClient, myGuildID) {
   });
 }
 
-async function sendErrorPM(localError, myUserID) {
+async function sendErrorPM (localError, myUserID) {
   const myUserInfo = await client.users.fetch(myUserID);
   myUserInfo.send(`The bot has experienced and error: ${localError} \n 
     Please go to https://raliway.app to check error logs.

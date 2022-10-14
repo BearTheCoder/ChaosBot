@@ -2,13 +2,15 @@ const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
 const interactions = require('./SlashCommands/Interactions.js');
 const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
+require('dotenv').config;
 
-const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
-const s3 = new aws.S3({
-  myToken: process.env.Token,
-  myGuildID: process.env.GuildID,
-  myUserID: process.env.BearID,
-});
+// const aws = require(`aws-sdk`); // Needed for hidden variables using Heroku
+// const s3 = new aws.S3({
+//   myToken: process.env.Token,
+//   myGuildID: process.env.GuildID,
+//   myUserID: process.env.BearID,
+// });
+
 const { Client, GatewayIntentBits } = require("discord.js");
 const myClient = new Client({
   intents: [
@@ -39,7 +41,8 @@ myClient.on("guildMemberUpdate", (newMember) => {
   try {
     subscriberBot.updateUserRoles(newMember);
   } catch (errorMsg) {
-    subscriberBot.sendErrorPM(errorMsg, s3.config.myUserID);
+    // subscriberBot.sendErrorPM(errorMsg, s3.config.myUserID);
+    subscriberBot.sendErrorPM(errorMsg, process.env.myUserID);
   }
 });
 
@@ -63,4 +66,5 @@ myClient.on("interactionCreate", async (iAction) => {
   }
 });
 
-myClient.login(s3.config.myToken);
+// myClient.login(s3.config.myToken);
+myClient.login(process.env.myToken);

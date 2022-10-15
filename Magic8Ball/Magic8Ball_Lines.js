@@ -19,6 +19,12 @@ const magicLines = [
   `My sources say no.`,
   `Outlook not so good.`,
   `Very doubtful.`,
+  `Perhaps...`,
+  `Maybe...`,
+  `Sure, go for it.`,
+  `I guess...`,
+  `Eh, I don't know.`,
+  `Maybe one day.`,
 ];
 
 module.exports = { magicLines };

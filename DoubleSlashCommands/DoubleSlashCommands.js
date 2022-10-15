@@ -1,7 +1,7 @@
 const larryBot = require(`../LarryBot/LarryBot.js`);
 const magic8Ball = require(`../Magic8Ball/Magic8Ball.js`);
 const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
-const mysqltest = require(`./mysqltest.js`);
+const mysqltest = require(`../mysqltest.js`);
 commands = [
   {
     commandName: `//larry`,

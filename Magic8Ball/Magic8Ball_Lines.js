@@ -25,6 +25,10 @@ const magicLines = [
   `I guess...`,
   `Eh, I don't know.`,
   `Maybe one day.`,
+  `100%`,
+  `That's gonna be a no from me big dawg.`,
+  `Two thumbs up.`,
+  `In the words of Lil Jon, "Yeah"`
 ];
 
 module.exports = { magicLines };

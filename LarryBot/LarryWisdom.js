@@ -70,7 +70,7 @@ const larryWisdomLines = [
   `Sput went out of his way to create something for Aethy for her birthday! Larry wants to do something special too!`,
   `They say our age is merely the number of years the world has been enjoying us, Aethy, but Larry knows nothing about that as he has always existed.`,
   `Esgar and Bear have been sitting in down in the basement talking about "code" all day, is that normal behavior for an Aethy birthday party?`,
-  `Lain told me that birthdays only come once a year. Is that true? If so, that makes this Aethy's day!`,\
+  `Lain told me that birthdays only come once a year. Is that true? If so, that makes this Aethy's day!`,
   `Did you know it is Aethy's birthday?? I wish I would have heard sooner, I could have freshened up even more for the celebration...`,
   `I'm not quite sure what these "birthdays" are, but what ever it is I wish Aethy the happiest one!`,
   `HAPPY BIRTHDAY TOO YOU AETHY! LARRY IS OVERJOYED!`,

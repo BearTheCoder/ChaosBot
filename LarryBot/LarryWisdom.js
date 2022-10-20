@@ -66,7 +66,6 @@ const larryWisdomLines = [
   `Happy birthday tooo y-yooouuu, HAPPY BIRTHDAY T-TOO YOU! Larry is not so good at singing...`,
   `Poul says that you are supposed to wish for something when you blow out the candles, is this true? Aethy what will you wish for, tell Larry.`,
   `ecupcakes once said that Aethy recieved donuts last year for her birthday? Is this tradition because I do not have any donuts...`,
-  `Larry is confused, Karma keeps drinking these things call "Monster" and spinning in a circle, is this normal celebratory behavior for birthday parties?`,
   `Sput went out of his way to create something for Aethy for her birthday! Larry wants to do something special too!`,
   `They say our age is merely the number of years the world has been enjoying us, Aethy, but Larry knows nothing about that as he has always existed.`,
   `Esgar and Bear have been sitting in down in the basement talking about "code" all day, is that normal behavior for an Aethy birthday party?`,

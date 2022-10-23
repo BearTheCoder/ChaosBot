@@ -29,7 +29,7 @@ function ReturnModal() {
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);
   const fourthModalRow = new ActionRowBuilder().addComponents(commandInputName);
-  const fifithModalRow = new ActionRowBuilder().addComponents(commandInputRequired);
+  const fifthModalRow = new ActionRowBuilder().addComponents(commandInputRequired);
   modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow);
   return modal;
 }

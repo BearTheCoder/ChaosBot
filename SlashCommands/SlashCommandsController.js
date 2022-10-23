@@ -82,4 +82,13 @@ function connectViaRest(logMessage, TestVar){
     .catch(console.error);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions };
+function returnCoinFlipResult(interaction){
+  const randomNumber = Math.floor(Math.random() * 2);
+  console.log(`Coin flip result: ${randomNumber}..s.`);
+  let coinFlipResult = null;
+  if (randomNumber === 0) { coinFlipResult = 'Heads!'; }
+  else { coinFlipResult = 'Tails!'; }
+  interaction.reply(coinFlipResult);
+}
+
+module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions, returnCoinFlipResult };

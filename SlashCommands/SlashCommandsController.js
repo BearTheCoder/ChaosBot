@@ -55,10 +55,10 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
         newCommands.push(new SlashCommandBuilder()
           .setName(commandName)
           .setDescription(commandDescription)
-          .setDefaultMemberPermissions(commandPermissions))
+          .setDefaultMemberPermissions(commandPermissions)
           .setStringOption(option => 
             option.setName(commandInputName)
-              .setDescription(commandInputDescription));
+              .setDescription(commandInputDescription)));
       }
       else {
         newCommands.push(new SlashCommandBuilder()

@@ -42,9 +42,7 @@ myClient.on("interactionCreate", async (iAction) => {
   if (iAction.customId === "createCommandModal"){
     const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase(); // Will throw error if not lower case
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
-    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw typeerror if not lower case
-    const commandInputDescription = iAction.fields.getTextInputValue('commandInputDescription')
-    
+    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw typeerror if not lower case    
 
     let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');
     commandPermissions = commandPermissions.toLowerCase().includes("yes") ? '4' : null;
@@ -52,7 +50,7 @@ myClient.on("interactionCreate", async (iAction) => {
     let commandInputRequired = iAction.fields.getTextInputValue('commandInputRequired').toLowerCase();
     commandInputRequired = commandInputRequired.includes("yes") ? true : false;
 
-    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription, commandInputRequired)
+    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired)
     iAction.reply("New command created!")
   }
   else{

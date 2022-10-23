@@ -21,10 +21,6 @@ function ReturnModal() {
     .setCustomId("commandInputName")
     .setLabel("Command Input Name ('null' for no input)")
     .setStyle(TextInputStyle.Short);
-  const commandInputDescription = new TextInputBuilder()
-    .setCustomId("commandInputDescription")
-    .setLabel("Input Description ('null' for no input)")
-    .setStyle(TextInputStyle.Paragraph);
     const commandInputRequired = new TextInputBuilder()
     .setCustomId("commandInputRequired")
     .setLabel("Input Required? (Yes or No)")
@@ -33,13 +29,12 @@ function ReturnModal() {
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);
   const fourthModalRow = new ActionRowBuilder().addComponents(commandInputName);
-  const fifthModalRow = new ActionRowBuilder().addComponents(commandInputDescription);
-  const sixthModalRow = new ActionRowBuilder().addComponents(commandInputRequired);
-  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow, sixthModalRow);
+  const fifithModalRow = new ActionRowBuilder().addComponents(commandInputRequired);
+  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow);
   return modal;
 }
 
-function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription, commandInputRequired) {
+function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -74,7 +69,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setDefaultMemberPermissions(commandPermissions)
           .addStringOption(option => 
             option.setName(commandInputName)
-              .setDescription(commandInputDescription)
+              .setDescription(commandInputName)
               .setRequired(commandInputRequired)));
       }
       else {

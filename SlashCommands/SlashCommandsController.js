@@ -28,7 +28,7 @@ function ReturnModal() {
     const commandInputRequired = new TextInputBuilder()
     .setCustomId("commandInputRequired")
     .setLabel("Input Required? (Yes or No)")
-    .setStyle(TextInputStyle.short);
+    .setStyle(TextInputStyle.Short);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);

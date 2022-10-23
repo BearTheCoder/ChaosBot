@@ -83,10 +83,7 @@ function connectViaRest(logMessage, TestVar){
 }
 
 function returnCoinFlipResult(interaction){
-  const randomNumber = Math.floor(Math.random() * 100);
-  let coinFlipResult = null;
-  if (randomNumber % 2 === 0) { coinFlipResult = 'Heads!'; }
-  else { coinFlipResult = 'Tails!'; }
+  let coinFlipResult = Math.random() >= 0.5 ? "Heads!" : "Tails!";
   interaction.reply(coinFlipResult);
 }
 

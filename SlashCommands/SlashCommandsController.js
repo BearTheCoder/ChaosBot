@@ -43,6 +43,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
       // Recreate all commands that already exist.
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
+        console.log(commands[i].options)
         if (commands[i].options === undefined) {
           newCommands.push(new SlashCommandBuilder()
             .setName(commands[i].name)

@@ -1,7 +1,7 @@
 require('dotenv').config();
 const slashCommandsController = require(`../SlashCommands/SlashCommandsController.js`);
 const subscriberBot = require(`../SubscriberBot/SubscriberBot.js`);
-interactions = [
+slashCommandInteractions = [
   {
     commandName: `createcommand`,
     commandFunction: async function (interaction, myClient) {
@@ -45,4 +45,4 @@ interactions = [
   },
 ];
 
-module.exports = { interactions };
+module.exports = { slashCommandInteractions };

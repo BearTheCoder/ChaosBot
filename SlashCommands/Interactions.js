@@ -21,6 +21,12 @@ interactions = [
       console.log('8ball called...');
     },
   },
+  {
+    commandName: `coinflip`,
+    commandFunction: async function (interaction, myClient) {
+      console.log('coinflip called...');
+    },
+  },
 ];
 
 module.exports = { interactions };

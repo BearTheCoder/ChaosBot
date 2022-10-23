@@ -40,6 +40,12 @@ interactions = [
       await interaction.reply(coinFlipResult);
     },
   },
+  {
+    commandName: `testcommand`,
+    commandFunction: async function (interaction, myClient) {
+      await interaction.reply("Test");
+    },
+  },
 ];
 
 module.exports = { interactions };

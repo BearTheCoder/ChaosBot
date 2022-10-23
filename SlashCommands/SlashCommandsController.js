@@ -82,12 +82,11 @@ function deleteAllCommands() {
 
 function listCommands(interaction) {
   getCommandsViaRest();
-  interaction.reply("All commands have been logged to the console...");
 }
 
-function deleteCommandByID() {
+function deleteCommandByID(interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, '1033794099188334715'))
+  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, ''))
 	  .then(() => console.log('Successfully deleted guild command...'))
 	  .catch(console.error);
 }
@@ -115,13 +114,12 @@ function getCommandsViaRest(logMessage) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-    .then((data) => console.log(data))
+    .then((data) => console.log(`%O`, data))
     .catch(console.error);
 }
 
-function returnCoinFlipResult(interaction){
-  let coinFlipResult = Math.random() >= 0.5 ? "Phwee!" : "Aethy!";
-  interaction.reply(coinFlipResult);
+function returnCoinFlipResult() {
+  return Math.random() >= 0.5 ? "Phwee!" : "Aethy!";
 }
 
 module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions, returnCoinFlipResult, listCommands };

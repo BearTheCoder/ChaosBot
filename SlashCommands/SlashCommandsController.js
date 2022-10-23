@@ -62,7 +62,7 @@ function deleteCommandByID(interaction) {
   // catch (error) {
   //   console.log('Error deleting command by id...');
   //   console.log(error);
-  }
+  // }
 }
 
 function resetSlashFunctions() {

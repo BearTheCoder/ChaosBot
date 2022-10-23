@@ -23,7 +23,7 @@ function ReturnModal() {
     .setStyle(TextInputStyle.Short);
   const commandInputDescription = new TextInputBuilder()
     .setCustomId("commandInputDescription")
-    .setLabel("Enter input description ('null' for no input)...")
+    .setLabel("Input description ('null' for no input)...")
     .setStyle(TextInputStyle.Paragraph);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);

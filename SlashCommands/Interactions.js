@@ -22,6 +22,12 @@ interactions = [
     },
   },
   {
+    commandName: `listcommands`,
+    commandFunction: async function (interaction, myClient) {
+      slashCommandsController.listCommands();
+    },
+  },
+  {
     commandName: `coinflip`,
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.returnCoinFlipResult(interaction, myClient);

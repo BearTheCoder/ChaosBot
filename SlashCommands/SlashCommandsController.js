@@ -51,7 +51,6 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
       }
 
       console.log('Here 1...') //************************************************ */
-      try {
       if (commandInputName !== "null") {
         newCommands.push(new SlashCommandBuilder()
           .setName(commandName)
@@ -67,10 +66,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setDescription(commandDescription)
           .setDefaultMemberPermissions(commandPermissions))
       }
-      }
-      catch (err) {
-        console.log(err)
-      }
+      
 
       const JSONCommands = newCommands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
@@ -84,17 +80,14 @@ function deleteAllCommands() {
   setCommandsViaRest(logMessage, { body: [],});
 }
 
-function deleteCommandByID(interaction, myClient) {
-  //console.log(interaction);
+function listCommands() {
   getCommandsViaRest();
-  // try{
-  //   const logMessage = ``;
-  //   connectViaRest(logMessage, splitMessage[1]);
-  // } 
-  // catch (error) {
-  //   console.log('Error deleting command by id...');
-  //   console.log(error);
-  // }
+}
+
+function deleteCommandByID() {
+  rest.delete(Routes.applicationGuildCommand(clientId, guildId, 'commandId'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
 }
 
 function resetSlashFunctions() {
@@ -129,4 +122,4 @@ function returnCoinFlipResult(interaction){
   interaction.reply(coinFlipResult);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions, returnCoinFlipResult };
+module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions, returnCoinFlipResult, listCommands };

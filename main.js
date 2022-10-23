@@ -40,9 +40,9 @@ myClient.on("guildMemberUpdate", (newMember) => {
 
 myClient.on("interactionCreate", async (iAction) => {
   if (iAction.customId === "createCommandModal"){
-    const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase();
+    const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase(); // Will throw error if not lower case
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
-    const commandInputName = iAction.fields.getTextInputValue('commandInputName')
+    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw error if not lower case
     const commandInputDescription = iAction.fields.getTextInputValue('commandInputDescription')
 
     let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');

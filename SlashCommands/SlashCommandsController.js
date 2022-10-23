@@ -94,9 +94,9 @@ function listCommands(interaction) {
   getCommandsViaRest();
 }
 
-function deleteCommandByID(interaction) {
+function deleteCommandByID() {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, ''))
+  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, '1033813427963035779'))
 	  .then(() => console.log('Successfully deleted guild command...'))
 	  .catch(console.error);
 }

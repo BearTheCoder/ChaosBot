@@ -51,6 +51,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
         }
         else {
           // MAKE SURE OPTIONS ARE BEING READDED PROPERLY *****************************************
+          console.log(commands[i].options)
           console.log(commands[i].options.name)
           newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)

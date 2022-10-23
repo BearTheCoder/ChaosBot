@@ -50,20 +50,26 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setDefaultMemberPermissions(commands[i].default_member_permissions))
       }
 
+      console.log('Here 1...') //************************************************ */
+      try {
       if (commandInputName !== "null") {
         newCommands.push(new SlashCommandBuilder()
-        .setName(commandName)
-        .setDescription(commandDescription)
-        .setDefaultMemberPermissions(commandPermissions))
-        .setStringOption(option => 
-          option.setName(commandInputName)
-            .setDescription(commandInputDescription));
+          .setName(commandName)
+          .setDescription(commandDescription)
+          .setDefaultMemberPermissions(commandPermissions))
+          .setStringOption(option => 
+            option.setName(commandInputName)
+              .setDescription(commandInputDescription));
       }
       else {
         newCommands.push(new SlashCommandBuilder()
-        .setName(commandName)
-        .setDescription(commandDescription)
-        .setDefaultMemberPermissions(commandPermissions))
+          .setName(commandName)
+          .setDescription(commandDescription)
+          .setDefaultMemberPermissions(commandPermissions))
+      }
+      }
+      catch (err) {
+        console.log(err)
       }
 
       const JSONCommands = newCommands.map((command) => command.toJSON());

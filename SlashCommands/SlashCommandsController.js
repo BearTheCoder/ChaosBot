@@ -1,4 +1,4 @@
-const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits  } = require("discord.js");
+const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits, Guild  } = require("discord.js");
 require('dotenv').config();
 
 function ReturnModal() {
@@ -54,14 +54,15 @@ function deleteAllCommands() {
 
 function deleteCommandByID(interaction) {
   console.log(interaction);
+  console.log(interaction.Guild.commands);
   // try{
-  // const splitMessage = userMessage.trim().split(/\s+/)
-  // const logMessage = "All commands deleted...";
-  // connectViaRest(logMessage, splitMessage[1]);
-  // } catch (error) {
+  //   const logMessage = ``;
+  //   connectViaRest(logMessage, splitMessage[1]);
+  // } 
+  // catch (error) {
   //   console.log('Error deleting command by id...');
   //   console.log(error);
-  // }
+  }
 }
 
 function resetSlashFunctions() {

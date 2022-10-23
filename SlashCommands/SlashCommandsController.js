@@ -50,6 +50,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
             .setDefaultMemberPermissions(commands[i].default_member_permissions))
         }
         else {
+          try {
           newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)
@@ -58,6 +59,11 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
             option.setName(commands[i].options[0].name)
               .setDescription(commands[i].options[0].description)
               .setRequired(commands[i].options[0].required)));
+          }
+          catch (err){
+            console.log(commands[i].name)
+            console.log(err)
+          }
           }
       }
 

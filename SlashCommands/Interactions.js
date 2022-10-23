@@ -27,9 +27,13 @@ interactions = [
   {
     commandName: `listcommands`,
     commandFunction: async function (interaction, myClient) {
-      slashCommandsController.listCommands();
+      let data = slashCommandsController.listCommands();
       console.log(`${interaction.user.username} has used listcommands...`)
-      await interaction.reply("All commands logged to console...")
+      let dataString = null;
+      for (let i = 0; i < data.length; i++) {
+        dataString = `${dataString} Name: ${data[i].name} ID: ${data[i].id} \n`
+      }
+      await interaction.reply(dataString)
     },
   },
   {

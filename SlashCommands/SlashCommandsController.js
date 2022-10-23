@@ -50,16 +50,13 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
             .setDefaultMemberPermissions(commands[i].default_member_permissions))
         }
         else {
-          // MAKE SURE OPTIONS ARE BEING READDED PROPERLY *****************************************
-          console.log(commands[i].options)
-          console.log(commands[i].options[0].name)
           newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)
           .setDefaultMemberPermissions(commands[i].default_member_permissions)
           .addStringOption(option => 
-            option.setName(commands[i].options.name)
-              .setDescription(commands[i].options.description)));
+            option.setName(commands[i].options[0].name)
+              .setDescription(commands[i].options[0].description)));
           }
       }
 

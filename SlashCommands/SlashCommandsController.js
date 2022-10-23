@@ -52,9 +52,9 @@ function deleteAllCommands() {
   connectViaRest(logMessage, { body: [],});
 }
 
-function deleteCommandByID(interaction) {
+function deleteCommandByID(interaction, myClient) {
   console.log(interaction);
-  console.log(interaction.Guild.commands);
+  console.log(interaction.guild.commands);
   // try{
   //   const logMessage = ``;
   //   connectViaRest(logMessage, splitMessage[1]);

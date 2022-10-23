@@ -24,7 +24,7 @@ interactions = [
   {
     commandName: `coinflip`,
     commandFunction: async function (interaction, myClient) {
-      slashCommandsController.returnCoinFlipResult(interaction);
+      slashCommandsController.returnCoinFlipResult(interaction, myClient);
       console.log(`${interaction.user.username} has used Coin Flip...`)
     },
   },

@@ -42,19 +42,19 @@ function createNewCommand(commandName, commandDescription, commandPermissions) {
         .setDefaultMemberPermissions(commandPermissions));
       const JSONCommands = newCommands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
-      connectViaRest(logMessage, {body: JSONCommands,})
+      setCommandsViaRest(logMessage, {body: JSONCommands,})
       })
     .catch(console.error);
 }
 
 function deleteAllCommands() {
   const logMessage = "All commands deleted...";
-  connectViaRest(logMessage, { body: [],});
+  setCommandsViaRest(logMessage, { body: [],});
 }
 
 function deleteCommandByID(interaction, myClient) {
   //console.log(interaction);
-  console.log(interaction.guild.commands.permissions.guild.commands);
+  getCommandsViaRest();
   // try{
   //   const logMessage = ``;
   //   connectViaRest(logMessage, splitMessage[1]);
@@ -73,14 +73,22 @@ function resetSlashFunctions() {
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
   ].map((command) => command.toJSON());
   const logMessage = "Base command created, all other commands deleted..."
-  connectViaRest(logMessage, {body: commands,})
+  setCommandsViaRest(logMessage, {body: commands,})
 }
 
-function connectViaRest(logMessage, TestVar){
+function setCommandsViaRest(logMessage, Commands){
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), TestVar)
+    .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
     .then((data) => console.log(logMessage))
+    .catch(console.error);
+}
+
+function getCommandsViaRest(logMessage) {
+  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
+  rest
+    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+    .then((data) => console.log(data))
     .catch(console.error);
 }
 

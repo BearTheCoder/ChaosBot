@@ -80,13 +80,14 @@ function deleteAllCommands() {
   setCommandsViaRest(logMessage, { body: [],});
 }
 
-function listCommands() {
+function listCommands(interaction) {
   getCommandsViaRest();
+  interaction.reply("All commands have been logged to the console...");
 }
 
 function deleteCommandByID() {
-  rest.delete(Routes.applicationGuildCommand(clientId, guildId, 'commandId'))
-	.then(() => console.log('Successfully deleted guild command'))
+  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, '1033794099188334715'))
+	.then(() => console.log('Successfully deleted guild command...'))
 	.catch(console.error);
 }
 

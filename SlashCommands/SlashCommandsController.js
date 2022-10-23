@@ -56,7 +56,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setName(commandName)
           .setDescription(commandDescription)
           .setDefaultMemberPermissions(commandPermissions)
-          .setStringOption(option => 
+          .addStringOption(option => 
             option.setName(commandInputName)
               .setDescription(commandInputDescription)));
       }

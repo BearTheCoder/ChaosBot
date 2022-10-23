@@ -40,17 +40,29 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
     .then((commands) => {
 
+      // Recreate all commands that already exist.
       let newCommands = [];
-
       for (let i = 0; i < commands.length; i++) {
-        //Check if command has input ******************************************************
-        newCommands.push(new SlashCommandBuilder()
+        if (commands[i].options === undefined) {
+          newCommands.push(new SlashCommandBuilder()
+            .setName(commands[i].name)
+            .setDescription(commands[i].description)
+            .setDefaultMemberPermissions(commands[i].default_member_permissions))
+        }
+        else {
+          // MAKE SURE OPTIONS ARE BEING READDED PROPERLY *****************************************
+          console.log(commands[i].options)
+          newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)
           .setDefaultMemberPermissions(commands[i].default_member_permissions))
+          .addStringOption(option => 
+            option.setName(commands[i].options.name)
+              .setDescription(commands[i].options.description));
+          }
       }
 
-      console.log('Here 1...') //************************************************ */
+      // Create New Command
       if (commandInputName !== "null") {
         newCommands.push(new SlashCommandBuilder()
           .setName(commandName)

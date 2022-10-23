@@ -1,7 +1,7 @@
 const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits, Guild  } = require("discord.js");
 require('dotenv').config();
 
-function ReturnModal() {
+function returnCreateCommandModal() {
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
     .setTitle("Create Command!");
@@ -115,15 +115,26 @@ function deleteCommandByID(interaction) {
 	  .catch(console.error);
 }
 
-function resetSlashFunctions() {
-  const commands = [
-    new SlashCommandBuilder()
-    .setName("createcommand")
-    .setDescription("(MODS) Will create a public command with no functionality.")
-    .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-  ].map((command) => command.toJSON());
-  const logMessage = "Base command created, all other commands deleted..."
-  setCommandsViaRest(logMessage, {body: commands,})
+function resetSlashFunctions(interaction) {
+  if (interaction.options.getString('password') === 'allow chaos') {
+    console.log('here');
+    // const commands = [
+    //   new SlashCommandBuilder()
+    //     .setName("createcommand")
+    //     .setDescription("(MODS) Will create a public command with no functionality.")
+    //     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+    //   new SlashCommandBuilder()
+    //     .setName("resetfunctions")
+    //     .setDescription("(MODS - PASSWORD) Will reset all functions.")
+    //     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+    //     .addStringOption(option => 
+    //         option.setName("password")
+    //           .setDescription("password")
+    //           .setRequired(true))
+    // ].map((command) => command.toJSON());
+    // const logMessage = "Base command created, all other commands deleted..."
+    // setCommandsViaRest(logMessage, {body: commands,})
+  }
 }
 
 function returnCoinFlipResult() {
@@ -138,4 +149,4 @@ function setCommandsViaRest(logMessage, Commands){
     .catch(console.error);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal, resetSlashFunctions, returnCoinFlipResult, listCommands };
+module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal: returnCreateCommandModal, resetSlashFunctions, returnCoinFlipResult, listCommands };

@@ -43,7 +43,20 @@ interactions = [
           ${interaction.options.getString('options')} \n
           Result: ${coinFlipResult}
         `);
-      
+    },
+  },
+  {
+    commandName: `8ball`,
+    commandFunction: async function (interaction, myClient) {
+      slashCommandsController.listCommands(interaction);
+      console.log(`${interaction.user.username} has used listcommands...`)
+    },
+  },
+  {
+    commandName: `resetfunctions`,
+    commandFunction: async function (interaction, myClient) {
+      slashCommandsController.resetSlashFunctions(interaction)
+      console.log(`${interaction.user.username} has used listcommands...`)
     },
   },
 ];

@@ -114,7 +114,11 @@ function getCommandsViaRest(logMessage) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-    .then((data) => { console.log(`%O`, data); console.table(data) })
+    .then((data) => { 
+      for (let i = 0; i < data.length; i++) {
+        console.log(`%O`, data[i]);
+      }
+    })
     .catch(console.error);
 }
 

@@ -58,7 +58,9 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .addStringOption(option => 
             option.setName(commands[i].options[0].name)
               .setDescription(commands[i].options[0].description)
-              .setRequired(commands[i].options[0].required)));
+              .setRequired(() => {
+                return commands[i].options[0].required === undefined? false : true;
+              })));
           }
           catch (err){
             console.log(commands[i].name)

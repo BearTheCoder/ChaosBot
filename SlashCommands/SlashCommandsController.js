@@ -52,15 +52,16 @@ function deleteAllCommands() {
   connectViaRest(logMessage, { body: [],});
 }
 
-function deleteCommandByID(userMessage) {
-  try{
-  const splitMessage = userMessage.trim().split(/\s+/)
-  const logMessage = "All commands deleted...";
-  connectViaRest(logMessage, splitMessage[1]);
-  } catch (error) {
-    console.log('Error deleting command by id...');
-    console.log(error);
-  }
+function deleteCommandByID(interaction) {
+  console.log(interaction);
+  // try{
+  // const splitMessage = userMessage.trim().split(/\s+/)
+  // const logMessage = "All commands deleted...";
+  // connectViaRest(logMessage, splitMessage[1]);
+  // } catch (error) {
+  //   console.log('Error deleting command by id...');
+  //   console.log(error);
+  // }
 }
 
 function resetSlashFunctions() {
@@ -83,7 +84,7 @@ function connectViaRest(logMessage, TestVar){
 }
 
 function returnCoinFlipResult(interaction){
-  let coinFlipResult = Math.random() >= 0.5 ? "Heads!" : "Tails!";
+  let coinFlipResult = Math.random() >= 0.5 ? "Phwee!" : "Aethy!";
   interaction.reply(coinFlipResult);
 }
 

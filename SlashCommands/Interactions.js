@@ -16,9 +16,9 @@ interactions = [
     },
   },
   {
-    commandName: `8ball`,
+    commandName: `deletecommand`,
     commandFunction: async function (interaction, myClient) {
-      console.log('8ball called...');
+      slashCommandsController.deleteCommandByID(interaction);
     },
   },
   {

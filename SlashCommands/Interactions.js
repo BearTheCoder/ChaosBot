@@ -37,10 +37,13 @@ interactions = [
     commandFunction: async function (interaction, myClient) {
       let coinFlipResult = slashCommandsController.returnCoinFlipResult(interaction, myClient);
       console.log(`${interaction.user.username} has used coinflip...`)
-      await interaction.reply(`
-        ${interaction.options.getString('options')} \n
-        Result: ${coinFlipResult}
-      `);
+      interaction.options.getString('options') === null ? 
+        await interaction.reply(`Result: ${coinFlipResult}`) :
+        await interaction.reply(`
+          ${interaction.options.getString('options')} \n
+          Result: ${coinFlipResult}
+        `);
+      
     },
   },
 ];

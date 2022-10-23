@@ -54,7 +54,7 @@ function deleteAllCommands() {
 
 function deleteCommandByID(interaction, myClient) {
   //console.log(interaction);
-  console.log(interaction.guild.commands);
+  console.log(interaction.guild.commands.commands);
   // try{
   //   const logMessage = ``;
   //   connectViaRest(logMessage, splitMessage[1]);

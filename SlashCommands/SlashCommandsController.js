@@ -7,34 +7,39 @@ function ReturnModal() {
     .setTitle("Create Command!");
   const commandNameInput = new TextInputBuilder()
     .setCustomId("commandName")
-    .setLabel("Input name...")
+    .setLabel("Input Name")
     .setStyle(TextInputStyle.Short);
   const commandDescription = new TextInputBuilder()
     .setCustomId("commandDescription")
-    .setLabel("Input description...")
+    .setLabel("Input Description")
     .setStyle(TextInputStyle.Paragraph);
   const commandPermissions = new TextInputBuilder()
     .setCustomId("commandPermissions")
-    .setLabel("Mod Permissions? (Yes or No)...")
+    .setLabel("Mod Permissions? (Yes or No)")
     .setStyle(TextInputStyle.Short);
   const commandInputName = new TextInputBuilder()
     .setCustomId("commandInputName")
-    .setLabel("Command input name ('null' for no input)...")
+    .setLabel("Command Input Name ('null' for no input)")
     .setStyle(TextInputStyle.Short);
   const commandInputDescription = new TextInputBuilder()
     .setCustomId("commandInputDescription")
-    .setLabel("Input description ('null' for no input)...")
+    .setLabel("Input Description ('null' for no input)")
     .setStyle(TextInputStyle.Paragraph);
+    const commandInputRequired = new TextInputBuilder()
+    .setCustomId("commandInputRequired")
+    .setLabel("Input Required? (Yes or No)")
+    .setStyle(TextInputStyle.short);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);
   const fourthModalRow = new ActionRowBuilder().addComponents(commandInputName);
   const fifthModalRow = new ActionRowBuilder().addComponents(commandInputDescription);
-  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow);
+  const sixthModalRow = new ActionRowBuilder().addComponents(commandInputRequired);
+  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow, sixthModalRow);
   return modal;
 }
 
-function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription) {
+function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription, commandInputRequired) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -50,9 +55,6 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
             .setDefaultMemberPermissions(commands[i].default_member_permissions))
         }
         else {
-
-          console.log(commands[i].options)
-
           newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)
@@ -60,7 +62,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .addStringOption(option => 
             option.setName(commands[i].options[0].name)
               .setDescription(commands[i].options[0].description)
-              .setRequired(true)));
+              .setRequired(commands[i].options[0].required)));
           }
       }
 
@@ -73,7 +75,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .addStringOption(option => 
             option.setName(commandInputName)
               .setDescription(commandInputDescription)
-              .setRequired(true)));
+              .setRequired(commandInputRequired)));
       }
       else {
         newCommands.push(new SlashCommandBuilder()

@@ -1,6 +1,6 @@
 const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
-const interactions = require('./SlashCommands/Interactions.js');
+const slashCommandInteractions = require('./SlashCommands/Interactions.js');
 const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
 require('dotenv').config;
 
@@ -42,20 +42,24 @@ myClient.on("interactionCreate", async (iAction) => {
   if (iAction.customId === "createCommandModal"){
     const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase(); // Will throw error if not lower case
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
-    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw error if not lower case
+    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw typeerror if not lower case
     const commandInputDescription = iAction.fields.getTextInputValue('commandInputDescription')
+    
 
     let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');
     commandPermissions = commandPermissions.toLowerCase().includes("yes") ? '4' : null;
 
-    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription)
+    let commandInputRequired = iAction.fields.getTextInputValue('commandInputRequired').toLowerCase();
+    commandInputRequired = commandInputRequired.includes("yes") ? true : false;
+
+    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription, commandInputRequired)
     iAction.reply("New command created!")
   }
   else{
-    for (let i = 0; i < interactions.interactions.length; i++) {
-      let commandName = interactions.interactions[i].commandName;
+    for (let i = 0; i < slashCommandInteractions.interactions.length; i++) {
+      let commandName = slashCommandInteractions.interactions[i].commandName;
       if (iAction.commandName === commandName) {
-        interactions.interactions[i].commandFunction(iAction, myClient);
+        slashCommandInteractions.interactions[i].commandFunction(iAction, myClient);
         break;
       }
     }

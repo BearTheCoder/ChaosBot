@@ -126,7 +126,7 @@ function resetSlashFunctions() {
 }
 
 function returnCoinFlipResult() {
-  return Math.random() >= 0.5 ? "Phwee!" : "Aethy!";
+  return Math.random() >= 0.5 ? "Heads! <:phweeHaha:951997660313841705>" : "Tails! <a:aethyTailR:985456739489042432>";
 }
 
 function setCommandsViaRest(logMessage, Commands){

@@ -95,7 +95,8 @@ function listCommands(interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-    .then((data) => { 
+    .then((data) => {
+      console.log(data);
       let dataString = null;
       for (let i = 0; i < data.length; i++) {
         dataString = dataString === null?   

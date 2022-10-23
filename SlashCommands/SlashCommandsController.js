@@ -15,31 +15,57 @@ function ReturnModal() {
     .setStyle(TextInputStyle.Paragraph);
   const commandPermissions = new TextInputBuilder()
     .setCustomId("commandPermissions")
-    .setLabel("Input permissions...")
+    .setLabel("Mod Permissions? (Yes or No)...")
     .setStyle(TextInputStyle.Short);
+  const commandInputName = new TextInputBuilder()
+    .setCustomId("commandInputName")
+    .setLabel("Command input name ('null' for no input)...")
+    .setStyle(TextInputStyle.Short);
+  const commandInputDescription = new TextInputBuilder()
+    .setCustomId("commandInputDescription")
+    .setLabel("Enter input description ('null' for no input)...")
+    .setStyle(TextInputStyle.Paragraph);
   const firstModalRow = new ActionRowBuilder().addComponents(commandNameInput);
   const secondModalRow = new ActionRowBuilder().addComponents(commandDescription);
   const thirdModalRow = new ActionRowBuilder().addComponents(commandPermissions);
-  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow);
+  const fourthModalRow = new ActionRowBuilder().addComponents(commandInputName);
+  const fifthModalRow = new ActionRowBuilder().addComponents(commandInputDescription);
+  modal.addComponents(firstModalRow, secondModalRow, thirdModalRow, fourthModalRow, fifthModalRow);
   return modal;
 }
 
-function createNewCommand(commandName, commandDescription, commandPermissions) {
+function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputDescription) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
     .then((commands) => {
+
       let newCommands = [];
+
       for (let i = 0; i < commands.length; i++) {
+        //Check if command has input ******************************************************
         newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)
           .setDefaultMemberPermissions(commands[i].default_member_permissions))
       }
-      newCommands.push(new SlashCommandBuilder()
+
+      if (commandInputName !== "null") {
+        newCommands.push(new SlashCommandBuilder()
         .setName(commandName)
         .setDescription(commandDescription)
-        .setDefaultMemberPermissions(commandPermissions));
+        .setDefaultMemberPermissions(commandPermissions))
+        .setStringOption(option => 
+          option.setName(commandInputName)
+            .setDescription(commandInputDescription));
+      }
+      else {
+        newCommands.push(new SlashCommandBuilder()
+        .setName(commandName)
+        .setDescription(commandDescription)
+        .setDefaultMemberPermissions(commandPermissions))
+      }
+
       const JSONCommands = newCommands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
       setCommandsViaRest(logMessage, {body: JSONCommands,})

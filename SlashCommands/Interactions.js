@@ -5,7 +5,7 @@ interactions = [
   {
     commandName: `createcommand`,
     commandFunction: async function (interaction, myClient) {
-      await interaction.showModal(slashCommandsController.ReturnModal());
+      await interaction.showModal(slashCommandsController.ReturnModal()); //sent to "interactionCreate" event listener on main
     },
   },
   {

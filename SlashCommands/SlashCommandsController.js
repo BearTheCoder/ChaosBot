@@ -56,7 +56,8 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setDefaultMemberPermissions(commands[i].default_member_permissions)
           .addStringOption(option => 
             option.setName(commands[i].options[0].name)
-              .setDescription(commands[i].options[0].description)));
+              .setDescription(commands[i].options[0].description))
+          .require(true));
           }
       }
 
@@ -68,7 +69,8 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setDefaultMemberPermissions(commandPermissions)
           .addStringOption(option => 
             option.setName(commandInputName)
-              .setDescription(commandInputDescription)));
+              .setDescription(commandInputDescription))
+          .require(true));
       }
       else {
         newCommands.push(new SlashCommandBuilder()

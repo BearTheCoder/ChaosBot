@@ -100,7 +100,7 @@ function listCommands(interaction) {
       for (let i = 0; i < data.length; i++) {
         dataString = dataString === null?   
           `Name: ${data[i].name} ID: ${data[i].id} \n` : 
-          `${dataString} Name: ${data[i].name} ID: ${data[i].id} \n` 
+          `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n` 
       }
       interaction.reply(dataString);
     })

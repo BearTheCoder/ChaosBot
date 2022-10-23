@@ -50,6 +50,9 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
             .setDefaultMemberPermissions(commands[i].default_member_permissions))
         }
         else {
+
+          console.log(commands[i].options)
+
           newCommands.push(new SlashCommandBuilder()
           .setName(commands[i].name)
           .setDescription(commands[i].description)

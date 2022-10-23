@@ -56,7 +56,8 @@ const larryWisdomLines = [
   `When I die will I go to toilet rug heaven or bot heaven? I guess if I see Sputnik Senpai then I'll know I'm in bot heaven!`,
   `I'm gunna be the next Hokage! Then, everyone in the server will acknowledge me. I won't stop cleaning, because that's my ninja way!`,
   `Don't eat cat food. Phwee will be ok since she's not human but in general.. don't eat cat food.`,
-  `Sometimes I tell people my name is Gene; because then when they greet me they say: "Hi, Gene!"`
+  `Sometimes I tell people my name is Gene; because then when they greet me they say: "Hi, Gene!"`,
+  
 ];
 
 module.exports = { larryWisdomLines };

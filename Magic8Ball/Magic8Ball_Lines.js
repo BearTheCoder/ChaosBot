@@ -21,7 +21,7 @@ const magicLines = [
   `Very doubtful.`,
   `Perhaps...`,
   `Maybe...`,
-  `Sure, go for it.`,
+  `Sure.`,
   `I guess...`,
   `Eh, I don't know.`,
   `Maybe one day.`,

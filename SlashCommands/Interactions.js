@@ -49,7 +49,13 @@ interactions = [
     commandName: `8ball`,
     commandFunction: async function (interaction, myClient) {
       let reply = slashCommandsController.shake8Ball(interaction);
-      await interaction.reply(`**Magic 8 Ball Says:** ${reply}`)
+      // await interaction.reply(`**Magic 8 Ball Says:** ${reply}`)
+      interaction.options.getString('question') === null ? 
+        await interaction.reply(`**Magic 8 Ball Says:** ${reply}`) :
+        await interaction.reply(`
+          ${interaction.options.getString('question')} \n
+          **Magic 8 Ball Says:** ${reply}
+        `);
       console.log(`${interaction.user.username} has used ${commandName}...`)
     },
   },

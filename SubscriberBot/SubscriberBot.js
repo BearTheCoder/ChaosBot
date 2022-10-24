@@ -16,15 +16,14 @@ function updateUserRoles (currentMember) {
   );
   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
     currentMember.roles.add(combinedRole);
-    console.log(`Added role to ${ currentMember.name }`);
+    console.log(`Added role to ${ currentMember.displayName }`);
   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
     currentMember.roles.remove(combinedRole);
-    console.log(`Removed role from ${ currentMember }`);
+    console.log(`Removed role from ${ currentMember.displayName }`);
   }
-}
+} 
 
 function updateAllRoles (myClient, myGuildID) {
-  console.log(`All roles updated...`);
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch().then((listOfMembers) => {
     listOfMembers.forEach((currentMember) => {

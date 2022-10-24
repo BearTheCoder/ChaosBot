@@ -6,22 +6,23 @@ interactions = [
     commandName: `createcommand`,
     commandFunction: async function (interaction, myClient) {
       await interaction.showModal(slashCommandsController.returnCreateCommandModal()); //sent to "interactionCreate" event listener on main
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {
     commandName: `roleupdate`,
     commandFunction: async function (interaction, myClient) {
       subscriberBot.updateAllRoles(myClient, process.env.myGuildID);
-      console.log(`${interaction.user.username} has used roleupdate...`)
       await interaction.reply("All roles are being updated...");
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {
     commandName: `deletecommand`,
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.deleteCommandByID(interaction);
-      console.log(`${interaction.user.username} has used deletecommand...`)
       await interaction.reply("Command deleted...");
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {
@@ -29,20 +30,20 @@ interactions = [
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.listCommands(interaction);
       //interaction.reply() called on slashCommandsController...
-      console.log(`${interaction.user.username} has used listcommands...`)
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {
     commandName: `coinflip`,
     commandFunction: async function (interaction, myClient) {
       let coinFlipResult = slashCommandsController.returnCoinFlipResult(interaction, myClient);
-      console.log(`${interaction.user.username} has used coinflip...`)
       interaction.options.getString('options') === null ? 
         await interaction.reply(`Result: ${coinFlipResult}`) :
         await interaction.reply(`
           ${interaction.options.getString('options')} \n
           Result: ${coinFlipResult}
         `);
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {

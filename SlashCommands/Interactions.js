@@ -63,7 +63,7 @@ interactions = [
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.resetCommands(interaction)
       // interaction.reply() is managed by resetCommands()
-      console.log(`${interaction.user.username} has used ${commandName}...`)
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
 ];

@@ -49,7 +49,6 @@ interactions = [
     commandName: `8ball`,
     commandFunction: async function (interaction, myClient) {
       let reply = slashCommandsController.shake8Ball(interaction);
-      // await interaction.reply(`**Magic 8 Ball Says:** ${reply}`)
       interaction.options.getString('question') === null ? 
         await interaction.reply(`**Magic 8 Ball Says:** ${reply}`) :
         await interaction.reply(`
@@ -63,7 +62,7 @@ interactions = [
     commandName: `resetcommands`,
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.resetCommands(interaction)
-      await interaction.reply("All slash commands have been reset...")
+      // interaction.reply() is managed by resetCommands()
       console.log(`${interaction.user.username} has used ${commandName}...`)
     },
   },

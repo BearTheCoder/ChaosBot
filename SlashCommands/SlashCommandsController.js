@@ -149,6 +149,10 @@ function resetCommands(interaction) {
     ].map((command) => command.toJSON());
     const logMessage = "Base command created, all other commands deleted..."
     setCommandsViaRest(logMessage, {body: commands,})
+    interaction.reply(`All commands have been reset...`)
+  }
+  else {
+    interaction.reply(`Password is incorrect...`)
   }
 }
 

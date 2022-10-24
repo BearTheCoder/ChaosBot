@@ -1,5 +1,14 @@
-const { REST, SlashCommandBuilder, Routes, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, PermissionFlagsBits, Guild  } = require("discord.js");
+const { REST, 
+  SlashCommandBuilder, 
+  Routes, 
+  ModalBuilder, 
+  TextInputBuilder, 
+  TextInputStyle, 
+  ActionRowBuilder, 
+  PermissionFlagsBits,  
+} = require("discord.js");
 require('dotenv').config();
+const {magicLines} = require(`../Magic8Ball/Magic8Ball_Lines.js`);
 
 function returnCreateCommandModal() {
   const modal = new ModalBuilder()
@@ -122,30 +131,33 @@ function deleteCommandByID(interaction) {
 	  .catch(console.error);
 }
 
-function resetSlashFunctions(interaction) {
+function resetCommands(interaction) {
   if (interaction.options.getString('password') === 'allow chaos') {
-    console.log('here');
-    // const commands = [
-    //   new SlashCommandBuilder()
-    //     .setName("createcommand")
-    //     .setDescription("(MODS) Will create a public command with no functionality.")
-    //     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
-    //   new SlashCommandBuilder()
-    //     .setName("resetfunctions")
-    //     .setDescription("(MODS - PASSWORD) Will reset all functions.")
-    //     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-    //     .addStringOption(option => 
-    //         option.setName("password")
-    //           .setDescription("password")
-    //           .setRequired(true))
-    // ].map((command) => command.toJSON());
-    // const logMessage = "Base command created, all other commands deleted..."
-    // setCommandsViaRest(logMessage, {body: commands,})
+    const commands = [
+      new SlashCommandBuilder()
+        .setName("createcommand")
+        .setDescription("(MODS) Will create a public command with no functionality.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+      new SlashCommandBuilder()
+        .setName("resetfunctions")
+        .setDescription("(MODS - PASSWORD) Removes all functions except 'createcommand' and 'resetfunctions'.")
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+        .addStringOption(option => 
+            option.setName("password")
+              .setDescription("password")
+              .setRequired(true))
+    ].map((command) => command.toJSON());
+    const logMessage = "Base command created, all other commands deleted..."
+    setCommandsViaRest(logMessage, {body: commands,})
   }
 }
 
 function returnCoinFlipResult() {
   return Math.random() >= 0.5 ? "Heads! <:phweeHaha:951997660313841705>" : "Tails! <a:aethyTailR:985456739489042432>";
+}
+
+function shake8Ball() {
+  return magicLines[Math.floor(Math.random() * magicLines.length)];
 }
 
 function setCommandsViaRest(logMessage, Commands){
@@ -156,4 +168,13 @@ function setCommandsViaRest(logMessage, Commands){
     .catch(console.error);
 }
 
-module.exports = { createNewCommand, deleteAllCommands, deleteCommandByID, ReturnModal: returnCreateCommandModal, resetSlashFunctions, returnCoinFlipResult, listCommands };
+module.exports = { 
+  createNewCommand, 
+  deleteAllCommands, 
+  deleteCommandByID, 
+  returnCreateCommandModal, 
+  resetCommands, 
+  returnCoinFlipResult, 
+  listCommands,
+  shake8Ball,
+};

@@ -9,12 +9,6 @@ commands = [
     },
   },
   {
-    commandName: `//8ball`,
-    commandFunction: function (userMessage) {
-      magic8Ball.send8BallMessage(userMessage);
-    },
-  },
-  {
     commandName: `//whoislarry`,
     commandFunction: function (userMessage) {
       larryBot.sendLarryInfo(userMessage);

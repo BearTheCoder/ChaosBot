@@ -1,5 +1,4 @@
 const larryBot = require(`../LarryBot/LarryBot.js`);
-const magic8Ball = require(`../Magic8Ball/Magic8Ball.js`);
 // const mysqltest = require(`../mysqltest.js`);
 commands = [
   {

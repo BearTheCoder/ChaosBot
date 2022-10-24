@@ -8,4 +8,5 @@ async function sendLarryWisdom(userMessage) {
     `<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
   );
 }
+
 module.exports = { sendLarryWisdom };

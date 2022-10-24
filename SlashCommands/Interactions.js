@@ -29,7 +29,7 @@ interactions = [
     commandName: `listcommands`,
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.listCommands(interaction);
-      //interaction.reply() is managed by listCommands().
+      //interaction.reply() is managed by listCommands()
       console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },

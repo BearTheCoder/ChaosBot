@@ -20,16 +20,6 @@ commands = [
       larryBot.sendLarryInfo(userMessage);
     },
   },
-  // {
-  //   //testing to see if I can call a remote server from another server (railway to hostgator)
-  //   commandName: `//callmysql`,
-  //   commandFunction: function (userMessage) {
-  //     if (userMessage.author.username === "BearTheCoder") {
-  //       mysqltest.callSQL();
-  //       userMessage.reply("MySQL called successfully!")
-  //     }
-  //   },
-  // },
 ];
 
 module.exports = { commands };

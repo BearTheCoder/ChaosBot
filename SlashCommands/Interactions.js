@@ -62,7 +62,7 @@ interactions = [
   {
     commandName: `resetcommands`,
     commandFunction: async function (interaction, myClient) {
-      slashCommandsController.resetCommands()
+      slashCommandsController.resetCommands(interaction)
       await interaction.reply("All slash commands have been reset...")
       console.log(`${interaction.user.username} has used ${commandName}...`)
     },

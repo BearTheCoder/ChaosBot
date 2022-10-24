@@ -139,7 +139,7 @@ function resetCommands(interaction) {
         .setDescription("(MODS) Will create a public command with no functionality.")
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
       new SlashCommandBuilder()
-        .setName("resetfunctions")
+        .setName("resetcommands")
         .setDescription("(MODS - PASSWORD) Removes all functions except 'createcommand' and 'resetfunctions'.")
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .addStringOption(option => 

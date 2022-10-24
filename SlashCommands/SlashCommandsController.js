@@ -164,6 +164,10 @@ function shake8Ball() {
   return magicLines[Math.floor(Math.random() * magicLines.length)];
 }
 
+function sendLarryInfo(){
+  return `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
+}
+
 function setCommandsViaRest(logMessage, Commands){
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
@@ -181,4 +185,5 @@ module.exports = {
   returnCoinFlipResult, 
   listCommands,
   shake8Ball,
+  sendLarryInfo,
 };

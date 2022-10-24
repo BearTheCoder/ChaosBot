@@ -29,7 +29,7 @@ interactions = [
     commandName: `listcommands`,
     commandFunction: async function (interaction, myClient) {
       slashCommandsController.listCommands(interaction);
-      //interaction.reply() called on slashCommandsController...
+      //interaction.reply() is managed by listCommands().
       console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
@@ -65,6 +65,14 @@ interactions = [
       slashCommandsController.resetCommands(interaction)
       // interaction.reply() is managed by resetCommands()
       console.log(`${interaction.user.username} has used ${this.commandName}...`)
+    },
+  },
+  {
+    commandName: `whoislarry`,
+    commandFunction: async function (interaction, myClient) {
+      let reply = slashCommandsController.sendLarryInfo()
+      await interaction.reply(reply);
+      console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
 ];

@@ -7,12 +7,6 @@ commands = [
       larryBot.sendLarryWisdom(userMessage);
     },
   },
-  {
-    commandName: `//whoislarry`,
-    commandFunction: function (userMessage) {
-      larryBot.sendLarryInfo(userMessage);
-    },
-  },
 ];
 
 module.exports = { commands };

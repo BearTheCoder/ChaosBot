@@ -56,7 +56,7 @@ interactions = [
           ${interaction.options.getString('question')} \n
           **Magic 8 Ball Says:** ${reply}
         `);
-      console.log(`${interaction.user.username} has used ${commandName}...`)
+      console.log(`${interaction.user.username} has used ${this.commandName}...`)
     },
   },
   {

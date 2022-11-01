@@ -31,7 +31,6 @@ myClient.on(`messageCreate`, async (userMessage) => {
 });
 
 myClient.on("guildMemberUpdate", (oldMember, newMember) => {
-  console.log(`${ newMember.displayName } has been updated...`);
   try {
     subscriberBot.updateUserRoles(newMember);
   } catch (errorMsg) {

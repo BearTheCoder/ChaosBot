@@ -15,15 +15,15 @@ const myClient = new Client({
 });
 
 myClient.once('ready', () => {
-  console.log('Main.js Loaded...')
+  console.log('Main.js Loaded...');
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
-      let commandName = doubleSlashCommands.commands[i].commandName;
+      let commandName = doubleSlashCommands.commands[ i ].commandName;
       if (userMessage.content.toLowerCase().includes(commandName)) {
-        doubleSlashCommands.commands[i].commandFunction(userMessage);
+        doubleSlashCommands.commands[ i ].commandFunction(userMessage);
         break;
       }
     }
@@ -31,6 +31,7 @@ myClient.on(`messageCreate`, async (userMessage) => {
 });
 
 myClient.on("guildMemberUpdate", (newMember) => {
+  console.log(`${ newMember.displayName } has been updated...`);
   try {
     subscriberBot.updateUserRoles(newMember);
   } catch (errorMsg) {
@@ -39,7 +40,7 @@ myClient.on("guildMemberUpdate", (newMember) => {
 });
 
 myClient.on("interactionCreate", async (iAction) => {
-  if (iAction.customId === "createCommandModal"){
+  if (iAction.customId === "createCommandModal") {
     const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase(); // Will throw error if not lower case
     const commandDescription = iAction.fields.getTextInputValue('commandDescription');
     const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw typeerror if not lower case    
@@ -50,14 +51,14 @@ myClient.on("interactionCreate", async (iAction) => {
     let commandInputRequired = iAction.fields.getTextInputValue('commandInputRequired').toLowerCase();
     commandInputRequired = commandInputRequired.includes("yes") ? true : false;
 
-    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired)
-    iAction.reply("New command created!")
+    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired);
+    iAction.reply("New command created!");
   }
-  else{
+  else {
     for (let i = 0; i < slashCommandInteractions.interactions.length; i++) {
-      let commandName = slashCommandInteractions.interactions[i].commandName;
+      let commandName = slashCommandInteractions.interactions[ i ].commandName;
       if (iAction.commandName === commandName) {
-        slashCommandInteractions.interactions[i].commandFunction(iAction, myClient);
+        slashCommandInteractions.interactions[ i ].commandFunction(iAction, myClient);
         break;
       }
     }

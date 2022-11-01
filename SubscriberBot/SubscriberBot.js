@@ -4,7 +4,7 @@ function updateUserRoles (currentMember) {
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
   currentMember.roles.cache.forEach((userRole) => {
-    console.log(`${ currentMember.displayName } has role ${ userRole }`); //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    console.log(`${ currentMember.displayName } has role ${ userRole.name }`); //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     if (userRole.name.toLowerCase().includes("kittens")) {
       hasKittenRole = true;
     } else if (userRole.name.toLowerCase().includes("phweaks")) {

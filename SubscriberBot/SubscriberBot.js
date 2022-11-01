@@ -1,8 +1,10 @@
 function updateUserRoles (currentMember) {
+  console.log(`${ currentMember.displayName } has reached start...`); //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   let hasKittenRole = false;
   let hasPhweakRole = false;
   let hasPhweettenRole = false;
   currentMember.roles.cache.forEach((userRole) => {
+    console.log(`${ currentMember.displayName } has role ${ userRole }`); //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     if (userRole.name.toLowerCase().includes("kittens")) {
       hasKittenRole = true;
     } else if (userRole.name.toLowerCase().includes("phweaks")) {
@@ -21,7 +23,7 @@ function updateUserRoles (currentMember) {
     currentMember.roles.remove(combinedRole);
     console.log(`Removed role from ${ currentMember.displayName }`);
   }
-} 
+}
 
 function updateAllRoles (myClient, myGuildID) {
   const myGuild = myClient.guilds.cache.get(myGuildID);
@@ -34,7 +36,7 @@ function updateAllRoles (myClient, myGuildID) {
 
 async function sendErrorPM (localError, myUserID) {
   const myUserInfo = await client.users.fetch(myUserID);
-  myUserInfo.send(`The bot has experienced and error: ${localError} \n 
+  myUserInfo.send(`The bot has experienced and error: ${ localError } \n 
     Please go to https://raliway.app to check error logs.
   `);
 }

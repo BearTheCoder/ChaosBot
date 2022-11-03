@@ -180,7 +180,7 @@ function timeUntilChristmas(){
   const today = new Date();
   const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`)
   const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000);
-  return `There are ${daysUntilChristmas} days until christmas...`;
+  return `There are ${daysUntilChristmas} days until christmas. <a:wizzyDinkDonk:941202783758073857> `;
 }
 
 module.exports = { 

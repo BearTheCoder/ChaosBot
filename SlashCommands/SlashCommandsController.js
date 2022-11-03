@@ -176,6 +176,10 @@ function setCommandsViaRest(logMessage, Commands){
     .catch(console.error);
 }
 
+function timeUntilChristmas(){
+  console.log(Date.now());
+}
+
 module.exports = { 
   createNewCommand, 
   deleteAllCommands, 
@@ -186,4 +190,5 @@ module.exports = {
   listCommands,
   shake8Ball,
   sendLarryInfo,
+  timeUntilChristmas,
 };

@@ -75,6 +75,14 @@ interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
+  {
+    commandName: `christmas`,
+    commandFunction: async function (interaction, myClient) {
+      let reply = slashCommandsController.timeUntilChristmas()
+      // await interaction.reply(reply);
+      // console.log(`${interaction.user.username} has used ${this.commandName}...`);
+    },
+  },
 ];
 
 module.exports = { interactions };

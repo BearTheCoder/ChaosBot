@@ -177,7 +177,12 @@ function setCommandsViaRest(logMessage, Commands){
 }
 
 function timeUntilChristmas(){
-  console.log(Date.now());
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+
+  console.log(`Day: ${dd}`);
+  console.log(`Month: ${mm}`);
 }
 
 module.exports = { 

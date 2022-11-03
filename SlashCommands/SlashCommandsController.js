@@ -1,14 +1,15 @@
-const { REST, 
-  SlashCommandBuilder, 
-  Routes, 
+const { 
+  ActionRowBuilder, 
   ModalBuilder, 
+  REST, 
+  SlashCommandBuilder, 
   TextInputBuilder, 
   TextInputStyle, 
-  ActionRowBuilder, 
-  PermissionFlagsBits,  
+  PermissionFlagsBits, 
+  Routes,  
 } = require("discord.js");
-require('dotenv').config();
-const {magicLines} = require(`../Magic8Ball/Magic8Ball_Lines.js`);
+require("dotenv").config();
+const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);
 
 function returnCreateCommandModal() {
   const modal = new ModalBuilder()
@@ -30,7 +31,7 @@ function returnCreateCommandModal() {
     .setCustomId("commandInputName")
     .setLabel("Command Input Name ('null' for no input)")
     .setStyle(TextInputStyle.Short);
-    const commandInputRequired = new TextInputBuilder()
+  const commandInputRequired = new TextInputBuilder()
     .setCustomId("commandInputRequired")
     .setLabel("Input Required? (Yes or No)")
     .setStyle(TextInputStyle.Short);
@@ -70,7 +71,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
               .setDescription(commands[i].options[0].description)
               .setRequired(isRequired)));
           }
-          catch (err){
+          catch (err) {
             console.log(commands[i].name)
             console.log(err)
           }
@@ -147,12 +148,12 @@ function resetCommands(interaction) {
               .setDescription("password")
               .setRequired(true))
     ].map((command) => command.toJSON());
-    const logMessage = "Base command created, all other commands deleted..."
-    setCommandsViaRest(logMessage, {body: commands,})
-    interaction.reply(`All commands have been reset...`)
+    const logMessage = "Base command created, all other commands deleted...";
+    setCommandsViaRest(logMessage, {body: commands,});
+    interaction.reply(`All commands have been reset...`);
   }
   else {
-    interaction.reply(`Password is incorrect...`)
+    interaction.reply(`Password is incorrect...`);
   }
 }
 
@@ -164,11 +165,19 @@ function shake8Ball() {
   return magicLines[Math.floor(Math.random() * magicLines.length)];
 }
 
-function sendLarryInfo(){
+function sendLarryInfo() {
   return `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
 }
 
-function setCommandsViaRest(logMessage, Commands){
+function timeUntilChristmas() {
+  const today = new Date();
+  const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`);
+  const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000); //86400000 is the milliseconds in a day
+  return `There are ${daysUntilChristmas} days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
+}
+
+// Internal Functions - - - - - - - - - - - - - -
+function setCommandsViaRest(logMessage, Commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
@@ -176,21 +185,14 @@ function setCommandsViaRest(logMessage, Commands){
     .catch(console.error);
 }
 
-function timeUntilChristmas(){
-  const today = new Date();
-  const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`)
-  const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000);
-  return `There are ${daysUntilChristmas} days until Christmas. <a:wizzyDinkDonk:941202783758073857> `;
-}
-
 module.exports = { 
   createNewCommand, 
   deleteAllCommands, 
   deleteCommandByID, 
+  listCommands,
   returnCreateCommandModal, 
   resetCommands, 
   returnCoinFlipResult, 
-  listCommands,
   shake8Ball,
   sendLarryInfo,
   timeUntilChristmas,

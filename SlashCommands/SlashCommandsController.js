@@ -178,12 +178,9 @@ function setCommandsViaRest(logMessage, Commands){
 
 function timeUntilChristmas(){
   const today = new Date();
-  const year = today.getFullYear();
-  const christmas = Date.parse(`25 Dec ${year} 00:00:00 EST`)
-  const now = Date.now();
-  const millisecondsUntilChristmas = christmas - now;
-  const daysUntilChristmas = millisecondsUntilChristmas / 86400000
-  console.log(`There are ${daysUntilChristmas} days until christmas...`)
+  const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`)
+  const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000);
+  return `There are ${daysUntilChristmas} days until christmas...`;
 }
 
 module.exports = { 

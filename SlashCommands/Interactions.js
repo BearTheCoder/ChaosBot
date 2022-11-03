@@ -79,8 +79,8 @@ interactions = [
     commandName: `christmas`,
     commandFunction: async function (interaction, myClient) {
       let reply = slashCommandsController.timeUntilChristmas()
-      // await interaction.reply(reply);
-      // console.log(`${interaction.user.username} has used ${this.commandName}...`);
+      await interaction.reply(reply);
+      console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
 ];

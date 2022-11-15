@@ -14,8 +14,7 @@
 # About
 
 Hi, Hello.
-ChaosBot is a project that I was invited to create by PhweedomStudios to be used in her Discord Server.
-[Aethy and Phwee Discord](https://discord.gg/xhtTHve64N)
+ChaosBot is a project that I was invited to create by PhweedomStudios to be used in [her Discord Server](https://discord.gg/xhtTHve64N).
 
 Phwee was originally looking for a bot that could iterate over user's existing roles and assign a new role based on the roles the user already has.
 After that was created, Phwee allowed me to have free roam in her server letting me create and use what I create in her 250+ people server.
@@ -25,10 +24,9 @@ So, this bot is just that, a fun project I come back to every now and then when 
 This project is not meant for many Discord servers, but for one. That being said, the code is highly specilized for one server.
 Feel free to use the code as reference, or if you want to get involved feel free to join the server and get to know everyone there!
 
-The project is hosted on https://railway.app with future plans to be migrated to docker. (If i can take the time out to learn docker)
+The project is hosted on [Railway](https://railway.app) with future plans to be migrated to docker. (If i can take the time out to learn docker)
 
-If you have any question or want to be involved, reach out to me on Discord.
-[My Discord](https://discord.gg/DuMJjretE2)
+If you have any question or want to be involved, reach out to me on [Discord](https://discord.gg/DuMJjretE2).
 
 Ok, bye.
 

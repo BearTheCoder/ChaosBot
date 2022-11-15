@@ -66,7 +66,7 @@ Ok, bye.
 ### Authors
 
 -   [BearTheCoder](https://www.youtube.com/channel/UCWg8LAQk6NLQfj4Wr3zImKA)
--   [PhweedomStudions](https://phwee.carrd.co/)
+-   [PhweedomStudios](https://phwee.carrd.co/)
 
 #### Support the Project
 

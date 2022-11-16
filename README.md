@@ -68,4 +68,4 @@ Ok, bye.
 
 #### Help Pay for Servers
 
--  [Rich people click here](https://www.buymeacoffee.com/bearthecoder) - 
+-  [Rich people click here](https://www.buymeacoffee.com/bearthecoder)

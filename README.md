@@ -9,7 +9,6 @@
 - [Issues and Excuses](#issues-and-excuses)
 - [License](#license)
 - [Authors](#authors)
-- [Support the Project](#help-pay-for-servers)
 
 # About
 
@@ -66,6 +65,3 @@ Ok, bye.
 -   [BearTheCoder](https://www.youtube.com/channel/UCWg8LAQk6NLQfj4Wr3zImKA)
 -   [PhweedomStudios](https://phwee.carrd.co/)
 
-#### Help Pay for Servers
-
--  [Rich people click here](https://www.buymeacoffee.com/bearthecoder)

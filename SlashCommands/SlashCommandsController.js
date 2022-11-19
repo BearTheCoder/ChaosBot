@@ -189,7 +189,8 @@ function startRubberLarry (interaction) {
       GatewayIntentBits.GuildMembers,
     ],
     partials: [
-      interaction.channel.name
+      interaction.channel.name,
+      interaction.user.username,
     ]
   });
   myClient.login(process.env.myToken);

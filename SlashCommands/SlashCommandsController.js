@@ -181,7 +181,9 @@ function startRubberLarry (interaction, myClient) {
     myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
     interaction.editReply(`<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`);
   }, 600000); //Ten Minutes
-  myClient.on(`messageCreate`, rubberLarryListener);
+  myClient.on(`messageCreate`, (userMessage) => {
+    rubberLarryListener(userMessage, interaction);
+  });
 }
 
 async function rubberLarryListener (userMessage, interaction) {

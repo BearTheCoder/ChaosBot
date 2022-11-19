@@ -178,19 +178,7 @@ function timeUntilChristmas () {
   return `There are ${ daysUntilChristmas } days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
 }
 
-function startRubberLarry (interaction) {
-  require('dotenv').config;
-  const { Client, GatewayIntentBits, Partials } = require("discord.js");
-  const myClient = new Client({
-    partials: [
-      interaction.channel.name,
-      interaction.user.username,
-    ]
-  });
-  myClient.login(process.env.myToken);
-
-
-
+function startRubberLarry (interaction, myClient) {
   let typingTimeout = null;
   console.log(`Rubber Larry Started...`);
 
@@ -200,23 +188,24 @@ function startRubberLarry (interaction) {
   });
 
   //Add event listener for typing
-  myClient.on('typingStart', (typing) => {
-    console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
-    console.log(`Interaction username: ${ interaction.user.username }`);
-    if (channel.name === "bot-testing" && user.username === interaction.user.username) {
-      if (typingTimeout !== null) {
-        clearTimeout(typingTimeout);
-        console.log(`Timeout cleared....`);
-      }
-      console.log(`Timeout added...`);
-      typingTimeout = setTimeout(() => {
-        console.log(`Timeout reached...`);
-        if (canReply) {
-          channel.send("this is a generic reply");
-          canReply = false;
-        }
-      }, 5000);
-    }
+  myClient.on('typingStart', (channel, user) => {
+    console.log(`here...`);
+    // console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
+    // console.log(`Interaction username: ${ interaction.user.username }`);
+    // if (channel.name === "bot-testing" && user.username === interaction.user.username) {
+    //   if (typingTimeout !== null) {
+    //     clearTimeout(typingTimeout);
+    //     console.log(`Timeout cleared....`);
+    //   }
+    //   console.log(`Timeout added...`);
+    //   typingTimeout = setTimeout(() => {
+    //     console.log(`Timeout reached...`);
+    //     if (canReply) {
+    //       channel.send("this is a generic reply");
+    //       canReply = false;
+    //     }
+    //   }, 5000);
+    // }
   });
 }
 

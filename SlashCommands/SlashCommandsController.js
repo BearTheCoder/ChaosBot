@@ -184,7 +184,7 @@ function startRubberLarry(interaction, myClient) {
 
   //Add event listener for messages
   myClient.on(`messageCreate`, (userMessage) => {
-    rubberLarryListener(userMessage, interaction, myClient);
+    rubberLarryListener(userMessage, interaction, myClient, typingTimeout);
   });
 
   //Add event listener for typing
@@ -204,20 +204,21 @@ function startRubberLarry(interaction, myClient) {
   });
 }
 
-async function rubberLarryListener(userMessage, interaction, myClient) {
+async function rubberLarryListener(userMessage, interaction, myClient, typingTimeout) {
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
     canReply = true;
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(
         `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`
       );
-      stopRubberLarry(myClient);
+      stopRubberLarry(myClient, typingTimeout);
     }
   }
 }
 
-function stopRubberLarry(myClient) {
+function stopRubberLarry(myClient, typingTimeout) {
   myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
+  clearTimeout(typingTimeout);
 }
 
 // Internal Functions - - - - - - - - - - - - - -

@@ -11,9 +11,10 @@ const {
 } = require("discord.js");
 require("dotenv").config();
 const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);
+const { rubberLarryPhrases } = require(`../LarryBot/RubberLarryPhrases.js`);
 let canReply = false;
 
-function returnCreateCommandModal () {
+function returnCreateCommandModal() {
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
     .setTitle("Create Command!");
@@ -46,7 +47,7 @@ function returnCreateCommandModal () {
   return modal;
 }
 
-function createNewCommand (commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired) {
+function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -55,26 +56,26 @@ function createNewCommand (commandName, commandDescription, commandPermissions, 
       // Recreate all commands that already exist.
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
-        if (commands[ i ].options === undefined) {
+        if (commands[i].options === undefined) {
           newCommands.push(new SlashCommandBuilder()
-            .setName(commands[ i ].name)
-            .setDescription(commands[ i ].description)
-            .setDefaultMemberPermissions(commands[ i ].default_member_permissions));
+            .setName(commands[i].name)
+            .setDescription(commands[i].description)
+            .setDefaultMemberPermissions(commands[i].default_member_permissions));
         }
         else {
           try {
-            const isRequired = commands[ i ].options[ 0 ].required === undefined ? false : true;
+            const isRequired = commands[i].options[0].required === undefined ? false : true;
             newCommands.push(new SlashCommandBuilder()
-              .setName(commands[ i ].name)
-              .setDescription(commands[ i ].description)
-              .setDefaultMemberPermissions(commands[ i ].default_member_permissions)
+              .setName(commands[i].name)
+              .setDescription(commands[i].description)
+              .setDefaultMemberPermissions(commands[i].default_member_permissions)
               .addStringOption(option =>
-                option.setName(commands[ i ].options[ 0 ].name)
-                  .setDescription(commands[ i ].options[ 0 ].description)
+                option.setName(commands[i].options[0].name)
+                  .setDescription(commands[i].options[0].description)
                   .setRequired(isRequired)));
           }
           catch (err) {
-            console.log(commands[ i ].name);
+            console.log(commands[i].name);
             console.log(err);
           }
         }
@@ -105,12 +106,12 @@ function createNewCommand (commandName, commandDescription, commandPermissions, 
     .catch(console.error);
 }
 
-function deleteAllCommands () {
+function deleteAllCommands() {
   const logMessage = "All commands deleted...";
   setCommandsViaRest(logMessage, { body: [], });
 }
 
-function listCommands (interaction) {
+function listCommands(interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -119,22 +120,22 @@ function listCommands (interaction) {
       let dataString = null;
       for (let i = 0; i < data.length; i++) {
         dataString = dataString === null ?
-          `Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n` :
-          `${ dataString }Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n`;
+          `Name: ${data[i].name} ID: ${data[i].id} \n` :
+          `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
       }
       interaction.reply(dataString);
     })
     .catch(console.error);
 }
 
-function deleteCommandByID (interaction) {
+function deleteCommandByID(interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, interaction.options.getString('command')))
     .then(() => console.log('Successfully deleted guild command...'))
     .catch(console.error);
 }
 
-function resetCommands (interaction) {
+function resetCommands(interaction) {
   if (interaction.options.getString('password') === 'allow chaos') {
     const commands = [
       new SlashCommandBuilder()
@@ -159,28 +160,27 @@ function resetCommands (interaction) {
   }
 }
 
-function returnCoinFlipResult () {
+function returnCoinFlipResult() {
   return Math.random() >= 0.5 ? "Heads! <:phweeHaha:951997660313841705>" : "Tails! <a:aethyTailR:985456739489042432>";
 }
 
-function shake8Ball () {
-  return magicLines[ Math.floor(Math.random() * magicLines.length) ];
+function shake8Ball() {
+  return magicLines[Math.floor(Math.random() * magicLines.length)];
 }
 
-function sendLarryInfo () {
+function sendLarryInfo() {
   return `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
 }
 
-function timeUntilChristmas () {
+function timeUntilChristmas() {
   const today = new Date();
-  const christmas = Date.parse(`25 Dec ${ today.getFullYear() } 00:00:00 EST`);
+  const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`);
   const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000); //86400000 is the milliseconds in a day
-  return `There are ${ daysUntilChristmas } days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
+  return `There are ${daysUntilChristmas} days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
 }
 
-function startRubberLarry (interaction, myClient) {
+function startRubberLarry(interaction, myClient) {
   let typingTimeout = null;
-  console.log(`Rubber Larry Started...`);
 
   //Add event listener for messages
   myClient.on(`messageCreate`, (userMessage) => {
@@ -189,19 +189,13 @@ function startRubberLarry (interaction, myClient) {
 
   //Add event listener for typing
   myClient.on('typingStart', (typing) => {
-    console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
-    console.log(`Interaction username: ${ interaction.user.username }`);
     if (typing.channel.name === "bot-testing" && typing.user.username === interaction.user.username) {
       if (typingTimeout !== null) {
         clearTimeout(typingTimeout);
-        console.log(`Timeout cleared....`);
       }
-      console.log(`Timeout added...`);
       typingTimeout = setTimeout(() => {
-        console.log(`Timeout reached...`);
-        console.log(canReply);
         if (canReply) {
-          typing.channel.send("this is a generic reply");
+          typing.channel.send(Math.floor(rubberLarryPhrases[Math.random * rubberLarryPhrases.length]));
           canReply = false;
         }
       }, 10000);
@@ -209,9 +203,8 @@ function startRubberLarry (interaction, myClient) {
   });
 }
 
-async function rubberLarryListener (userMessage, interaction, myClient) {
+async function rubberLarryListener(userMessage, interaction, myClient) {
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
-    console.log(`${ userMessage.author.username } has sent a message in ${ userMessage.channel.name }`);
     canReply = true;
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(
@@ -222,12 +215,12 @@ async function rubberLarryListener (userMessage, interaction, myClient) {
   }
 }
 
-function stopRubberLarry (myClient) {
+function stopRubberLarry(myClient) {
   myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
 }
 
 // Internal Functions - - - - - - - - - - - - - -
-function setCommandsViaRest (logMessage, Commands) {
+function setCommandsViaRest(logMessage, Commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)

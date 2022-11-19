@@ -27,7 +27,6 @@ myClient.on(`messageCreate`, async (userMessage) => {
         break;
       }
     }
-    console.log(userMessage.channel);
   }
 });
 

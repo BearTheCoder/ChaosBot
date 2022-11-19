@@ -180,6 +180,7 @@ function timeUntilChristmas () {
 
 function startRubberLarry (interaction) {
   require('dotenv').config;
+  const { Client, GatewayIntentBits } = require("discord.js");
   const myClient = new Client({
     intents: [
       GatewayIntentBits.Guilds,

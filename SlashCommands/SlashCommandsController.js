@@ -178,17 +178,31 @@ function timeUntilChristmas () {
   return `There are ${ daysUntilChristmas } days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
 }
 
-function startRubberLarry (interaction, myClient) {
+function startRubberLarry (interaction) {
+  require('dotenv').config;
+  const myClient = new Client({
+    intents: [
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildMembers,
+    ],
+    channel: "bot-testing"
+  });
+  myClient.login(process.env.myToken);
+
+
+
   let typingTimeout = null;
   console.log(`Rubber Larry Started...`);
 
   //Add event listener for messages
   myClient.on(`messageCreate`, (userMessage) => {
-    rubberLarryListener(userMessage, interaction);
+    rubberLarryListener(userMessage, interaction, myClient);
   });
 
   //Add event listener for typing
-  myClient.on('typingStart', () => {
+  interaction.client.on('typingStart', (typing) => {
     console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
     console.log(`Interaction username: ${ interaction.user.username }`);
     if (channel.name === "bot-testing" && user.username === interaction.user.username) {
@@ -208,7 +222,7 @@ function startRubberLarry (interaction, myClient) {
   });
 }
 
-async function rubberLarryListener (userMessage, interaction) {
+async function rubberLarryListener (userMessage, interaction, myClient) {
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
     console.log(`${ userMessage.author.username } has sent a message in ${ userMessage.channel.name }`);
     canReply = true;
@@ -216,7 +230,7 @@ async function rubberLarryListener (userMessage, interaction) {
       await userMessage.reply(
         `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`
       );
-      stopRubberLarry();
+      stopRubberLarry(myClient);
     }
   }
 }

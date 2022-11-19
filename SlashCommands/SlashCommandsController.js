@@ -192,7 +192,6 @@ function startRubberLarry (interaction, myClient) {
     console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
     console.log(`Interaction username: ${ interaction.user.username }`);
     if (typing.channel.name === "bot-testing" && typing.user.username === interaction.user.username) {
-      canReply = false;
       if (typingTimeout !== null) {
         clearTimeout(typingTimeout);
         console.log(`Timeout cleared....`);
@@ -205,7 +204,7 @@ function startRubberLarry (interaction, myClient) {
           typing.channel.send("this is a generic reply");
           canReply = false;
         }
-      }, 5000);
+      }, 10000);
     }
   });
 }

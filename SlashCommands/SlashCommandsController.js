@@ -179,8 +179,6 @@ function timeUntilChristmas () {
 
 function startRubberLarry (interaction, myClient) {
   let typingTimeout = null;
-  let messageTimeout = null;
-
 
   // //Remove Listener after 5 minutes and no typing
   // setTimeout(() => {
@@ -195,11 +193,16 @@ function startRubberLarry (interaction, myClient) {
 
   //Add event listener for typing
   myClient.on('typingStart', (channel, user) => {
+    console.log(`${ user.username } is typing in ${ channel.name }`);
+    console.log(`Interaction username: ${ interaction.user.username }`);
     if (channel.name === "bot-testing" && user.username === interaction.user.username) {
       if (typingTimeout !== null) {
         clearTimeout(typingTimeout);
+        console.log(`Timeout cleared....`);
       }
+      console.log(`Timeout added...`);
       typingTimeout = setTimeout(() => {
+        console.log(`Timeout reached...`);
         if (canReply) {
           channel.send("this is a generic reply");
           canReply = false;
@@ -218,10 +221,6 @@ async function rubberLarryListener (userMessage, interaction) {
       );
       stopRubberLarry();
     }
-    // let reply = "this is a generic reply";
-    // await userMessage.channel.send(
-    //   `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
-    // );
   }
 }
 

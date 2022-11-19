@@ -195,7 +195,7 @@ function startRubberLarry(interaction, myClient) {
       }
       typingTimeout = setTimeout(() => {
         if (canReply) {
-          typing.channel.send(Math.floor(rubberLarryPhrases[Math.random * rubberLarryPhrases.length]));
+          typing.channel.send(rubberLarryPhrases[Math.floor(Math.random * rubberLarryPhrases.length)]);
           canReply = false;
         }
       }, 10000);

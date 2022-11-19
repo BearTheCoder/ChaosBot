@@ -187,8 +187,8 @@ function startRubberLarry (interaction, myClient) {
 }
 
 async function rubberLarryListener (userMessage, interaction) {
-  console.log(`Author: ${ userMessage.author.username } === Interaction User: ${ interaction.interaction.user.username }`);
-  if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.interaction.user.username) {
+  console.log(`Author: ${ userMessage.author.username } === Interaction User: ${ interaction.user.username }`);
+  if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(
         `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`

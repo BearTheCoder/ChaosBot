@@ -4,13 +4,14 @@ const slashCommandInteractions = require('./SlashCommands/Interactions.js');
 const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
 require('dotenv').config;
 
-const { Client, GatewayIntentBits } = require("discord.js");
+const { Client, GatewayIntentBits, Intents } = require("discord.js");
 const myClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
+    Intents.GUILD_MESSAGE_TYPING,
   ],
 });
 

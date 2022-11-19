@@ -205,7 +205,7 @@ function startRubberLarry (interaction) {
   });
 
   //Add event listener for typing
-  interaction.client.on('typingStart', (typing) => {
+  myClient.on('typingStart', (typing) => {
     console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
     console.log(`Interaction username: ${ interaction.user.username }`);
     if (channel.name === "bot-testing" && user.username === interaction.user.username) {

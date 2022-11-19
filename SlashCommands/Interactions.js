@@ -87,7 +87,8 @@ interactions = [
     commandName: `rubberlarry`,
     commandFunction: async function (interaction, myClient) {
       await interaction.reply("I'm listening...");
-      await interaction.reply("I'm listening again...");
+      // Function with message listener on time
+      // slashCommandsController.startRubberLarry(interaction, myClient);
       console.log(`${ interaction.user.username } has used ${ this.commandName }...`);
     },
   },

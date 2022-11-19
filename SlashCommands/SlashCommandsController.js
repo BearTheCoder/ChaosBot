@@ -1,17 +1,17 @@
-const { 
-  ActionRowBuilder, 
-  ModalBuilder, 
-  REST, 
-  SlashCommandBuilder, 
-  TextInputBuilder, 
-  TextInputStyle, 
-  PermissionFlagsBits, 
-  Routes,  
+const {
+  ActionRowBuilder,
+  ModalBuilder,
+  REST,
+  SlashCommandBuilder,
+  TextInputBuilder,
+  TextInputStyle,
+  PermissionFlagsBits,
+  Routes,
 } = require("discord.js");
 require("dotenv").config();
 const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);
 
-function returnCreateCommandModal() {
+function returnCreateCommandModal () {
   const modal = new ModalBuilder()
     .setCustomId("createCommandModal")
     .setTitle("Create Command!");
@@ -44,7 +44,7 @@ function returnCreateCommandModal() {
   return modal;
 }
 
-function createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired) {
+function createNewCommand (commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -53,29 +53,29 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
       // Recreate all commands that already exist.
       let newCommands = [];
       for (let i = 0; i < commands.length; i++) {
-        if (commands[i].options === undefined) {
+        if (commands[ i ].options === undefined) {
           newCommands.push(new SlashCommandBuilder()
-            .setName(commands[i].name)
-            .setDescription(commands[i].description)
-            .setDefaultMemberPermissions(commands[i].default_member_permissions))
+            .setName(commands[ i ].name)
+            .setDescription(commands[ i ].description)
+            .setDefaultMemberPermissions(commands[ i ].default_member_permissions));
         }
         else {
           try {
-          const isRequired = commands[i].options[0].required === undefined? false : true;
-          newCommands.push(new SlashCommandBuilder()
-          .setName(commands[i].name)
-          .setDescription(commands[i].description)
-          .setDefaultMemberPermissions(commands[i].default_member_permissions)
-          .addStringOption(option => 
-            option.setName(commands[i].options[0].name)
-              .setDescription(commands[i].options[0].description)
-              .setRequired(isRequired)));
+            const isRequired = commands[ i ].options[ 0 ].required === undefined ? false : true;
+            newCommands.push(new SlashCommandBuilder()
+              .setName(commands[ i ].name)
+              .setDescription(commands[ i ].description)
+              .setDefaultMemberPermissions(commands[ i ].default_member_permissions)
+              .addStringOption(option =>
+                option.setName(commands[ i ].options[ 0 ].name)
+                  .setDescription(commands[ i ].options[ 0 ].description)
+                  .setRequired(isRequired)));
           }
           catch (err) {
-            console.log(commands[i].name)
-            console.log(err)
+            console.log(commands[ i ].name);
+            console.log(err);
           }
-          }
+        }
       }
 
       // Create New Command
@@ -84,7 +84,7 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
           .setName(commandName)
           .setDescription(commandDescription)
           .setDefaultMemberPermissions(commandPermissions)
-          .addStringOption(option => 
+          .addStringOption(option =>
             option.setName(commandInputName)
               .setDescription(commandInputName)
               .setRequired(commandInputRequired)));
@@ -93,22 +93,22 @@ function createNewCommand(commandName, commandDescription, commandPermissions, c
         newCommands.push(new SlashCommandBuilder()
           .setName(commandName)
           .setDescription(commandDescription)
-          .setDefaultMemberPermissions(commandPermissions))
+          .setDefaultMemberPermissions(commandPermissions));
       }
 
       const JSONCommands = newCommands.map((command) => command.toJSON());
       const logMessage = "New commands created...";
-      setCommandsViaRest(logMessage, {body: JSONCommands,})
-      })
+      setCommandsViaRest(logMessage, { body: JSONCommands, });
+    })
     .catch(console.error);
 }
 
-function deleteAllCommands() {
+function deleteAllCommands () {
   const logMessage = "All commands deleted...";
-  setCommandsViaRest(logMessage, { body: [],});
+  setCommandsViaRest(logMessage, { body: [], });
 }
 
-function listCommands(interaction) {
+function listCommands (interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
@@ -116,23 +116,23 @@ function listCommands(interaction) {
       console.log(data);
       let dataString = null;
       for (let i = 0; i < data.length; i++) {
-        dataString = dataString === null?   
-          `Name: ${data[i].name} ID: ${data[i].id} \n` : 
-          `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n` 
+        dataString = dataString === null ?
+          `Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n` :
+          `${ dataString }Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n`;
       }
       interaction.reply(dataString);
     })
     .catch(console.error);
 }
 
-function deleteCommandByID(interaction) {
+function deleteCommandByID (interaction) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, interaction.options.getString('command')))
-	  .then(() => console.log('Successfully deleted guild command...'))
-	  .catch(console.error);
+    .then(() => console.log('Successfully deleted guild command...'))
+    .catch(console.error);
 }
 
-function resetCommands(interaction) {
+function resetCommands (interaction) {
   if (interaction.options.getString('password') === 'allow chaos') {
     const commands = [
       new SlashCommandBuilder()
@@ -143,13 +143,13 @@ function resetCommands(interaction) {
         .setName("resetcommands")
         .setDescription("(MODS - PASSWORD) Removes all functions except 'createcommand' and 'resetfunctions'.")
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-        .addStringOption(option => 
-            option.setName("password")
-              .setDescription("password")
-              .setRequired(true))
+        .addStringOption(option =>
+          option.setName("password")
+            .setDescription("password")
+            .setRequired(true))
     ].map((command) => command.toJSON());
     const logMessage = "Base command created, all other commands deleted...";
-    setCommandsViaRest(logMessage, {body: commands,});
+    setCommandsViaRest(logMessage, { body: commands, });
     interaction.reply(`All commands have been reset...`);
   }
   else {
@@ -157,27 +157,42 @@ function resetCommands(interaction) {
   }
 }
 
-function returnCoinFlipResult() {
+function returnCoinFlipResult () {
   return Math.random() >= 0.5 ? "Heads! <:phweeHaha:951997660313841705>" : "Tails! <a:aethyTailR:985456739489042432>";
 }
 
-function shake8Ball() {
-  return magicLines[Math.floor(Math.random() * magicLines.length)];
+function shake8Ball () {
+  return magicLines[ Math.floor(Math.random() * magicLines.length) ];
 }
 
-function sendLarryInfo() {
+function sendLarryInfo () {
   return `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
 }
 
-function timeUntilChristmas() {
+function timeUntilChristmas () {
   const today = new Date();
-  const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`);
+  const christmas = Date.parse(`25 Dec ${ today.getFullYear() } 00:00:00 EST`);
   const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000); //86400000 is the milliseconds in a day
-  return `There are ${daysUntilChristmas} days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
+  return `There are ${ daysUntilChristmas } days until Christmas. <a:wizzyDinkDonk:941202783758073857>`;
+}
+
+function startRubberLarry (interaction, myClient) {
+  myClient.on(`messageCreate`, async (userMessage) => {
+    // if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
+    //   for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
+    //     let commandName = doubleSlashCommands.commands[ i ].commandName;
+    //     if (userMessage.content.toLowerCase().includes(commandName)) {
+    //       doubleSlashCommands.commands[ i ].commandFunction(userMessage);
+    //       break;
+    //     }
+    //   }
+    // }
+    console.log(userMessage.channel);
+  });
 }
 
 // Internal Functions - - - - - - - - - - - - - -
-function setCommandsViaRest(logMessage, Commands) {
+function setCommandsViaRest (logMessage, Commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
@@ -185,15 +200,16 @@ function setCommandsViaRest(logMessage, Commands) {
     .catch(console.error);
 }
 
-module.exports = { 
-  createNewCommand, 
-  deleteAllCommands, 
-  deleteCommandByID, 
+module.exports = {
+  createNewCommand,
+  deleteAllCommands,
+  deleteCommandByID,
   listCommands,
-  returnCreateCommandModal, 
-  resetCommands, 
-  returnCoinFlipResult, 
+  returnCreateCommandModal,
+  resetCommands,
+  returnCoinFlipResult,
   shake8Ball,
   sendLarryInfo,
   timeUntilChristmas,
+  startRubberLarry,
 };

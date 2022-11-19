@@ -177,18 +177,31 @@ function timeUntilChristmas () {
 }
 
 function startRubberLarry (interaction, myClient) {
-  myClient.on(`messageCreate`, async (userMessage) => {
-    // if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
-    //   for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
-    //     let commandName = doubleSlashCommands.commands[ i ].commandName;
-    //     if (userMessage.content.toLowerCase().includes(commandName)) {
-    //       doubleSlashCommands.commands[ i ].commandFunction(userMessage);
-    //       break;
-    //     }
-    //   }
-    // }
-    console.log(userMessage.channel);
-  });
+  setTimeout(() => {
+    myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
+    interaction.editReply(`<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`);
+  }, 600000); //Ten Minutes
+  myClient.on(`messageCreate`, rubberLarryListener);
+}
+
+async function rubberLarryListener (interaction) {
+  console.log(`Author: ${ userMessage.author.username } === Interaction User: ${ interaction.interaction.user.username }`);
+  if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.interaction.user.username) {
+    if (userMessage.content.includes("//amen")) {
+      await userMessage.reply(
+        `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`
+      );
+      stopRubberLarry();
+    }
+    let reply = "this is a generic reply";
+    await userMessage.reply(
+      `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
+    );
+  }
+}
+
+function stopRubberLarry (myClient) {
+  myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
 }
 
 // Internal Functions - - - - - - - - - - - - - -

@@ -10,6 +10,7 @@ const {
 } = require("discord.js");
 require("dotenv").config();
 const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);
+let canReply = false;
 
 function returnCreateCommandModal () {
   const modal = new ModalBuilder()
@@ -177,28 +178,50 @@ function timeUntilChristmas () {
 }
 
 function startRubberLarry (interaction, myClient) {
-  setTimeout(() => {
-    myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
-    interaction.editReply(`<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`);
-  }, 600000); //Ten Minutes
+  let typingTimeout = null;
+  let messageTimeout = null;
+
+
+  // //Remove Listener after 5 minutes and no typing
+  // setTimeout(() => {
+  //   myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
+  //   interaction.editReply(`<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`);
+  // }, 600000); //Ten Minutes
+
+  //Add event listener for messages
   myClient.on(`messageCreate`, (userMessage) => {
     rubberLarryListener(userMessage, interaction);
+  });
+
+  //Add event listener for typing
+  myClient.on('typingStart', (channel, user) => {
+    if (channel.name === "bot-testing" && user.username === interaction.user.username) {
+      if (typingTimeout !== null) {
+        clearTimeout(typingTimeout);
+      }
+      typingTimeout = setTimeout(() => {
+        if (canReply) {
+          channel.send("this is a generic reply");
+          canReply = false;
+        }
+      }, 5000);
+    }
   });
 }
 
 async function rubberLarryListener (userMessage, interaction) {
-  console.log(`Author: ${ userMessage.author.username } === Interaction User: ${ interaction.user.username }`);
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
+    canReply = true;
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(
         `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`
       );
       stopRubberLarry();
     }
-    let reply = "this is a generic reply";
-    await userMessage.channel.send(
-      `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
-    );
+    // let reply = "this is a generic reply";
+    // await userMessage.channel.send(
+    //   `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
+    // );
   }
 }
 

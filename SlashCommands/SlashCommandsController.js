@@ -188,7 +188,8 @@ function startRubberLarry (interaction) {
       GatewayIntentBits.MessageContent,
       GatewayIntentBits.GuildMembers,
     ],
-    channel: "bot-testing"
+    channel: interaction.channel.name,
+    user: interaction.user.username,
   });
   myClient.login(process.env.myToken);
 

@@ -7,6 +7,7 @@ const {
   TextInputStyle,
   PermissionFlagsBits,
   Routes,
+  Events,
 } = require("discord.js");
 require("dotenv").config();
 const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);
@@ -180,11 +181,6 @@ function timeUntilChristmas () {
 function startRubberLarry (interaction, myClient) {
   let typingTimeout = null;
   console.log(`Rubber Larry Started...`);
-  // //Remove Listener after 5 minutes and no typing
-  // setTimeout(() => {
-  //   myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
-  //   interaction.editReply(`<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`);
-  // }, 600000); //Ten Minutes
 
   //Add event listener for messages
   myClient.on(`messageCreate`, (userMessage) => {
@@ -192,7 +188,7 @@ function startRubberLarry (interaction, myClient) {
   });
 
   //Add event listener for typing
-  myClient.on('typingStart', (typing) => {
+  myClient.on(Events.TypingStart, (typing) => {
     console.log(`${ typing.user.username } is typing in ${ typing.channel.name }`);
     console.log(`Interaction username: ${ interaction.user.username }`);
     if (channel.name === "bot-testing" && user.username === interaction.user.username) {
@@ -214,6 +210,7 @@ function startRubberLarry (interaction, myClient) {
 
 async function rubberLarryListener (userMessage, interaction) {
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
+    console.log(`${ userMessage.author.username } has sent a message in ${ userMessage.channel.name }`);
     canReply = true;
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(

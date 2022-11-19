@@ -179,7 +179,7 @@ function timeUntilChristmas () {
 
 function startRubberLarry (interaction, myClient) {
   let typingTimeout = null;
-
+  console.log(`Rubber Larry Started...`);
   // //Remove Listener after 5 minutes and no typing
   // setTimeout(() => {
   //   myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));

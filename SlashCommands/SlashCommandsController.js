@@ -182,12 +182,6 @@ function startRubberLarry (interaction) {
   require('dotenv').config;
   const { Client, GatewayIntentBits, Partials } = require("discord.js");
   const myClient = new Client({
-    intents: [
-      GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.MessageContent,
-      GatewayIntentBits.GuildMembers,
-    ],
     partials: [
       interaction.channel.name,
       interaction.user.username,

@@ -196,7 +196,7 @@ async function rubberLarryListener (userMessage, interaction) {
       stopRubberLarry();
     }
     let reply = "this is a generic reply";
-    await userMessage.reply(
+    await userMessage.channel.send(
       `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
     );
   }

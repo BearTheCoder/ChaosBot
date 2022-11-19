@@ -184,7 +184,7 @@ function startRubberLarry (interaction, myClient) {
   myClient.on(`messageCreate`, rubberLarryListener);
 }
 
-async function rubberLarryListener (interaction) {
+async function rubberLarryListener (userMessage, interaction) {
   console.log(`Author: ${ userMessage.author.username } === Interaction User: ${ interaction.interaction.user.username }`);
   if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.interaction.user.username) {
     if (userMessage.content.includes("//amen")) {

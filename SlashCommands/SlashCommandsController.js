@@ -199,6 +199,7 @@ function startRubberLarry (interaction, myClient) {
       console.log(`Timeout added...`);
       typingTimeout = setTimeout(() => {
         console.log(`Timeout reached...`);
+        console.log(canReply);
         if (canReply) {
           typing.channel.send("this is a generic reply");
           canReply = false;

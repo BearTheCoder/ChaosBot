@@ -196,8 +196,12 @@ function startRubberLarry(interaction, myClient) {
       typingTimeout = setTimeout(() => {
         if (canReply) {
           console.log(rubberLarryPhrases[0]);
-          const randNum = Math.floor(Math.random * rubberLarryPhrases.length);
+          const randNum = Math.random;
           console.log(randNum);
+          const randArray = randNum * rubberLarryPhrases.length;
+          console.log(randArray);
+          const flooredRand = Math.floor(randArray);
+          console.log(flooredRand);
           typing.channel.send(rubberLarryPhrases[randNum]);
           canReply = false;
         }

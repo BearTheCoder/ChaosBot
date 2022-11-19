@@ -180,7 +180,7 @@ function timeUntilChristmas () {
 
 function startRubberLarry (interaction) {
   require('dotenv').config;
-  const { Client, GatewayIntentBits } = require("discord.js");
+  const { Client, GatewayIntentBits, Partials } = require("discord.js");
   const myClient = new Client({
     intents: [
       GatewayIntentBits.Guilds,
@@ -188,8 +188,9 @@ function startRubberLarry (interaction) {
       GatewayIntentBits.MessageContent,
       GatewayIntentBits.GuildMembers,
     ],
-    channel: interaction.channel.name,
-    user: interaction.user.username,
+    partials: [
+      interaction.channel.name
+    ]
   });
   myClient.login(process.env.myToken);
 

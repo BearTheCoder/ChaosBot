@@ -196,7 +196,7 @@ function startRubberLarry(interaction, myClient) {
       typingTimeout = setTimeout(() => {
         if (canReply) {
           const randNum = Math.floor(Math.random() * rubberLarryPhrases.length);
-          typing.channel.send(rubberLarryPhrases[randNum]);
+          typing.channel.send(`<:phweeLarry:1023966100226060339> ${rubberLarryPhrases[randNum]}`);
           canReply = false;
         }
       }, 10000);
@@ -209,7 +209,7 @@ async function rubberLarryListener(userMessage, interaction, myClient, typingTim
     canReply = true;
     if (userMessage.content.includes("//amen")) {
       await userMessage.reply(
-        `<:phweeLarry:1023966100226060339> **Larry says:** May Larry be with you.`
+        `<:phweeLarry:1023966100226060339> May Larry be with you.`
       );
       stopRubberLarry(myClient, typingTimeout);
     }

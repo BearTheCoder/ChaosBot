@@ -1,4 +1,4 @@
-const { magicLines } = require(`./RandoBot/Magic8Ball_Lines.js`);
+const { magicLines } = require(`./Magic8Ball_Lines.js`);
 
 module.exports.timeUntilChristmas = () => {
   const today = new Date();

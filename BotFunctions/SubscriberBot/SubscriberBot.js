@@ -1,7 +1,7 @@
 // *****     Exports     *****
 function updateUserRoles(currentMember, myPersonalID) {
   try {
-    console.log(currentMember.username);
+    console.log(currentMember.displayName);
     let hasKittenRole = false;
     let hasPhweakRole = false;
     let hasPhweettenRole = false;

@@ -37,11 +37,11 @@ module.exports.returnCreateCommandModal = () => {
     .setLabel("Command Input Name ('null' for no input)")
     .setStyle(TextInputStyle.Short);
   modal.addComponents(
+    new ActionRowBuilder().addComponents(commandPermissions),
     new ActionRowBuilder().addComponents(commandNameInput),
     new ActionRowBuilder().addComponents(commandDescription),
-    new ActionRowBuilder().addComponents(commandPermissions),
-    new ActionRowBuilder().addComponents(commandInputName),
-    new ActionRowBuilder().addComponents(commandInputRequired));
+    new ActionRowBuilder().addComponents(commandInputRequired),
+    new ActionRowBuilder().addComponents(commandInputName));
   return modal;
 };
 
@@ -53,7 +53,7 @@ module.exports.createNewCommand = modalObject => {
       let recreatedCommands = recreateExistingCommands(commands);
 
       // Create New Command
-      if (commandInputName !== "null") {
+      if (modalObject.commandInputName !== "null") {
         recreatedCommands.push(new SlashCommandBuilder()
           .setName(modalObject.commandName)
           .setDescription(modalObject.commandDescription)

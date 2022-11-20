@@ -6,17 +6,16 @@ const RandoBot = require("./RandoBot/RandoBot.js");
 
 //  *****     Exports     *****
 module.exports.interactions = [
-  // *****     CommandController     *****
   {
     commandName: `createcommand`,
-    commandFunction: async (interaction, myClient) => {
+    commandFunction: async function (interaction, myClient) {
       await interaction.showModal(CommandController.returnCreateCommandModal());
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
   {
     commandName: `listcommands`,
-    commandFunction: (interaction, myClient) => {
+    commandFunction: function (interaction, myClient) {
       CommandController.listCommands(interaction)
         .then((reply) => interaction.reply(reply)); //Huh?? Might not work
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
@@ -24,7 +23,7 @@ module.exports.interactions = [
   },
   {
     commandName: `deletecommand`,
-    commandFunction: async (interaction, myClient) => {
+    commandFunction: async function (interaction, myClient) {
       CommandController.deleteCommandByID(interaction);
       await interaction.reply("Command deleted...");
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
@@ -38,8 +37,6 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
-
-  // *****     SubscriberBot     *****
   {
     commandName: `roleupdate`,
     commandFunction: async function (interaction, myClient) {
@@ -48,8 +45,6 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
-
-  // *****     RandoBot     *****
   {
     commandName: `coinflip`,
     commandFunction: async function (interaction, myClient) {
@@ -74,8 +69,6 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
-
-  // *****     LarryBot     *****
   {
     commandName: `rubberlarry`,
     commandFunction: async function (interaction, myClient) {

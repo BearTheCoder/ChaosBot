@@ -1,6 +1,8 @@
+// *****     Imports     *****
 const { larryWisdomLines } = require(`./LarryWisdom.js`);
 const { rubberLarryPhrases } = require(`./RubberLarryPhrases.js`);
 
+// *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
   let reply =
     larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
@@ -33,6 +35,7 @@ module.exports.startRubberLarry = (interaction, myClient) => {
 
 module.exports.sendLarryInfo = () => `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
 
+// *****     Internal Functions     *****
 async function rubberLarryListener(userMessage, rubberLarryArgs) {
   const hasSameAuthor = (userMessage.channel.name === rubberLarryArgs.interaction.channel.name);
   const isInSameChannel = (userMessage.author.username === rubberLarryArgs.interaction.user.username);

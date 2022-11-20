@@ -1,5 +1,5 @@
 // *****     Exports     *****
-module.exports.updateUserRoles = (currentMember, myPersonalID) => {
+module.exports.updateUserRoles = function updateUserRoles(currentMember, myPersonalID) {
   try {
     let hasKittenRole = false;
     let hasPhweakRole = false;

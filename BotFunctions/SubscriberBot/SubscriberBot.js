@@ -30,6 +30,7 @@ function updateUserRoles(currentMember, myPersonalID) {
 };
 
 module.exports.updateAllRoles = (myClient, myGuildID) => {
+  console.log(myGuildID);
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch().then((listOfMembers) => {
     listOfMembers.forEach((currentMember) => {

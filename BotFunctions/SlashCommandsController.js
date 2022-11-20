@@ -42,7 +42,7 @@ module.exports.interactions = [
   // *****     SubscriberBot     *****
   {
     commandName: `roleupdate`,
-    commandFunction: async (interaction, myClient) => {
+    commandFunction: async function (interaction, myClient) {
       SubscriberBot.updateAllRoles(myClient, interaction.guildId);
       await interaction.reply("All roles are being updated...");
       console.log(`${interaction.user.username} has used ${this.commandName}...`);

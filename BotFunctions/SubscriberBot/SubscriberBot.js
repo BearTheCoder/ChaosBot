@@ -1,5 +1,5 @@
 // *****     Exports     *****
-module.exports.updateUserRoles = function updateUserRoles(currentMember, myPersonalID) {
+function updateUserRoles(currentMember, myPersonalID) {
   try {
     let hasKittenRole = false;
     let hasPhweakRole = false;
@@ -37,6 +37,8 @@ module.exports.updateAllRoles = (myClient, myGuildID) => {
     });
   });
 };
+
+module.exports.updateUserRoles = updateUserRoles;
 
 // *****     Internal Functions     *****
 async function sendErrorPM(localError, myUserID) {

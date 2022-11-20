@@ -7,7 +7,6 @@ const {
   TextInputStyle,
   PermissionFlagsBits,
   Routes,
-  Events,
 } = require("discord.js");
 require("dotenv").config();
 const { magicLines } = require(`../Magic8Ball/Magic8Ball_Lines.js`);

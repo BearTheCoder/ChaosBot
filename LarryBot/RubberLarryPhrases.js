@@ -16,6 +16,17 @@ const rubberLarryPhrases = [
     "keep going",
     "It's really hard to say.",
     "hmm",
+    "God I hate my job- oh! Er, I mean.. you’re doing great human! :aethyPats:",
+    "Have you written tests for this case?",
+    "How do you do that?",
+    "What do you mean by that?",
+    "Makes sense",
+    "Write it out, step by step, what do you want it to do?",
+    "How long have you been stuck on this problem? Do you need a break?",
+    "It’s great that you’ve worded this out, is there anything else?",
+    "I'm sorry, I need more information about your problem. Can you tell me more?",
+    "Is there a way to segregate the particular issue?",
+    
 ];
 
 module.exports = { rubberLarryPhrases };

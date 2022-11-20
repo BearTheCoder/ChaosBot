@@ -8,7 +8,7 @@ const rubberLarryPhrases = [
     "gotcha <:phweeNoted:948124611688689724> ",
     "I see...",
     "makes sense <:phweeNoted:948124611688689724> ",
-    "What do you mean by that?",
+    "What do you mean by that?<:phweeQuestion:948124602704478218>",
     "<a:aethySweat:985450674470944778>",
     "<:phweeHaha:951997660313841705>",
     "That's crazy.",

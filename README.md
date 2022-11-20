@@ -7,7 +7,6 @@
 - [Features](#current-features)
 - [Planned Features](#upcoming-features)
 - [Issues and Excuses](#issues-and-excuses)
-- [Design Pattern](#design-pattern)
 - [License](#license)
 - [Authors](#authors)
 
@@ -32,32 +31,27 @@ Ok, bye.
 
 # Issues and Excuses
 
--   Issue # 1 - Larry Bot and the no good very bad code.
+-   Issue # 1 - LarryBot and the no good very bad code.
       Larry, the sentient hygiene god of the server, has taken life in the form of a real-time response every time someone types "//larry".
       Sounds cool I'm sure, the issue?
       As you could probably tell "//larry" is not a "conventional" slash command that you might see on Discord.
       Instead, so Larry could be interactive and responsive, ChaosBot constantly looks through each message for "//larry"
       This causes optimization issues.
       
-      This means ChaosBot fires everytime a message is sent in the Discord.
+      This means an event inside of ChaosBot fires everytime a message is sent in the Discord.
       
-      This is not good code, and there is better ways to do this.
-      But this was a decision between Phwee and I.
+      This is not good code, and there is better ways to do this, we know.
+      But this was a joint decision between Phwee and I.
       The magic of Larry is his responsiveness and making him a slash command would have taken away some of the magic.
-
-# Design Pattern
-
-(will update more later)
-- Family Tree / Parent Child hierarchy with import export highway (think of better example)
-
 
 ## Current Features
 
--   Role Creation and Filter based on other roles.
+-   Role Creation and Filtering based on other roles.
 -   Coin Flip Feature.
 -   Larry.
 -   8-Ball Feature.
 -   Christmas command that counts down the days until Christmas.
+-   Internal slash command control features.
 
 ## Upcoming Features
 

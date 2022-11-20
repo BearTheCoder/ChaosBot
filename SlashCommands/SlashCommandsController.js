@@ -205,7 +205,7 @@ function startRubberLarry(interaction, myClient) {
 }
 
 async function rubberLarryListener(userMessage, interaction, myClient, typingTimeout) {
-  if (userMessage.channel.name === "bot-testing" && userMessage.author.username === interaction.user.username) {
+  if ((userMessage.channel.name === "bot-testing" || userMessage.channel.name === "rubber-duck-dungeon") && userMessage.author.username === interaction.user.username) {
     canReply = true;
     if (userMessage.content.includes("//amen") || userMessage.content.includes("//stop")) {
       await userMessage.reply(

@@ -75,38 +75,37 @@ module.exports.createNewCommand = modalObject => {
     .catch(console.error);
 };
 
-module.exports.listCommands = function () {
-  console.log(`I am a function`);
-  // return new Promise((thenFunc, catchFunc) => {
-  //   try {
-  //     const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  //     rest
-  //       .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-  //       .then((data) => {
-  //         let dataString = null;
-  //         for (let i = 0; i < data.length; i++) {
-  //           dataString = dataString === null ?
-  //             `Name: ${data[i].name} ID: ${data[i].id} \n` :
-  //             `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
-  //         }
-  //         thenFunc(dataString);
-  //       })
-  //       .catch(console.error);
-  //   }
-  //   catch (ex) {
-  //     catchFunc(`Error retrieving commands...`);
-  //   }
-  // });
+module.exports.listCommands = () => {
+  return new Promise((thenFunc, catchFunc) => {
+    try {
+      const rest = new REST({ version: "10" }).setToken(process.env.myToken);
+      rest
+        .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+        .then((data) => {
+          let dataString = null;
+          for (let i = 0; i < data.length; i++) {
+            dataString = dataString === null ?
+              `Name: ${data[i].name} ID: ${data[i].id} \n` :
+              `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
+          }
+          thenFunc(dataString);
+        })
+        .catch(console.error);
+    }
+    catch (ex) {
+      catchFunc(`Error retrieving commands...`);
+    }
+  });
 };
 
-module.exports = function deleteCommandByID(interaction) {
+module.exports.deleteCommandByID = interaction => {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, interaction.options.getString('command')))
     .then(() => console.log('Successfully deleted guild command...'))
     .catch(console.error);
 };
 
-module.exports = function resetCommands(interaction) {
+module.exports.resetCommands = interaction => {
   return new Promise((thenFunc, catchFunc) => {
     if (interaction.options.getString('password') === 'allow chaos') {
       const commands = [

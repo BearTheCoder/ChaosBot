@@ -4,6 +4,7 @@ const { Client, GatewayIntentBits, } = require("discord.js");
 
 // *****     Imports     *****
 const SlashCommandsController = require(`./BotFunctions/SlashCommandsController.js`);
+const DoubleSlashCommandsController = require(`./BotFunctions/DoubleSlashCommandsController.js`);
 const createNewCommand_GC = require(`./BotFunctions/CommandController/CommandController.js`).createNewCommand;
 const updateUserRoles_GC = require(`./BotFunctions/SubscriberBot/SubscriberBot.js`).updateUserRoles;
 
@@ -22,10 +23,10 @@ myClient.once('ready', () => { console.log('Main.js loaded...'); });
 
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
-    for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
-      let commandName = doubleSlashCommands.commands[i].commandName;
+    for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
+      let commandName = DoubleSlashCommandsController.commands[i].commandName;
       if (userMessage.content.toLowerCase().includes(commandName)) {
-        doubleSlashCommands.commands[i].commandFunction(userMessage);
+        DoubleSlashCommandsController.commands[i].commandFunction(userMessage);
         break;
       }
     }

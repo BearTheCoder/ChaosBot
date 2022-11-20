@@ -15,7 +15,7 @@ module.exports.interactions = [
   },
   {
     commandName: `listcommands`,
-    commandFunction: function (interaction, myClient) {
+    commandFunction: async function (interaction, myClient) {
       CommandController.listCommands();
       // .then((reply) => interaction.reply(reply)); //Huh?? Might not work
       console.log(`${interaction.user.username} has used ${this.commandName}...`);

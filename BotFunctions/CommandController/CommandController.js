@@ -76,26 +76,27 @@ module.exports.createNewCommand = modalObject => {
 };
 
 module.exports.listCommands = () => {
-  return new Promise((thenFunc, catchFunc) => {
-    try {
-      const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-      rest
-        .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-        .then((data) => {
-          let dataString = null;
-          for (let i = 0; i < data.length; i++) {
-            dataString = dataString === null ?
-              `Name: ${data[i].name} ID: ${data[i].id} \n` :
-              `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
-          }
-          thenFunc(dataString);
-        })
-        .catch(console.error);
-    }
-    catch (ex) {
-      catchFunc(`Error retrieving commands...`);
-    }
-  });
+  console.log(`I am a function`);
+  // return new Promise((thenFunc, catchFunc) => {
+  //   try {
+  //     const rest = new REST({ version: "10" }).setToken(process.env.myToken);
+  //     rest
+  //       .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+  //       .then((data) => {
+  //         let dataString = null;
+  //         for (let i = 0; i < data.length; i++) {
+  //           dataString = dataString === null ?
+  //             `Name: ${data[i].name} ID: ${data[i].id} \n` :
+  //             `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
+  //         }
+  //         thenFunc(dataString);
+  //       })
+  //       .catch(console.error);
+  //   }
+  //   catch (ex) {
+  //     catchFunc(`Error retrieving commands...`);
+  //   }
+  // });
 };
 
 module.exports = function deleteCommandByID(interaction) {

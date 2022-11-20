@@ -1,6 +1,7 @@
 // *****     Exports     *****
 function updateUserRoles(currentMember, myPersonalID) {
   try {
+    console.log(currentMember);
     let hasKittenRole = false;
     let hasPhweakRole = false;
     let hasPhweettenRole = false;
@@ -30,13 +31,13 @@ function updateUserRoles(currentMember, myPersonalID) {
 };
 
 module.exports.updateAllRoles = (myClient, myGuildID) => {
-  console.log(myGuildID);
   const myGuild = myClient.guilds.cache.get(myGuildID);
-  myGuild.members.fetch().then((listOfMembers) => {
-    listOfMembers.forEach((currentMember) => {
-      updateUserRoles(currentMember);
+  myGuild.members.fetch()
+    .then((listOfMembers) => {
+      listOfMembers.forEach((currentMember) => {
+        updateUserRoles(currentMember);
+      });
     });
-  });
 };
 
 module.exports.updateUserRoles = updateUserRoles;

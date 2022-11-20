@@ -75,7 +75,7 @@ module.exports.createNewCommand = modalObject => {
     .catch(console.error);
 };
 
-module.exports.listCommands = () => {
+module.exports.listCommands = function () {
   console.log(`I am a function`);
   // return new Promise((thenFunc, catchFunc) => {
   //   try {

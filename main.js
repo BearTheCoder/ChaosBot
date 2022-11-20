@@ -1,10 +1,13 @@
-const subscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
-const doubleSlashCommands = require(`./DoubleSlashCommands/DoubleSlashCommands.js`);
-const slashCommandInteractions = require('./SlashCommands/Interactions.js');
-const slashCommandsController = require(`./SlashCommands/SlashCommandsController.js`);
-require('dotenv').config;
+// *****     Package Imports     *****
+require('dotenv').config; // Railway required package for environment variables
+const { Client, GatewayIntentBits, } = require("discord.js");
 
-const { Client, GatewayIntentBits, Intents } = require("discord.js");
+// *****     Imports     *****
+const SlashCommandsController = require(`./BotFunctions/SlashCommandsController.js`);
+const createNewCommand_GC = require(`./BotFunctions/CommandController/CommandController.js`).createNewCommand;
+const updateUserRoles_GC = require(`./BotFunctions/SubscriberBot/SubscriberBot.js`).updateUserRoles;
+
+// *****     Main.JS     *****
 const myClient = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -15,53 +18,42 @@ const myClient = new Client({
   ],
 });
 
-myClient.once('ready', () => {
-  console.log('Main.js Loaded...');
-});
+myClient.once('ready', () => { console.log('Main.js loaded...'); });
 
 myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
     for (let i = 0; i < doubleSlashCommands.commands.length; i++) {
-      let commandName = doubleSlashCommands.commands[ i ].commandName;
+      let commandName = doubleSlashCommands.commands[i].commandName;
       if (userMessage.content.toLowerCase().includes(commandName)) {
-        doubleSlashCommands.commands[ i ].commandFunction(userMessage);
+        doubleSlashCommands.commands[i].commandFunction(userMessage);
         break;
       }
     }
   }
 });
 
-myClient.on("guildMemberUpdate", (oldMember, newMember) => {
-  try {
-    subscriberBot.updateUserRoles(newMember);
-  } catch (errorMsg) {
-    subscriberBot.sendErrorPM(errorMsg, process.env.myPersonalID);
-  }
-});
+myClient.on("guildMemberUpdate", (oldMember, newMember) => { updateUserRoles_GC(newMember); });
 
 myClient.on("interactionCreate", async (iAction) => {
-  if (iAction.customId === "createCommandModal") {
-    const commandName = iAction.fields.getTextInputValue('commandName').toLowerCase(); // Will throw error if not lower case
-    const commandDescription = iAction.fields.getTextInputValue('commandDescription');
-    const commandInputName = iAction.fields.getTextInputValue('commandInputName').toLowerCase(); // Will throw typeerror if not lower case    
-
-    let commandPermissions = iAction.fields.getTextInputValue('commandPermissions');
-    commandPermissions = commandPermissions.toLowerCase().includes("yes") ? '4' : null;
-
-    let commandInputRequired = iAction.fields.getTextInputValue('commandInputRequired').toLowerCase();
-    commandInputRequired = commandInputRequired.includes("yes") ? true : false;
-
-    slashCommandsController.createNewCommand(commandName, commandDescription, commandPermissions, commandInputName, commandInputRequired);
-    iAction.reply("New command created!");
-  }
-  else {
-    for (let i = 0; i < slashCommandInteractions.interactions.length; i++) {
-      let commandName = slashCommandInteractions.interactions[ i ].commandName;
-      if (iAction.commandName === commandName) {
-        slashCommandInteractions.interactions[ i ].commandFunction(iAction, myClient);
+  const iFields = iAction.fields;
+  if (iAction.customId !== "createCommandModal") {
+    for (let i = 0; i < SlashCommandsController.interactions.length; i++) {
+      if (iAction.commandName === SlashCommandsController.interactions[i].commandName) {
+        SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
         break;
       }
     }
+  }
+  else {
+    const modalObject = {
+      commandPermissions: iFields.getTextInputValue('commandPermissions').toLowerCase().includes("yes") ? '4' : null,
+      commandName: iFields.getTextInputValue('commandName').toLowerCase(),
+      commandDescription: iFields.getTextInputValue('commandDescription'),
+      commandInputRequired: iFields.getTextInputValue('commandInputRequired').toLowerCase().includes("yes") ? true : false,
+      commandInputName: iFields.getTextInputValue('commandInputName').toLowerCase(),
+    };
+    createNewCommand_GC(modalObject);
+    iAction.reply("New command created!");
   }
 });
 

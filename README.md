@@ -7,6 +7,7 @@
 - [Features](#current-features)
 - [Planned Features](#upcoming-features)
 - [Issues and Excuses](#issues-and-excuses)
+- [Design Pattern](#design-pattern)
 - [License](#license)
 - [Authors](#authors)
 
@@ -43,6 +44,12 @@ Ok, bye.
       This is not good code, and there is better ways to do this.
       But this was a decision between Phwee and I.
       The magic of Larry is his responsiveness and making him a slash command would have taken away some of the magic.
+
+# Design Pattern
+
+(will update more later)
+- Family Tree / Parent Child hierarchy with import export highway (think of better example)
+
 
 ## Current Features
 

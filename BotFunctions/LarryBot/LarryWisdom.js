@@ -1,4 +1,4 @@
-const larryWisdomLines = [
+module.exports.larryWisdomLines = [
   `Flush the toilet after use, or Larry will eat your legs.`,
   `One germ can multiply into more than 8 million germs in one day. But that means nothing to Larry for he is immune to all diseases.`,
   `Remote controls contribute to the 90,000 annual deaths from infection acquired in hospitals. And Larry will be responsible for your's if you don't remain clean.`,
@@ -57,7 +57,4 @@ const larryWisdomLines = [
   `I'm gunna be the next Hokage! Then, everyone in the server will acknowledge me. I won't stop cleaning, because that's my ninja way!`,
   `Don't eat cat food. Phwee will be ok since she's not human but in general.. don't eat cat food.`,
   `Sometimes I tell people my name is Gene; because then when they greet me they say: "Hi, Gene!"`,
-  
 ];
-
-module.exports = { larryWisdomLines };

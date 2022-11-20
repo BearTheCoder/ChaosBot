@@ -1,4 +1,4 @@
-const magicLines = [
+module.exports.magicLines = [
   `It is certain.`,
   `It is decidedly so.`,
   `Without a doubt.`,
@@ -30,5 +30,3 @@ const magicLines = [
   `Two thumbs up.`,
   `In the words of Lil Jon, "Yeah"`
 ];
-
-module.exports = { magicLines };

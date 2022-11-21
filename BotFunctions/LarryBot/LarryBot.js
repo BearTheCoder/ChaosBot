@@ -37,8 +37,8 @@ module.exports.sendLarryInfo = () => `<:phweeLarry:1023966100226060339> https://
 
 // *****     Internal Functions     *****
 async function rubberLarryListener(userMessage, rubberLarryArgs) {
-  const hasSameAuthor = (userMessage.channel.name === rubberLarryArgs.interaction.channel.name);
-  const isInSameChannel = (userMessage.author.username === rubberLarryArgs.interaction.user.username);
+  const isInSameChannel = (userMessage.channel.name === rubberLarryArgs.interaction.channel.name);
+  const hasSameAuthor = (userMessage.author.username === rubberLarryArgs.interaction.user.username);
   if (hasSameAuthor && isInSameChannel) {
     rubberLarryArgs.canReply = true;
     if (userMessage.content.includes("//amen") || userMessage.content.includes("//stop")) {

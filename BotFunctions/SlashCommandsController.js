@@ -17,7 +17,7 @@ module.exports.interactions = [
     commandName: `listcommands`,
     commandFunction: async function (interaction, myClient) {
       CommandController.listCommands()
-        .then((reply) => interaction.reply(reply)); //Huh?? Might not work
+        .then((reply) => interaction.reply(reply));
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
@@ -33,7 +33,7 @@ module.exports.interactions = [
     commandName: `resetcommands`,
     commandFunction: async function (interaction, myClient) {
       CommandController.resetCommands()
-        .then((reply) => interaction.reply(reply)); //Huh?? Might not work
+        .then((reply) => interaction.reply(reply));
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },

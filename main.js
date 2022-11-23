@@ -21,7 +21,6 @@ const myClient = new Client({
 
 myClient.once('ready', () => {
   console.log('Main.js loaded...');
-  process.env.New_Item = "test";
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {

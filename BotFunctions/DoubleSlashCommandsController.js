@@ -9,7 +9,7 @@ module.exports.commands = [
     },
   },
   {
-    commandName: `//logCommands`,
+    commandName: `//logcommands`,
     commandFunction: () => {
       logCommands();
     },

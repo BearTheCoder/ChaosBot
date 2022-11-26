@@ -20,7 +20,7 @@ module.exports.startRubberLarry = (interaction, myClient) => {
   });
 
   rubberLarryArgs.myClient.on('typingStart', (typing) => {
-    if (typing.channel.name === "bot-testing" && typing.user.username === interaction.user.username) {
+    if (typing.channel.name === interaction.channel.name && typing.user.username === interaction.user.username) {
       if (rubberLarryArgs.typingTimeout !== null) { clearTimeout(rubberLarryArgs.typingTimeout); }
       rubberLarryArgs.typingTimeout = setTimeout(() => {
         if (rubberLarryArgs.canReply) {

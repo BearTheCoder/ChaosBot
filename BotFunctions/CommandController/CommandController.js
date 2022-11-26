@@ -47,12 +47,9 @@ module.exports.returnCreateCommandModal = () => {
 
 module.exports.createNewCommand = modalObject => {
   new REST({ version: "10" }).setToken(process.env.myToken)
-    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+    .get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
     .then((commands) => {
 
-      let recreatedCommands = recreateExistingCommands(commands);
-
-      // Create New Command
       if (modalObject.commandInputName !== "null") {
         const newCommand = new SlashCommandBuilder()
           .setName(modalObject.commandName)
@@ -62,19 +59,16 @@ module.exports.createNewCommand = modalObject => {
             option.setName(modalObject.commandInputName)
               .setDescription(modalObject.commandInputName)
               .setRequired(modalObject.commandInputRequired));
-        console.log(newCommand);
-        recreatedCommands.push(newCommand);
+        commands.push(newCommand);
       }
       else {
         const newCommand = new SlashCommandBuilder()
           .setName(modalObject.commandName)
           .setDescription(modalObject.commandDescription)
           .setDefaultMemberPermissions(modalObject.commandPermissions);
-        recreatedCommands.push(newCommand);
-        console.log(newCommand);
+        commands.push(newCommand);
       }
-      const JSONCommands = recreatedCommands.map((command) => command.toJSON());
-      setCommandsViaRest("New command created...", { body: JSONCommands, });
+      setCommandsViaRest("New command created...", { body: commands, });
     })
     .catch(console.error);
 };
@@ -84,13 +78,13 @@ module.exports.listCommands = () => {
     try {
       const rest = new REST({ version: "10" }).setToken(process.env.myToken);
       rest
-        .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+        .get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
         .then((data) => {
           let dataString = null;
           for (let i = 0; i < data.length; i++) {
             dataString = dataString === null ?
-              `Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n` :
-              `${ dataString }Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n`;
+              `Name: ${data[i].name} ID: ${data[i].id} \n` :
+              `${dataString} Name: ${data[i].name} ID: ${data[i].id} \n`;
           }
           thenFunc(dataString);
         })
@@ -104,14 +98,14 @@ module.exports.listCommands = () => {
 
 module.exports.deleteCommandByID = interaction => {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  rest.delete(Routes.applicationGuildCommand(process.env.myClientID, process.env.myGuildID, interaction.options.getString('command')))
+  rest.delete(Routes.applicationGuildCommand(process.env.applicationID, process.env.myGuildID, interaction.options.getString('command')))
     .then(() => console.log('Successfully deleted guild command...'))
     .catch(console.error);
 };
 
 module.exports.resetCommands = interaction => {
   return new Promise((thenFunc, catchFunc) => {
-    if (interaction.options.getString('password') === 'allow chaos') {
+    if (interaction.options.getString('password') === process.env.pass) {
       const commands = [
         new SlashCommandBuilder()
           .setName("createcommand")
@@ -125,8 +119,8 @@ module.exports.resetCommands = interaction => {
             option.setName("password")
               .setDescription("password")
               .setRequired(true))
-      ].map((command) => command.toJSON());
-      const logMessage = "Base command created, all other commands deleted...";
+      ];
+      const logMessage = "Base commands created, all other commands deleted...";
       setCommandsViaRest(logMessage, { body: commands, });
       thenFunc(`All commands have been reset...`);
     }
@@ -138,55 +132,11 @@ module.exports.resetCommands = interaction => {
 
 module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands deleted...", { body: [], }); }; //Not Used - But Works
 
-// Can be deleted later - used for information (double slash command "//logCommands")
-module.exports.logCommands = () => {
-  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  rest
-    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
-    .then((data) => {
-      console.log(data);
-    })
-    .catch(console.error);
-};
-
-
-
 // *****     Internal Functions     *****
-function recreateExistingCommands (commands) {
-  let recreatedCommands = [];
-  for (let i = 0; i < commands.length; i++) {
-    if (commands[ i ].options === undefined) {
-      recreatedCommands.push(new SlashCommandBuilder()
-        .setName(commands[ i ].name)
-        .setDescription(commands[ i ].description)
-        .setDefaultMemberPermissions(commands[ i ].default_member_permissions));
-    }
-    else {
-      try {
-        const isRequired = commands[ i ].options[ 0 ].required === undefined ? false : true;
-        recreatedCommands.push(new SlashCommandBuilder()
-          .setName(commands[ i ].name)
-          .setDescription(commands[ i ].description)
-          .setDefaultMemberPermissions(commands[ i ].default_member_permissions)
-          .addStringOption(option =>
-            option.setName(commands[ i ].options[ 0 ].name)
-              .setDescription(commands[ i ].options[ 0 ].description)
-              .setRequired(isRequired)));
-      }
-      catch (err) {
-        console.log(commands[ i ].name);
-        console.log(err);
-      }
-    }
-  }
-  return recreatedCommands;
-}
-
-
 function setCommandsViaRest (logMessage, Commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
+    .put(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID), Commands)
     .then((data) => console.log(logMessage))
     .catch(console.error);
 }

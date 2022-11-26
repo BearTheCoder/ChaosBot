@@ -54,14 +54,15 @@ module.exports.createNewCommand = modalObject => {
 
       // Create New Command
       if (modalObject.commandInputName !== "null") {
-        recreatedCommands.push(new SlashCommandBuilder()
+        const newCommand = new SlashCommandBuilder()
           .setName(modalObject.commandName)
           .setDescription(modalObject.commandDescription)
           .setDefaultMemberPermissions(modalObject.commandPermissions)
           .addStringOption(option =>
             option.setName(modalObject.commandInputName)
               .setDescription(modalObject.commandInputName)
-              .setRequired(modalObject.commandInputRequired)));
+              .setRequired(modalObject.commandInputRequired));
+        recreatedCommands.push(newCommand);
       }
       else {
         recreatedCommands.push(new SlashCommandBuilder()

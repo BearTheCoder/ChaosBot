@@ -134,6 +134,16 @@ module.exports.resetCommands = interaction => {
 
 module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands deleted...", { body: [], }); }; //Not Used - But Works
 
+// Can be deleted later - used for information
+module.exports.logCommands = () => {
+  rest
+    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
+    .then((data) => console.log(data))
+    .catch(console.error);
+};
+
+
+
 // *****     Internal Functions     *****
 function recreateExistingCommands (commands) {
   let recreatedCommands = [];

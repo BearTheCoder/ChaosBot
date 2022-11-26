@@ -62,6 +62,7 @@ module.exports.createNewCommand = modalObject => {
             option.setName(modalObject.commandInputName)
               .setDescription(modalObject.commandInputName)
               .setRequired(modalObject.commandInputRequired));
+        console.log(newCommand);
         recreatedCommands.push(newCommand);
       }
       else {

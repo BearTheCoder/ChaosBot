@@ -85,8 +85,8 @@ module.exports.listCommands = () => {
           let dataString = null;
           for (let i = 0; i < data.length; i++) {
             dataString = dataString === null ?
-              `Name: ${data[i].name} ID: ${data[i].id} \n` :
-              `${dataString}Name: ${data[i].name} ID: ${data[i].id} \n`;
+              `Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n` :
+              `${ dataString }Name: ${ data[ i ].name } ID: ${ data[ i ].id } \n`;
           }
           thenFunc(dataString);
         })
@@ -135,29 +135,29 @@ module.exports.resetCommands = interaction => {
 module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands deleted...", { body: [], }); }; //Not Used - But Works
 
 // *****     Internal Functions     *****
-function recreateExistingCommands(commands) {
+function recreateExistingCommands (commands) {
   let recreatedCommands = [];
   for (let i = 0; i < commands.length; i++) {
-    if (commands[i].options === undefined) {
+    if (commands[ i ].options === undefined) {
       recreatedCommands.push(new SlashCommandBuilder()
-        .setName(commands[i].name)
-        .setDescription(commands[i].description)
-        .setDefaultMemberPermissions(commands[i].default_member_permissions));
+        .setName(commands[ i ].name)
+        .setDescription(commands[ i ].description)
+        .setDefaultMemberPermissions(commands[ i ].default_member_permissions));
     }
     else {
       try {
-        const isRequired = commands[i].options[0].required === undefined ? false : true;
+        const isRequired = commands[ i ].options[ 0 ].required === undefined ? false : true;
         recreatedCommands.push(new SlashCommandBuilder()
-          .setName(commands[i].name)
-          .setDescription(commands[i].description)
-          .setDefaultMemberPermissions(commands[i].default_member_permissions)
+          .setName(commands[ i ].name)
+          .setDescription(commands[ i ].description)
+          .setDefaultMemberPermissions(commands[ i ].default_member_permissions)
           .addStringOption(option =>
-            option.setName(commands[i].options[0].name)
-              .setDescription(commands[i].options[0].description)
+            option.setName(commands[ i ].options[ 0 ].name)
+              .setDescription(commands[ i ].options[ 0 ].description)
               .setRequired(isRequired)));
       }
       catch (err) {
-        console.log(commands[i].name);
+        console.log(commands[ i ].name);
         console.log(err);
       }
     }
@@ -166,7 +166,7 @@ function recreateExistingCommands(commands) {
 }
 
 
-function setCommandsViaRest(logMessage, Commands) {
+function setCommandsViaRest (logMessage, Commands) {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .put(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)

@@ -5,10 +5,10 @@ const { rubberLarryPhrases } = require(`./RubberLarryPhrases.js`);
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
   let reply =
-    larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
-  console.log(`User ${userMessage.author.username} has called for Larry`);
+    larryWisdomLines[ Math.floor(Math.random() * larryWisdomLines.length) ];
+  console.log(`User ${ userMessage.author.username } has called for Larry`);
   await userMessage.reply(
-    `<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
+    `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
   );
 };
 
@@ -25,7 +25,7 @@ module.exports.startRubberLarry = (interaction, myClient) => {
       rubberLarryArgs.typingTimeout = setTimeout(() => {
         if (rubberLarryArgs.canReply) {
           const randNum = Math.floor(Math.random() * rubberLarryPhrases.length);
-          typing.channel.send(`<:phweeLarry:1023966100226060339> ${rubberLarryPhrases[randNum]}`);
+          typing.channel.send(`<:phweeLarry:1023966100226060339> ${ rubberLarryPhrases[ randNum ] }`);
           rubberLarryArgs.canReply = false;
         }
       }, 8000);
@@ -36,19 +36,20 @@ module.exports.startRubberLarry = (interaction, myClient) => {
 module.exports.sendLarryInfo = () => `<:phweeLarry:1023966100226060339> https://phwee-larry.carrd.co/`;
 
 // *****     Internal Functions     *****
-async function rubberLarryListener(userMessage, rubberLarryArgs) {
-  const isInSameChannel = (userMessage.channel.name === rubberLarryArgs.interaction.channel.name);
-  const hasSameAuthor = (userMessage.author.username === rubberLarryArgs.interaction.user.username);
-  if (hasSameAuthor && isInSameChannel) {
-    rubberLarryArgs.canReply = true;
-    if (userMessage.content.includes("//amen") || userMessage.content.includes("//stop")) {
-      await userMessage.reply(`<:phweeLarry:1023966100226060339> May Larry be with you.`);
-      stopRubberLarry(rubberLarryArgs);
-    }
-  }
+async function rubberLarryListener (userMessage, rubberLarryArgs) {
+  await userMessage.reply(`<:phweeLarry:1023966100226060339> Bear hasn't quite figured this out yet... May Larry be with you.`);
+  // const isInSameChannel = (userMessage.channel.name === rubberLarryArgs.interaction.channel.name);
+  // const hasSameAuthor = (userMessage.author.username === rubberLarryArgs.interaction.user.username);
+  // if (hasSameAuthor && isInSameChannel) {
+  //   rubberLarryArgs.canReply = true;
+  //   if (userMessage.content.includes("//amen") || userMessage.content.includes("//stop")) {
+  //     await userMessage.reply(`<:phweeLarry:1023966100226060339> May Larry be with you.`);
+  //     stopRubberLarry(rubberLarryArgs);
+  //   }
+  // }
 }
 
-function stopRubberLarry(rubberLarryArgs) {
+function stopRubberLarry (rubberLarryArgs) {
   rubberLarryArgs.myClient.removeListener(rubberLarryListener, () => console.log("/rubberlarry has stopped..."));
   clearTimeout(rubberLarryArgs.typingTimeout);
 }

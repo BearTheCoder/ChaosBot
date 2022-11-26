@@ -138,8 +138,10 @@ module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands dele
 module.exports.logCommands = () => {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
-    .then((data) => console.log(data))
+    .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID))
+    .then((data) => {
+      console.log(data);
+    })
     .catch(console.error);
 };
 

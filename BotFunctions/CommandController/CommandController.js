@@ -66,10 +66,12 @@ module.exports.createNewCommand = modalObject => {
         recreatedCommands.push(newCommand);
       }
       else {
-        recreatedCommands.push(new SlashCommandBuilder()
+        const newCommand = new SlashCommandBuilder()
           .setName(modalObject.commandName)
           .setDescription(modalObject.commandDescription)
-          .setDefaultMemberPermissions(modalObject.commandPermissions));
+          .setDefaultMemberPermissions(modalObject.commandPermissions);
+        recreatedCommands.push(newCommand);
+        console.log(newCommand);
       }
       const JSONCommands = recreatedCommands.map((command) => command.toJSON());
       setCommandsViaRest("New command created...", { body: JSONCommands, });

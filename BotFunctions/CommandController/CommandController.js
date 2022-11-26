@@ -134,8 +134,9 @@ module.exports.resetCommands = interaction => {
 
 module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands deleted...", { body: [], }); }; //Not Used - But Works
 
-// Can be deleted later - used for information
+// Can be deleted later - used for information (double slash command "//logCommands")
 module.exports.logCommands = () => {
+  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
     .get(Routes.applicationGuildCommands(process.env.myClientID, process.env.myGuildID), Commands)
     .then((data) => console.log(data))

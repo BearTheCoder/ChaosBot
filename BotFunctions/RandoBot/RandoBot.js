@@ -9,7 +9,7 @@ module.exports.timeUntilChristmas = () => {
 
 module.exports.shake8Ball = (interaction) => {
   const resultOfShake = magicLines[Math.floor(Math.random() * magicLines.length)];
-  return reply = interaction.options.getString('options') === null ?
+  return reply = interaction.options.getString('question') === null ?
     `Result: ${resultOfShake}` :
     `${interaction.options.getString('options')} \n Result: ${resultOfShake}`;
 };

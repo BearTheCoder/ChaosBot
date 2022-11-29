@@ -11,7 +11,7 @@ module.exports.shake8Ball = (interaction) => {
   const resultOfShake = magicLines[Math.floor(Math.random() * magicLines.length)];
   return reply = interaction.options.getString('question') === null ?
     `Result: ${resultOfShake}` :
-    `${interaction.options.getString('options')} \n Result: ${resultOfShake}`;
+    `${interaction.options.getString('question')} \n Result: ${resultOfShake}`;
 };
 
 module.exports.returnCoinFlipResult = (interaction) => {

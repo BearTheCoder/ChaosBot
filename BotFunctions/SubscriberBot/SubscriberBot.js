@@ -1,10 +1,15 @@
+let testing = false;
+
 // *****     Exports     *****
 function updateUserRoles (currentMember, myPersonalID) {
 
+  if (testing) return;
   console.log(currentMember);
+  console.log("\n");
   console.log(currentMember.roles);
+  console.log("\n");
   console.log(currentMember.roles.cache);
-
+  testing = true;
   // try {
   //   let hasKittenRole = false;
   //   let hasPhweakRole = false;

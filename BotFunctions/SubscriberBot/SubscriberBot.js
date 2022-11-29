@@ -1,42 +1,16 @@
-let testing = false;
-
 // *****     Exports     *****
 function updateUserRoles (currentMember, myPersonalID) {
-
-  if (testing) return;
-  console.log(currentMember);
-  console.log("\n");
-  console.log(currentMember.roles);
-  console.log("\n");
-  console.log(currentMember.roles.cache);
-  testing = true;
-  // try {
-  //   let hasKittenRole = false;
-  //   let hasPhweakRole = false;
-  //   let hasPhweettenRole = false;
-  //   currentMember.roles.cache.forEach((userRole) => {
-  //     if (userRole.name.toLowerCase().includes("kittens")) {
-  //       hasKittenRole = true;
-  //     } else if (userRole.name.toLowerCase().includes("phweebs")) {
-  //       hasPhweakRole = true;
-  //     } else if (userRole.name.toLowerCase().includes("phweettens")) {
-  //       hasPhweettenRole = true;
-  //     }
-  //   });
-  //   let combinedRole = currentMember.guild.roles.cache.find((findCombinedRoleAsync) =>
-  //     findCombinedRoleAsync.name.toLowerCase().includes("phweettens")
-  //   );
-  //   if (hasKittenRole && hasPhweakRole && !hasPhweettenRole) {
-  //     currentMember.roles.add(combinedRole);
-  //     console.log(`Added role to ${currentMember.displayName}`);
-  //   } else if ((!hasKittenRole || !hasPhweakRole) && hasPhweettenRole) {
-  //     currentMember.roles.remove(combinedRole);
-  //     console.log(`Removed role from ${currentMember.displayName}`);
-  //   }
-  // }
-  // catch (localError) {
-  //   sendErrorPM(localError, myPersonalID);
-  // }
+  const kittenRole = currentMember.roles.cache.find((role) => role.id === '917969234334744636'); //Kittens
+  const phweeRole = currentMember.roles.cache.find((role) => role.id === '920174030458351646'); //Phweebs
+  const combinedRole = currentMember.roles.cache.find((role) => role.id === '1020691003084128286'); //Phweettens
+  if (kittenRole !== undefined && phweeRole !== undefined && combinedRole === undefined) {
+    currentMember.roles.add(combinedRole);
+    console.log(`Added role to ${currentMember.displayName}`);
+  }
+  else if ((kittenRole === undefined || phweeRole === undefined) && combinedRole !== undefined) {
+    currentMember.roles.remove(combinedRole);
+    console.log(`Removed role from ${currentMember.displayName}`);
+  }
 };
 
 module.exports.updateAllRoles = (myClient, myGuildID) => {
@@ -50,11 +24,3 @@ module.exports.updateAllRoles = (myClient, myGuildID) => {
 };
 
 module.exports.updateUserRoles = updateUserRoles;
-
-// *****     Internal Functions     *****
-async function sendErrorPM (localError, myUserID) {
-  const myUserInfo = await client.users.fetch(myUserID);
-  myUserInfo.send(`The bot has experienced and error: ${localError} \n 
-    Please go to https://raliway.app to check error logs.
-  `);
-};

@@ -1,5 +1,5 @@
 // *****     Package Imports     *****
-require('dotenv').config; // Railway required package for environment variables
+require('dotenv').config(); // Railway required package for environment variables
 const { Client, GatewayIntentBits, } = require("discord.js");
 
 // *****     Imports     *****

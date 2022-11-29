@@ -7,7 +7,7 @@ function updateUserRoles(currentMember, myPersonalID) {
     currentMember.roles.cache.forEach((userRole) => {
       if (userRole.name.toLowerCase().includes("kittens")) {
         hasKittenRole = true;
-      } else if (userRole.name.toLowerCase().includes("phweaks")) {
+      } else if (userRole.name.toLowerCase().includes("phweebs")) {
         hasPhweakRole = true;
       } else if (userRole.name.toLowerCase().includes("phweettens")) {
         hasPhweettenRole = true;

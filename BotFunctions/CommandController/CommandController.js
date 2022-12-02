@@ -8,7 +8,6 @@ const {
 } = require("discord.js");
 
 // *****    Exports     *****
-
 module.exports.listCommands = () => {
   return new Promise((thenFunc, catchFunc) => {
     try {
@@ -52,8 +51,9 @@ module.exports.resetCommands = interaction => {
               .setDescription("password")
               .setRequired(true))
       ];
-      const logMessage = "Base commands created, all other commands deleted...";
-      setCommandsViaRest(logMessage, { body: commands, });
+      rest.put(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID), { body: commands })
+        .then(() => console.log("Base commands created, all other commands deleted..."))
+        .catch(console.error);
       thenFunc(`All commands have been reset...`);
     }
     else {
@@ -61,14 +61,3 @@ module.exports.resetCommands = interaction => {
     }
   });
 };
-
-module.exports.deleteAllCommands = () => { setCommandsViaRest("All commands deleted...", { body: [], }); }; //Not Used - But Works
-
-// *****     Internal Functions     *****
-function setCommandsViaRest (logMessage, Commands) {
-  const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-  rest
-    .put(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID), Commands)
-    .then((data) => console.log(logMessage))
-    .catch(console.error);
-}

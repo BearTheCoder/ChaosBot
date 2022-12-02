@@ -3,6 +3,7 @@ const SubscriberBot = require(`./SubscriberBot/SubscriberBot.js`);
 const CommandController = require(`./CommandController/CommandController.js`);
 const LarryBot = require("./LarryBot/LarryBot.js");
 const RandoBot = require("./RandoBot/RandoBot.js");
+const ContextMenu = require("./ContextMenu/ContextMenuCommands.js");
 
 //  *****     Exports     *****
 module.exports.interactions = [
@@ -79,4 +80,13 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
+  {
+    commandName: `Say Hi!`,
+    commandFunction: async function (interaction, myClient) {
+      let reply = ContextMenu.sayHi();
+      await interaction.reply(reply);
+      console.log(`${interaction.user.username} has used ${this.commandName}...`);
+    },
+  },
+
 ];

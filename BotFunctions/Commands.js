@@ -83,7 +83,7 @@ module.exports.interactions = [
   {
     commandName: `Say Hi!`,
     commandFunction: async function (interaction, myClient) {
-      let reply = ContextMenu.sayHi();
+      let reply = ContextMenu.sayHi(interaction);
       await interaction.reply(reply);
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },

@@ -38,25 +38,11 @@ myClient.on(`messageCreate`, async (userMessage) => {
 myClient.on("guildMemberUpdate", (oldMember, newMember) => { updateUserRoles_GC(newMember); });
 
 myClient.on("interactionCreate", async (iAction) => {
-  const iFields = iAction.fields;
-  if (iAction.customId !== "createCommandModal") {
-    for (let i = 0; i < SlashCommandsController.interactions.length; i++) {
-      if (iAction.commandName === SlashCommandsController.interactions[i].commandName) {
-        SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
-        break;
-      }
+  for (let i = 0; i < SlashCommandsController.interactions.length; i++) {
+    if (iAction.commandName === SlashCommandsController.interactions[i].commandName) {
+      SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
+      break;
     }
-  }
-  else {
-    const modalObject = {
-      commandPermissions: iFields.getTextInputValue('commandPermissions').toLowerCase().includes("yes") ? '4' : null,
-      commandName: iFields.getTextInputValue('commandName').toLowerCase(),
-      commandDescription: iFields.getTextInputValue('commandDescription'),
-      commandInputRequired: iFields.getTextInputValue('commandInputRequired').toLowerCase().includes("yes") ? true : false,
-      commandInputName: iFields.getTextInputValue('commandInputName').toLowerCase(),
-    };
-    createNewCommand_GC(modalObject);
-    iAction.reply("New command created!");
   }
 });
 

@@ -20,7 +20,7 @@ discordClient.once("ready", () => { registerCommand(); });
 function registerCommand () {
   const rest = new REST({ version: "10" }).setToken(process.env.myToken);
   rest
-    .get(Routes.applicationCommands(process.env.myClientID))
+    .get(Routes.applicationCommands(process.env.applicationID))
     .then((commands) => {
       if (commands.find((command) => command.name === enterCommandName) === undefined) {
 
@@ -37,7 +37,7 @@ function registerCommand () {
         });
       }
 
-      return rest.put(Routes.applicationCommands(process.env.myClientID), { body: commands, });
+      return rest.put(Routes.applicationCommands(process.env.applicationID), { body: commands, });
     })
     .then((data) => console.log(data))
     .catch(console.error);

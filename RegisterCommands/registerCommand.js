@@ -1,4 +1,4 @@
-const enterCommandName = "Say Hi!"; //Must be unique
+const enterCommandName = ""; //Must be unique
 const enterCommandDesc = ""; // Only slash commands can have a description
 const enterPermissions = undefined; // '0' for admins, '4' for mods, undefined for all users.
 const enterType = 2; //1 for slash, 2 for user, 3 for menu
@@ -6,15 +6,14 @@ const enterOptions = [];
 
 require('dotenv').config();
 const {
-  Client, //Base Client
-  GatewayIntentBits, //Base Client
-  REST, // Require for context menus
-  Routes, // Require for context menus
+  Client,
+  GatewayIntentBits,
+  REST,
+  Routes,
 } = require("discord.js");
 
 const discordClient = new Client({ intents: [GatewayIntentBits.Guilds,], });
 
-// For more information on events, go to "../Events"
 discordClient.once("ready", () => { registerCommand(); });
 
 function registerCommand () {

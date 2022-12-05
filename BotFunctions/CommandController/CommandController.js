@@ -5,6 +5,7 @@ const {
   SlashCommandBuilder,
   PermissionFlagsBits,
   Routes,
+  EmbedBuilder,
 } = require("discord.js");
 
 // *****    Exports     *****

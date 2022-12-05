@@ -20,10 +20,7 @@ module.exports.listCommands = () => {
       const rest = new REST({ version: "10" }).setToken(process.env.myToken);
       rest.get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
         .then((data) => {
-          let dataArray = [];
-          for (let i = 0; i < data.length; i++) {
-            dataArray.push({ name: data[i].name, id: data[i].id });
-          }
+          const dataArray = Array.from(data);
           dataArray.forEach((element) => {
             embed.addFields({
               name: `${element.name} Type: ${element.type}`,
@@ -34,10 +31,7 @@ module.exports.listCommands = () => {
           return rest.get(Routes.applicationCommands(process.env.applicationID));
         })
         .then((data) => {
-          let dataArray = [];
-          for (let i = 0; i < data.length; i++) {
-            dataArray.push({ name: data[i].name, id: data[i].id });
-          }
+          const dataArray = Array.from(data);
           dataArray.forEach((element) => {
             embed.addFields({ name: element.name, value: element.id, inline: false });
           });

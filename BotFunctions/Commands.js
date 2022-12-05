@@ -11,7 +11,7 @@ module.exports.interactions = [
     commandName: `listcommands`,
     commandFunction: async function (interaction, myClient) {
       CommandController.listCommands()
-        .then((embed) => interaction.reply({ embeds: embed }));
+        .then((embed) => interaction.reply({ embeds: [embed] }));
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },

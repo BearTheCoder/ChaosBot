@@ -23,8 +23,8 @@ module.exports.listCommands = () => {
           const dataArray = Array.from(data);
           dataArray.forEach((element) => {
             embed.addFields({
-              name: `${element.name} Type: ${element.type}`,
-              value: `ID: ${element.id} \n ${element.description}`,
+              name: `${element.name}`,
+              value: `ID: ${element.id} \n ${element.description} \n Type: ${element.type}`,
               inline: false
             });
           });

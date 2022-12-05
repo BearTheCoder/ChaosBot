@@ -25,7 +25,11 @@ module.exports.listCommands = () => {
             dataArray.push({ name: data[i].name, id: data[i].id });
           }
           dataArray.forEach((element) => {
-            embed.addFields({ name: element.name, value: element.id, inline: false });
+            embed.addFields({
+              name: `${element.name} Type: ${element.type}`,
+              value: `ID: ${element.id} \n ${element.description}`,
+              inline: false
+            });
           });
           return rest.get(Routes.applicationCommands(process.env.applicationID));
         })
@@ -76,4 +80,4 @@ module.exports.resetCommands = interaction => {
       catchFunc(`Password is incorrect...`);
     }
   });
-};
+};;

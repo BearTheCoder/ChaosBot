@@ -12,21 +12,27 @@ const {
 module.exports.listCommands = () => {
   return new Promise((thenFunc, catchFunc) => {
     try {
+      let embed = new EmbedBuilder()
+        .setColor(0x0099FF)
+        .setTitle('Commands')
+        .setDescription('List of all current slash commands and their IDs.')
+        .setTimestamp();
       const rest = new REST({ version: "10" }).setToken(process.env.myToken);
-      rest
-        .get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
+      rest.get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
         .then((data) => {
-          let embed = new EmbedBuilder()
-            .setColor(0x0099FF)
-            .setTitle('Commands')
-            .setDescription('List of all current slash commands in this guild.')
-            .setTimestamp();
           let dataArray = [];
           for (let i = 0; i < data.length; i++) {
-            dataArray.push({
-              name: data[i].name,
-              id: data[i].id
-            });
+            dataArray.push({ name: data[i].name, id: data[i].id });
+          }
+          dataArray.forEach((element) => {
+            embed.addFields({ name: element.name, value: element.id, inline: false });
+          });
+          return rest.get(Routes.applicationCommands(process.env.applicationID));
+        })
+        .then((data) => {
+          let dataArray = [];
+          for (let i = 0; i < data.length; i++) {
+            dataArray.push({ name: data[i].name, id: data[i].id });
           }
           dataArray.forEach((element) => {
             embed.addFields({ name: element.name, value: element.id, inline: false });

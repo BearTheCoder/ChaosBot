@@ -33,7 +33,11 @@ module.exports.listCommands = () => {
         .then((data) => {
           const dataArray = Array.from(data);
           dataArray.forEach((element) => {
-            embed.addFields({ name: element.name, value: element.id, inline: false });
+            embed.addFields({
+              name: element.name,
+              value: `ID: ${element.id} \n Type: ${element.type}`,
+              inline: false
+            });
           });
           thenFunc(embed);
         })

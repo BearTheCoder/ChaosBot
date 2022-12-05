@@ -29,7 +29,7 @@ module.exports.listCommands = () => {
             });
           }
           dataArray.forEach((element) => {
-            embed.addFields({ name: element.name, value: element.id, inline: true });
+            embed.addFields({ name: element.name, value: element.id, inline: false });
           });
           thenFunc(embed);
         })

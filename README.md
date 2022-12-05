@@ -52,10 +52,11 @@ Ok, bye.
 -   8-Ball Feature.
 -   Christmas command that counts down the days until Christmas.
 -   Internal slash command control features.
+-   Context Menu "Hello" command.
 
 ## Upcoming Features
 
--   None planned, more of a play it by ear kind of thing.
+-   Embed for listing commands
 
 ### License
 

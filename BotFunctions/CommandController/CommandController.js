@@ -15,13 +15,22 @@ module.exports.listCommands = () => {
       rest
         .get(Routes.applicationGuildCommands(process.env.applicationID, process.env.myGuildID))
         .then((data) => {
-          let dataString = null;
+          let embed = new EmbedBuilder()
+            .setColor(0x0099FF)
+            .setTitle('Commands')
+            .setDescription('List of all current slash commands in this guild.')
+            .setTimestamp();
+          let dataArray = [];
           for (let i = 0; i < data.length; i++) {
-            dataString = dataString === null ?
-              `Name: ${data[i].name} ID: ${data[i].id} \n` :
-              `${dataString} Name: ${data[i].name} ID: ${data[i].id} \n`;
+            dataArray.push({
+              name: data[i].name,
+              id: data[i].id
+            });
           }
-          thenFunc(dataString);
+          dataArray.forEach((element) => {
+            embed.addFields({ name: element.name, value: element.id, inline: true });
+          });
+          thenFunc(embed);
         })
         .catch(console.error);
     }

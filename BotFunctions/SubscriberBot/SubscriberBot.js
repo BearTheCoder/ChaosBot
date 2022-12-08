@@ -20,9 +20,7 @@ module.exports.updateAllRoles = (myClient, myGuildID) => {
   const myGuild = myClient.guilds.cache.get(myGuildID);
   myGuild.members.fetch()
     .then((listOfMembers) => {
-      listOfMembers.forEach((currentMember) => {
-        updateUserRoles(currentMember);
-      });
+      listOfMembers.forEach((currentMember) => { updateUserRoles(currentMember); });
     });
 };
 

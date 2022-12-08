@@ -15,7 +15,9 @@ module.exports.shake8Ball = (interaction) => {
 };
 
 module.exports.returnCoinFlipResult = (interaction) => {
-  const resultOfFilp = Math.random() >= 0.5 ? "Heads! <:phweeHaha:951997660313841705>" : "Tails! <a:aethyTailR:985456739489042432>";
+  const resultOfFilp = Math.random() >= 0.5 ?
+    "Heads! <:phweeHaha:951997660313841705>" :
+    "Tails! <a:aethyTailR:985456739489042432>";
   return reply = interaction.options.getString('options') === null ?
     `Result: ${resultOfFilp}` :
     `${interaction.options.getString('options')} \n Result: ${resultOfFilp}`;

@@ -24,14 +24,12 @@ myClient.once('ready', () => {
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  if (userMessage.content.includes("//") && !userMessage.content.includes("http")) {
-    for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
-      let commandName = DoubleSlashCommandsController.commands[i].commandName;
-      if (userMessage.content.toLowerCase().includes(commandName)) {
-        DoubleSlashCommandsController.commands[i].commandFunction(userMessage);
-        break;
-      }
-    }
+  if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
+  for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
+    let commandName = DoubleSlashCommandsController.commands[i].commandName;
+    if (!userMessage.content.toLowerCase().includes(commandName)) continue;
+    DoubleSlashCommandsController.commands[i].commandFunction(userMessage);
+    break;
   }
 });
 
@@ -39,10 +37,9 @@ myClient.on("guildMemberUpdate", (oldMember, newMember) => { updateUserRoles_GC(
 
 myClient.on("interactionCreate", async (iAction) => {
   for (let i = 0; i < SlashCommandsController.interactions.length; i++) {
-    if (iAction.commandName === SlashCommandsController.interactions[i].commandName) {
-      SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
-      break;
-    }
+    if (!iAction.commandName === SlashCommandsController.interactions[i].commandName) continue;
+    SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
+    break;
   }
 });
 

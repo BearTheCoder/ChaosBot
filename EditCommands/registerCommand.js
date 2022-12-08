@@ -21,21 +21,18 @@ function registerCommand () {
   rest
     .get(Routes.applicationCommands(process.env.applicationID))
     .then((commands) => {
-      if (commands.find((command) => command.name === enterCommandName) === undefined) {
-
-        commands.push({
-          default_permission: true,
-          default_member_permissions: enterPermissions,
-          type: enterType,
-          name: enterCommandName,
-          name_localizations: null,
-          description: enterCommandDesc,
-          description_localizations: null,
-          dm_permission: true,
-          options: enterOptions,
-        });
-      }
-
+      if (commands.find((command) => command.name === enterCommandName) !== undefined) Promise.resolve("Command already exists...");
+      commands.push({
+        default_permission: true,
+        default_member_permissions: enterPermissions,
+        type: enterType,
+        name: enterCommandName,
+        name_localizations: null,
+        description: enterCommandDesc,
+        description_localizations: null,
+        dm_permission: true,
+        options: enterOptions,
+      });
       return rest.put(Routes.applicationCommands(process.env.applicationID), { body: commands, });
     })
     .then((data) => console.log(data))

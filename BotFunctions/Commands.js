@@ -24,14 +24,6 @@ module.exports.interactions = [
     },
   },
   {
-    commandName: `resetcommands`,
-    commandFunction: async function (interaction, myClient) {
-      CommandController.resetCommands()
-        .then((reply) => interaction.reply(reply));
-      console.log(`${interaction.user.username} has used ${this.commandName}...`);
-    },
-  },
-  {
     commandName: `roleupdate`,
     commandFunction: async function (interaction, myClient) {
       SubscriberBot.updateAllRoles(myClient, interaction.guildId);
@@ -88,5 +80,4 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
-
 ];

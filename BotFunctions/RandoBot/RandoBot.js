@@ -4,7 +4,7 @@ module.exports.timeUntilChristmas = () => {
   const today = new Date();
   const christmas = Date.parse(`25 Dec ${today.getFullYear()} 00:00:00 EST`);
   const daysUntilChristmas = Math.ceil((christmas - Date.now()) / 86400000); //86400000 is the milliseconds in a day
-  return `Christmas is ${daysUntilChristmas}-ish days. <a:wizzyDinkDonk:941202783758073857>`;
+  return `Christmas is in ${daysUntilChristmas}-ish days. <a:wizzyDinkDonk:941202783758073857>`;
 };
 
 module.exports.shake8Ball = (interaction) => {

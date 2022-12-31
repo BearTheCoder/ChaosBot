@@ -80,4 +80,12 @@ module.exports.interactions = [
       console.log(`${interaction.user.username} has used ${this.commandName}...`);
     },
   },
+  {
+    commandName: `newyears`,
+    commandFunction: async function (interaction, myClient) {
+      let reply = RandoBot.wishHappyNewYears(interaction);
+      await interaction.reply(reply);
+      console.log(`${interaction.user.username} has used ${this.commandName}...`);
+    },
+  },
 ];

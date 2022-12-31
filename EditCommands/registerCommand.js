@@ -1,16 +1,19 @@
-const enterCommandName = ""; //Must be unique
-const enterCommandDesc = ""; // Only slash commands can have a description
+const enterCommandName = "newyears"; //Must be unique
+const enterCommandDesc = "Wish the channel a happy New Year!"; // Only slash commands can have a description
 const enterPermissions = undefined; // '0' for admins, '4' for mods, undefined for all users.
-const enterType = 2; //1 for slash, 2 for user, 3 for menu
+const enterType = 1; //1 for slash, 2 for user, 3 for menu
 const enterOptions = [];
 
-require('dotenv').config();
+const test = require('dotenv').config();
+console.log(test);
 const {
   Client,
   GatewayIntentBits,
   REST,
   Routes,
 } = require("discord.js");
+
+
 
 const discordClient = new Client({ intents: [GatewayIntentBits.Guilds,], });
 
@@ -38,5 +41,7 @@ function registerCommand () {
     .then((data) => console.log(data))
     .catch(console.error);
 }
+
+console.log(process.env.applicationID);
 
 discordClient.login(process.env.myToken);

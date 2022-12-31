@@ -22,3 +22,7 @@ module.exports.returnCoinFlipResult = (interaction) => {
     `Result: ${resultOfFilp}` :
     `${interaction.options.getString('options')} \n Result: ${resultOfFilp}`;
 };
+
+module.exports.wishHappyNewYears = (interaction) => {
+  return reply = `Happy New Years!~ <a:potatoDance:1052831166199255130> `;
+};

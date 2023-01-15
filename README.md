@@ -27,7 +27,7 @@ The project is hosted on [Railway](https://railway.app) with future plans to be 
 
 If you have any question or want to be involved, reach out to me on [Discord](https://discord.gg/DuMJjretE2).
 
-Ok, bye.
+Ok, bye...
 
 # Issues and Excuses
 

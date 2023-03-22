@@ -8,4 +8,10 @@ module.exports.commands = [
       sendLarryWisdom(userMessage);
     },
   },
+  {
+    commandName: `//heylarry`,
+    commandFunction: (userMessage) => {
+      sendHeyLarryWisdom(userMessage);
+    },
+  },
 ];

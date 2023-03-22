@@ -1,15 +1,36 @@
 // *****     Imports     *****
 const { larryWisdomLines } = require(`./LarryWisdom.js`);
 const { rubberLarryPhrases } = require(`./RubberLarryPhrases.js`);
+const { Configuration, OpenAIApi } = require("openai");
+const config = new Configuration({ apiKey: secret });
+const openai = new OpenAIApi(config);
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
   let reply =
-    larryWisdomLines[ Math.floor(Math.random() * larryWisdomLines.length) ];
-  console.log(`User ${ userMessage.author.username } has called for Larry`);
+    larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
+  console.log(`User ${userMessage.author.username} has called for Larry`);
   await userMessage.reply(
-    `<:phweeLarry:1023966100226060339> **Larry says:** ${ reply }`
+    `<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
   );
+};
+
+module.exports.sendHeyLarryWisdom = async (userMessage) => {
+  let message = userMessage.content.toString().toLower();
+  message = message.replace("//heylarry", "");
+  const response = openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: message,
+    temperature: 0,
+    max_tokens: 1000, // More tokens means more allowed in response.
+  });
+
+  response.then(res => {
+    let reply = res.data.choices[0].text;
+    console.log(`User ${userMessage.author.username} has called for Larry`);
+    userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
+    );
+  });
 };
 
 module.exports.startRubberLarry = (interaction, myClient) => {
@@ -25,7 +46,7 @@ module.exports.startRubberLarry = (interaction, myClient) => {
       rubberLarryArgs.typingTimeout = setTimeout(() => {
         if (rubberLarryArgs.canReply) {
           const randNum = Math.floor(Math.random() * rubberLarryPhrases.length);
-          typing.channel.send(`<:phweeLarry:1023966100226060339> ${ rubberLarryPhrases[ randNum ] }`);
+          typing.channel.send(`<:phweeLarry:1023966100226060339> ${rubberLarryPhrases[randNum]}`);
           rubberLarryArgs.canReply = false;
         }
       }, 8000);

@@ -16,7 +16,7 @@ module.exports.sendLarryWisdom = async (userMessage) => {
 };
 
 module.exports.sendHeyLarryWisdom = async (userMessage) => {
-  let message = userMessage.content.toString().toLower();
+  let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
   const response = openai.createCompletion({
     model: "text-davinci-003",

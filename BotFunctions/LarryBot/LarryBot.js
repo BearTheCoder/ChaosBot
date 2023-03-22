@@ -2,7 +2,7 @@
 const { larryWisdomLines } = require(`./LarryWisdom.js`);
 const { rubberLarryPhrases } = require(`./RubberLarryPhrases.js`);
 const { Configuration, OpenAIApi } = require("openai");
-const config = new Configuration({ apiKey: secret });
+const config = new Configuration({ apiKey: process.env.secret });
 const openai = new OpenAIApi(config);
 
 // *****     Exports     *****

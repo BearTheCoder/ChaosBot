@@ -19,7 +19,7 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
   const response = openai.createCompletion({
-    model: "text-davince-003",
+    model: "text-curie-001",
     prompt: message,
     temperature: 0,
     max_tokens: 1000, // More tokens means more allowed in response.

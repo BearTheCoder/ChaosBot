@@ -21,7 +21,7 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
   const response = openai.createCompletion({
     model: "text-curie-001",
     prompt: message,
-    temperature: 0,
+    temperature: 1,
     max_tokens: 1000, // More tokens means more allowed in response.
   });
 

@@ -23,7 +23,6 @@ myClient.once('ready', () => {
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  console.log(userMessage);
   if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
   for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
     let commandName = DoubleSlashCommandsController.commands[i].commandName;

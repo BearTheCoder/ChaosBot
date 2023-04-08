@@ -23,7 +23,12 @@ myClient.once('ready', () => {
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
-  console.log(userMessage.reference.messageId);
+  if (userMessage.mentions.repliedUser.username === "ChaosBot") {
+    //This is a reply to Larry
+    console.log(userMessage.reference.messageId);
+  }
+
+
   if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
   for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
     let commandName = DoubleSlashCommandsController.commands[i].commandName;

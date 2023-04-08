@@ -48,8 +48,8 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
     let reply = res.data.choices[0].message.content;
     console.log(`User ${userMessage.author.username} has called for Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
-    message.push({ role: "user", content: message });
-    message.push({ role: "assistant", content: reply });
+    messages.push({ role: "user", content: message });
+    messages.push({ role: "assistant", content: reply });
   });
 };
 

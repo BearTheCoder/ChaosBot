@@ -59,7 +59,7 @@ myClient.on("guildMemberUpdate", (oldMember, newMember) => { updateUserRoles_GC(
 myClient.on("interactionCreate", async (iAction) => {
   for (let i = 0; i < SlashCommandsController.interactions.length; i++) {
     if (iAction.commandName !== SlashCommandsController.interactions[i].commandName) continue;
-    SlashCommandsController.interactions[i].commandFunction(iAction, myClient);
+    SlashCommandsController.interactions[i].commandFunction(iAction);
     break;
   }
 });

@@ -1,4 +1,4 @@
-const { sendLarryWisdom, sendHeyLarryWisdom, editHeyLarryWisdom } = require(`./LarryBot/LarryBot.js`);
+const { sendLarryWisdom, sendHeyLarryWisdom, editHeyLarryWisdom, openAiChatCompletion_Larry } = require(`./LarryBot/LarryBot.js`);
 
 // Lower case letters only
 module.exports.commands = [
@@ -11,7 +11,7 @@ module.exports.commands = [
   {
     commandName: `//heylarry`,
     commandFunction: (userMessage) => {
-      sendHeyLarryWisdom(userMessage);
+      openAiChatCompletion_Larry(userMessage);
     },
   },
   {

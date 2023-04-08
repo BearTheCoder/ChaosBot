@@ -56,15 +56,6 @@ module.exports.interactions = [
     },
   },
   {
-    commandName: `rubberlarry`,
-    commandFunction: async function (interaction, myClient) {
-      await interaction.reply("<a:aethySweat:985450674470944778> Bear hasn't quite figured this out yet...");
-      // await interaction.reply("I'm listening...");
-      // LarryBot.startRubberLarry(interaction, myClient);
-      // console.log(`${interaction.user.username} has used ${this.commandName}...`);
-    },
-  },
-  {
     commandName: `whoislarry`,
     commandFunction: async function (interaction, myClient) {
       let reply = LarryBot.sendLarryInfo();

@@ -1,4 +1,4 @@
-const { sendLarryWisdom, sendHeyLarryWisdom, editHeyLarryWisdom, openAiChatCompletion_Larry } = require(`./LarryBot/LarryBot.js`);
+const { sendLarryWisdom, editHeyLarryWisdom, openAiChatCompletion_Larry } = require(`./LarryBot/LarryBot.js`);
 
 // Lower case letters only
 module.exports.commands = [

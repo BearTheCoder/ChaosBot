@@ -1,6 +1,6 @@
 // *****     Package Imports     *****
 require('dotenv').config(); // Railway required package for environment variables
-const { Client, GatewayIntentBits, Message, Guild, } = require("discord.js");
+const { Client, GatewayIntentBits, } = require("discord.js");
 
 // *****     Imports     *****
 const SlashCommandsController = require(`./BotFunctions/Commands.js`);

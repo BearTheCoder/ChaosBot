@@ -23,6 +23,7 @@ myClient.once('ready', () => {
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
+  console.log(userMessage);
   if (userMessage.mentions.repliedUser.username === "ChaosBot") {
     //This is a reply to Larry
     console.log(userMessage.reference.messageId);

@@ -57,6 +57,9 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
 
 
 module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
+
+  messages.push({ role: "user", content: inputMessage });
+
   const edit = openai.createEdit({
     model: "text-davinci-edit-001",
     input: inputMessage,
@@ -67,6 +70,7 @@ module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
     let reply = res.data.choices[0].text;
     console.log(`User ${userMessage.author.username} has called for Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
+    messages.push({ role: "assistant", content: reply });
   });
 };
 

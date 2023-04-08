@@ -36,11 +36,11 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 
 // Chat completion using GPT3.5 (messages need to be appended to an array for larry to remember the conversations.)
 module.exports.openAiChatCompletion_Larry = async (userMessage) => {
+  let message = userMessage.content.toLowerCase();
+  message = message.replace("//heylarry", "");
 
   messages.push({ role: "user", content: message });
 
-  let message = userMessage.content.toLowerCase();
-  message = message.replace("//heylarry", "");
   const response = openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: messages,

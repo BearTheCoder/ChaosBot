@@ -33,24 +33,17 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
   });
 };
 
-module.exports.startRubberLarry = (interaction, myClient) => {
-  let rubberLarryArgs = { interaction, myClient, typingTimeout: null, canReply: false, };
-
-  rubberLarryArgs.myClient.on(`messageCreate`, (userMessage) => {
-    rubberLarryListener(userMessage, rubberLarryArgs);
+module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
+  const edit = openai.createEdit({
+    model: "text-davinci-edit-001",
+    input: inputMessage,
+    instruction: userMessage.content,
   });
 
-  rubberLarryArgs.myClient.on('typingStart', (typing) => {
-    if (typing.channel.name === interaction.channel.name && typing.user.username === interaction.user.username) {
-      if (rubberLarryArgs.typingTimeout !== null) { clearTimeout(rubberLarryArgs.typingTimeout); }
-      rubberLarryArgs.typingTimeout = setTimeout(() => {
-        if (rubberLarryArgs.canReply) {
-          const randNum = Math.floor(Math.random() * rubberLarryPhrases.length);
-          typing.channel.send(`<:phweeLarry:1023966100226060339> ${rubberLarryPhrases[randNum]}`);
-          rubberLarryArgs.canReply = false;
-        }
-      }, 8000);
-    }
+  edit.then(res => {
+    let reply = res.data.choices[0].text;
+    console.log(`User ${userMessage.author.username} has called for Larry`);
+    userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
   });
 };
 

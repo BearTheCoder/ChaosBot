@@ -24,6 +24,9 @@ myClient.once('ready', () => {
 
 myClient.on(`messageCreate`, async (userMessage) => {
 
+  //Ignore Links
+  if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
+
   //This is a reply to Larry
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
     const msgID = userMessage.reference.messageId;
@@ -31,14 +34,12 @@ myClient.on(`messageCreate`, async (userMessage) => {
       .then(msg => {
         if (msg.content.includes("Larry says:")) {
           //extract original message and send to openAI edit endpoint
-          const editInput = msg.content.replace("<:phweeLarry:1023966100226060339> **Larry says:**", "");
-          console.log(editInput);
+          let editInput = msg.content.replace("<:phweeLarry:1023966100226060339> **Larry says:**", "");
+          editInput = editInput.replace(/^\s+|\s+$/g, '');
+          DoubleSlashCommandsController.commands["editHeyLarryWisdom"].commandFunction(editInput, userMessage);
         }
       });
   }
-
-
-  if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
   for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
     let commandName = DoubleSlashCommandsController.commands[i].commandName;
     if (!userMessage.content.toLowerCase().includes(commandName)) continue;

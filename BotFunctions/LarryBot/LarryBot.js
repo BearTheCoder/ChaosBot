@@ -37,6 +37,8 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
 
   console.log(userMessage);
 
+  userMessage.channel.startTyping(true);
+
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
 
@@ -51,8 +53,8 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
     let reply = res.data.choices[0].message.content;
     console.log(`User ${userMessage.author.username} has called for Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
-
     messages.push({ role: "assistant", content: reply });
+    userMessage.channel.endTyping(true);
   });
 };
 

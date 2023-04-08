@@ -46,7 +46,7 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
   });
 
   response.then(res => {
-    let reply = res.data.choices[0].text;
+    let reply = res.data.choices[0].message.content;
     console.log(`User ${userMessage.author.username} has called for Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
     );

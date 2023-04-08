@@ -23,12 +23,16 @@ myClient.once('ready', () => {
 });
 
 myClient.on(`messageCreate`, async (userMessage) => {
+
+  //This is a reply to Larry
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
-    //This is a reply to Larry
     const msgID = userMessage.reference.messageId;
-    // if message id contains "Larry says:"
     const msg = userMessage.channel.messages.fetch(msgID);
-    console.log(msg);
+    if (msg.content.includes("Larry says:")) {
+      //extract original message and send to openAI edit endpoint
+      const editInput = msg.content.remove("<:phweeLarry:1023966100226060339> **Larry says:**");
+      console.log(editInput);
+    }
   }
 
 

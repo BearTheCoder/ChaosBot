@@ -36,7 +36,11 @@ myClient.on(`messageCreate`, async (userMessage) => {
           //extract original message and send to openAI edit endpoint
           let editInput = msg.content.replace("<:phweeLarry:1023966100226060339> **Larry says:**", "");
           editInput = editInput.replace(/^\s+|\s+$/g, '');
-          DoubleSlashCommandsController.commands["editHeyLarryWisdom"].commandFunction(editInput, userMessage);
+          DoubleSlashCommandsController.commands.filter(obj => {
+            if (obj.commandName === "editHeyLarry") {
+              obj.commandFunction(editInput, userMessage);
+            }
+          });
         }
       });
   }

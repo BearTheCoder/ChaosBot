@@ -1,4 +1,4 @@
-const { sendLarryWisdom, sendHeyLarryWisdom } = require(`./LarryBot/LarryBot.js`);
+const { sendLarryWisdom, sendHeyLarryWisdom, editHeyLarryWisdom } = require(`./LarryBot/LarryBot.js`);
 
 // Lower case letters only
 module.exports.commands = [
@@ -12,6 +12,12 @@ module.exports.commands = [
     commandName: `//heylarry`,
     commandFunction: (userMessage) => {
       sendHeyLarryWisdom(userMessage);
+    },
+  },
+  {
+    commandName: `editHeylarry`,
+    commandFunction: (inputMessage, userMessage) => {
+      editHeyLarryWisdom(inputMessage, userMessage);
     },
   },
 ];

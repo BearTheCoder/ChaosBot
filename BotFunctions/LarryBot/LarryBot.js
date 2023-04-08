@@ -1,7 +1,7 @@
 // *****     Imports     *****
 const { larryWisdomLines } = require(`./LarryWisdom.js`);
 const { Configuration, OpenAIApi } = require("openai");
-const { messages } = require("LarryMessages.js");
+const { messages } = require("./LarryMessages.js");
 const config = new Configuration({ apiKey: process.env.secret });
 const openai = new OpenAIApi(config);
 

@@ -31,7 +31,7 @@ myClient.on(`messageCreate`, async (userMessage) => {
       .then(msg => {
         if (msg.content.includes("Larry says:")) {
           //extract original message and send to openAI edit endpoint
-          const editInput = msg.content.remove("<:phweeLarry:1023966100226060339> **Larry says:**");
+          const editInput = msg.content.replace("<:phweeLarry:1023966100226060339> **Larry says:**", "");
           console.log(editInput);
         }
       });

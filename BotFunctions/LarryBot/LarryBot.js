@@ -41,7 +41,7 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
     model: "gpt-3.5-turbo",
     messages: [
       { role: "system", content: "You are an all-knowing, helpful assistant name Larry, who is also a sentient stargazer fish that was turned into a toilet rug." },
-      { role: user, content: message }
+      { role: "user", content: message }
     ]
   });
 

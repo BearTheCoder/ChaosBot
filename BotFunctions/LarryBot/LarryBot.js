@@ -34,6 +34,9 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 };
 
 module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
+
+  console.log("Here");
+
   const edit = openai.createEdit({
     model: "text-davinci-edit-001",
     input: inputMessage,

@@ -1,6 +1,6 @@
 // *****     Package Imports     *****
 require('dotenv').config(); // Railway required package for environment variables
-const { Client, GatewayIntentBits, } = require("discord.js");
+const { Client, GatewayIntentBits, Message, Guild, } = require("discord.js");
 
 // *****     Imports     *****
 const SlashCommandsController = require(`./BotFunctions/Commands.js`);
@@ -24,9 +24,12 @@ myClient.once('ready', () => {
 
 myClient.on(`messageCreate`, async (userMessage) => {
   console.log(userMessage);
-  if (userMessage.mentions.repliedUser.username === "ChaosBot") {
+  if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
     //This is a reply to Larry
-    console.log(userMessage.reference.messageId);
+    const msgID = userMessage.reference.messageId;
+    // if message id contains "Larry says:"
+    const msg = userMessage.channel.messages.fetch(msgID);
+    console.log(msg);
   }
 
 

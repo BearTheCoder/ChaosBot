@@ -28,6 +28,8 @@ myClient.on(`messageCreate`, async (userMessage) => {
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
     const msgID = userMessage.reference.messageId;
     const msg = userMessage.channel.messages.fetch(msgID);
+    const content = msg.content;
+    console.log(typeof (content));
     if (msg.content.ToString().includes("Larry says:")) {
       //extract original message and send to openAI edit endpoint
       const editInput = msg.content.remove("<:phweeLarry:1023966100226060339> **Larry says:**");

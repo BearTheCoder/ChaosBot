@@ -27,7 +27,7 @@ myClient.on(`messageCreate`, async (userMessage) => {
   //Ignore Links
   if (!userMessage.content.includes("//") && userMessage.content.includes("http")) return;
 
-  //This is a reply to Larry
+  //This is a reply to Larry (OpenAi edit)
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
     const msgID = userMessage.reference.messageId;
     userMessage.channel.messages.fetch(msgID)
@@ -44,6 +44,8 @@ myClient.on(`messageCreate`, async (userMessage) => {
         }
       });
   }
+
+  // Search for command and fire.
   for (let i = 0; i < DoubleSlashCommandsController.commands.length; i++) {
     let commandName = DoubleSlashCommandsController.commands[i].commandName;
     if (!userMessage.content.toLowerCase().includes(commandName)) continue;

@@ -7,16 +7,14 @@ const openai = new OpenAIApi(config);
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
-  let reply =
-    larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
+  let reply = larryWisdomLines[Math.floor(Math.random() * larryWisdomLines.length)];
   console.log(`User ${userMessage.author.username} has called for Larry`);
-  await userMessage.reply(
-    `<:phweeLarry:1023966100226060339> **Larry:** ${reply}`
-  );
+  await userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry:** ${reply}`);
 };
 
 // Text completion not chat completion using Davinci.
 module.exports.sendHeyLarryWisdom = async (userMessage) => {
+
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
   const response = openai.createCompletion({
@@ -36,6 +34,9 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 
 // Chat completion using GPT3.5 (messages need to be appended to an array for larry to remember the conversations.)
 module.exports.openAiChatCompletion_Larry = async (userMessage) => {
+
+  console.log(userMessage);
+
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
 

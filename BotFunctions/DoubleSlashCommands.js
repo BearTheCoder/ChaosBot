@@ -15,7 +15,7 @@ module.exports.commands = [
     },
   },
   {
-    commandName: `editHeylarry`,
+    commandName: `editHeyLarry`,
     commandFunction: (inputMessage, userMessage) => {
       editHeyLarryWisdom(inputMessage, userMessage);
     },

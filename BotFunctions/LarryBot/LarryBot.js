@@ -33,11 +33,9 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 };
 
 // Chat completion using GPT3.5 (messages need to be appended to an array for larry to remember the conversations.)
-module.exports.openAiChatCompletion_Larry = async (userMessage) => {
+module.exports.openAiChatCompletion_Larry = async (userMessage, client) => {
 
-  console.log(userMessage);
-
-  userMessage.channel.startTyping(true);
+  client.user.typingIn(userMessage.channel);
 
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
@@ -54,7 +52,7 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
     console.log(`User ${userMessage.author.username} has called for Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
     messages.push({ role: "assistant", content: reply });
-    userMessage.channel.endTyping(true);
+    userMessage.channel.stopTyping();
   });
 };
 

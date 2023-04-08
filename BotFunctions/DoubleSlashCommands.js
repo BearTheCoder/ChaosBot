@@ -4,20 +4,20 @@ const { sendLarryWisdom, editHeyLarryWisdom, openAiChatCompletion_Larry } = requ
 module.exports.commands = [
   {
     commandName: `//larry`,
-    commandFunction: (userMessage) => {
+    commandFunction: (userMessage, client) => {
       sendLarryWisdom(userMessage);
     },
   },
   {
     commandName: `//heylarry`,
-    commandFunction: (userMessage) => {
-      openAiChatCompletion_Larry(userMessage);
+    commandFunction: (userMessage, client) => {
+      openAiChatCompletion_Larry(userMessage, client);
     },
   },
   {
     commandName: `editHeyLarry`,
-    commandFunction: (inputMessage, userMessage) => {
-      editHeyLarryWisdom(inputMessage, userMessage);
+    commandFunction: (inputMessage, userMessage, client) => {
+      editHeyLarryWisdom(inputMessage, userMessage, client);
     },
   },
 ];

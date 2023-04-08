@@ -37,7 +37,7 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 module.exports.openAiChatCompletion_Larry = async (userMessage) => {
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
-  openai.createChatCompletion({
+  const response = openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
       { role: "system", content: "You are an all-knowing, helpful assistant name Larry, who is also a sentient stargazer fish that was turned into a toilet rug." },

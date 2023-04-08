@@ -35,6 +35,8 @@ module.exports.sendHeyLarryWisdom = async (userMessage) => {
 // Chat completion using GPT3.5 (messages need to be appended to an array for larry to remember the conversations.)
 module.exports.openAiChatCompletion_Larry = async (userMessage) => {
 
+  userMessage.channel.sendTyping();
+
   let message = userMessage.content.toLowerCase();
   message = message.replace("//heylarry", "");
 

@@ -5,7 +5,7 @@ const { messages } = require("./LarryMessages.js");
 const config = new Configuration({ apiKey: process.env.secret });
 const openai = new OpenAIApi(config);
 const BitlyClient = require('bitly').BitlyClient;
-const bitly = new BitlyClient('<accessToken>');
+const bitly = new BitlyClient(process.env.bitlyToken);
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {

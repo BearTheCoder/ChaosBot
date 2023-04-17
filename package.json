@@ -9,6 +9,7 @@
   "author": "BearTheCoder",
   "license": "MIT",
   "dependencies": {
+    "bitly": "^7.1.2",
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.3",
     "mysql": "^2.18.1",

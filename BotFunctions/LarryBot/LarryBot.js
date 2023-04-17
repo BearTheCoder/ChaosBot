@@ -4,6 +4,8 @@ const { Configuration, OpenAIApi } = require("openai");
 const { messages } = require("./LarryMessages.js");
 const config = new Configuration({ apiKey: process.env.secret });
 const openai = new OpenAIApi(config);
+const BitlyClient = require('bitly').BitlyClient;
+const bitly = new BitlyClient('<accessToken>');
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
@@ -57,6 +59,8 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
 
 module.exports.sendArtistLarry = async (userMessage) => {
 
+  userMessage.channel.sendTyping();
+
   let message = userMessage.content.toLowerCase();
   message = message.replace("//artistlarry", "");
   const response = openai.createImage({
@@ -66,10 +70,13 @@ module.exports.sendArtistLarry = async (userMessage) => {
   });
 
   response.then(res => {
-    let reply = res.data.data[0].url;
-    console.log(`User ${userMessage.author.username} has called for Artist Larry`);
-    userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
-    );
+    const url = res.data.data[0].url;
+    bitly.shorten(url)
+      .then(data => {
+        let reply = data.link;
+        console.log(`User ${userMessage.author.username} has called for Artist Larry`);
+        userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
+      });
   });
 };
 

@@ -55,6 +55,24 @@ module.exports.openAiChatCompletion_Larry = async (userMessage) => {
   });
 };
 
+module.exports.sendArtistLarry = async (userMessage) => {
+
+  let message = userMessage.content.toLowerCase();
+  message = message.replace("//artistlarry", "");
+  const response = openai.createImage({
+    prompt: message,
+    n: 1,
+    size: "1024x1024",
+  });
+
+  response.then(res => {
+    let reply = res.data.data[0].url;
+    console.log(`User ${userMessage.author.username} has called for Artist Larry`);
+    userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`
+    );
+  });
+};
+
 
 module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
 

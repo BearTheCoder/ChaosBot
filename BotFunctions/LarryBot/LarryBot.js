@@ -7,7 +7,7 @@ const openai = new OpenAIApi(config);
 const BitlyClient = require('bitly').BitlyClient;
 const BitlyTest = require('bitly');
 const bitly = new BitlyClient(process.env.bitlyToken);
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {

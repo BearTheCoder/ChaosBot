@@ -5,7 +5,9 @@ const { messages } = require("./LarryMessages.js");
 const config = new Configuration({ apiKey: process.env.secret });
 const openai = new OpenAIApi(config);
 const BitlyClient = require('bitly').BitlyClient;
+const BitlyTest = require('bitly');
 const bitly = new BitlyClient(process.env.bitlyToken);
+const fetch = require('node-fetch');
 
 // *****     Exports     *****
 module.exports.sendLarryWisdom = async (userMessage) => {
@@ -71,12 +73,30 @@ module.exports.sendArtistLarry = async (userMessage) => {
 
   response.then(res => {
     const url = res.data.data[0].url;
-    bitly.shorten(url)
-      .then(data => {
-        let reply = data.link;
-        console.log(`User ${userMessage.author.username} has called for Artist Larry`);
-        userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
-      });
+
+    // Replacement for non-working bitly api
+    const reply = url;
+    console.log(`User ${userMessage.author.username} has called for Artist Larry`);
+    userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
+
+    //Compress Link
+    // bitly.shorten(url)
+    //   .then(data => {
+    //     let reply = data.link;
+    //     console.log(`User ${userMessage.author.username} has called for Artist Larry`);
+    //     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
+
+    //     //Delete Bitly Link
+    //     // bitly.getBitlink(data.link)
+    //     //   .then(bitLink => {
+    //     //     fetch(`https://api-ssl.bitly.com/v4/bitlinks/${bitLink.link}`, {
+    //     //       method: 'DELETE',
+    //     //       headers: {
+    //     //         'Authorization': process.env.bitlyToken,
+    //     //       }
+    //     //     });
+    //     //   });
+    //   });
   });
 };
 

@@ -33,6 +33,7 @@ myClient.on(`messageCreate`, async (userMessage) => {
     console.log("Reply");
 
     const msgID = userMessage.reference.messageId;
+
     userMessage.channel.messages.fetch(msgID)
       .then(msg => {
         if (msg.content.includes("Larry says:")) {

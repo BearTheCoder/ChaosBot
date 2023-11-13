@@ -30,8 +30,6 @@ myClient.on(`messageCreate`, async (userMessage) => {
   //This is a reply to Larry (OpenAi edit)
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
 
-    console.log("Reply");
-
     const msgID = userMessage.reference.messageId;
 
     userMessage.channel.messages.fetch(msgID)

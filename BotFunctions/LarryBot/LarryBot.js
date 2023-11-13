@@ -80,30 +80,13 @@ module.exports.sendArtistLarry = async (userMessage) => {
     const reply = url;
     console.log(`User ${userMessage.author.username} has called for Artist Larry`);
     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
-
-    //Compress Link
-    // bitly.shorten(url)
-    //   .then(data => {
-    //     let reply = data.link;
-    //     console.log(`User ${userMessage.author.username} has called for Artist Larry`);
-    //     userMessage.reply(`<:phweeLarry:1023966100226060339> **Larry says:** ${reply}`);
-
-    //     //Delete Bitly Link
-    //     // bitly.getBitlink(data.link)
-    //     //   .then(bitLink => {
-    //     //     fetch(`https://api-ssl.bitly.com/v4/bitlinks/${bitLink.link}`, {
-    //     //       method: 'DELETE',
-    //     //       headers: {
-    //     //         'Authorization': process.env.bitlyToken,
-    //     //       }
-    //     //     });
-    //     //   });
-    //   });
   });
 };
 
 
 module.exports.editHeyLarryWisdom = async (inputMessage, userMessage) => {
+
+  userMessage.channel.sendTyping();
 
   messages.push({ role: "user", content: inputMessage });
 

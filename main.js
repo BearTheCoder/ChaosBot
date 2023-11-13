@@ -29,10 +29,14 @@ myClient.on(`messageCreate`, async (userMessage) => {
 
   //This is a reply to Larry (OpenAi edit)
   if (userMessage.mentions.repliedUser !== null && userMessage.mentions.repliedUser.username == "ChaosBot") {
+
+    console.log("Reply");
+
     const msgID = userMessage.reference.messageId;
     userMessage.channel.messages.fetch(msgID)
       .then(msg => {
         if (msg.content.includes("Larry says:")) {
+
           //extract original message and send to openAI edit endpoint
           let editInput = msg.content.replace("<:phweeLarry:1023966100226060339> **Larry says:**", "");
           editInput = editInput.replace(/^\s+|\s+$/g, '');

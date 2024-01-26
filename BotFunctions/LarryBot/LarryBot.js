@@ -68,6 +68,7 @@ module.exports.sendArtistLarry = async (userMessage) => {
   let message = userMessage.content.toLowerCase();
   message = message.replace("//artistlarry", "");
   const response = openai.createImage({
+    model: "dall-e-3",
     prompt: message,
     n: 1,
     size: "1024x1024",

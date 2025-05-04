@@ -8,22 +8,22 @@ module.exports.commands = [
       sendLarryWisdom(userMessage);
     },
   },
-  {
-    commandName: `//heylarry`,
-    commandFunction: (userMessage) => {
-      openAiChatCompletion_Larry(userMessage);
-    },
-  },
-  {
-    commandName: `//artistlarry`,
-    commandFunction: (userMessage) => {
-      sendArtistLarry(userMessage);
-    },
-  },
-  {
-    commandName: `editHeyLarry`,
-    commandFunction: (inputMessage, userMessage) => {
-      editHeyLarryWisdom(inputMessage, userMessage);
-    },
-  },
+  // {
+  //   commandName: `//heylarry`,
+  //   commandFunction: (userMessage) => {
+  //     openAiChatCompletion_Larry(userMessage);
+  //   },
+  // },
+  // {
+  //   commandName: `//artistlarry`,
+  //   commandFunction: (userMessage) => {
+  //     sendArtistLarry(userMessage);
+  //   },
+  // },
+  // {
+  //   commandName: `editHeyLarry`,
+  //   commandFunction: (inputMessage, userMessage) => {
+  //     editHeyLarryWisdom(inputMessage, userMessage);
+  //   },
+  // },
 ];
